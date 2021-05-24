@@ -1,0 +1,43 @@
+@tailwind base;
+#app {
+  font-family: "Work Sans", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  height: calc(100vh - 1rem);
+}
+.bg-gradient-green-200 {
+  background: theme("colors.green.200");
+  background: linear-gradient(
+    135deg,
+    theme("colors.green.100") 0%,
+    theme("colors.green.300") 100%
+  );
+}
+.bg-gradient-radial-green-200 {
+  background: theme("colors.green.200");
+  background: radial-gradient(
+    135deg,
+    theme("colors.green.100") 0%,
+    theme("colors.green.300") 100%
+  );
+}
+
+.bg-gradient-yellow-400 {
+  background: theme("colors.yellow.400");
+  background: linear-gradient(
+    135deg,
+    theme("colors.yellow.300") 0%,
+    theme("colors.yellow.500") 100%
+  );
+}
+
+.bg-gradient-pink-800 {
+  background: theme("colors.pink.800");
+  background: linear-gradient(
+    135deg,
+    theme("colors.pink.700") 0%,
+    theme("colors.pink.900") 100%
+  );
+}
+@tailwind components;
+@tailwind utilities;
