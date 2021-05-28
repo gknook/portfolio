@@ -25,6 +25,9 @@
     </div>
     <TabBox />
   </div>
+  <div class="absolute left-0 bottom-0 w-80 h-80">
+    <ProfilePic />
+  </div>
 
   <!-- <ul class="w-1/2">
     <h2 class="text-indigo-50 text-sm uppercase font-bold mb-4">
@@ -58,9 +61,10 @@
 <script>
 // import { gsap } from "gsap";
 import TabBox from "/src/components/TabBox.vue";
+import ProfilePic from "/src/assets/svg/ProfilePic.vue";
 
 export default {
-  components: { TabBox },
+  components: { TabBox, ProfilePic },
   data() {
     return {
       options: [
