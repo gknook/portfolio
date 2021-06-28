@@ -2,7 +2,7 @@
   <div class="flex items-center flex-grow">
     <router-view></router-view>
   </div>
-  <NavBar class="flex-none" />
+  <NavBar class="flex-none absolute bottom-0" />
 </template>
 
 <script>
