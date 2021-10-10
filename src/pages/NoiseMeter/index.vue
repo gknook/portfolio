@@ -1,6 +1,6 @@
 <template>
-  <div class="flex px-4 mx-auto w-full">
-    <div id="introduction" class="mb-8 lg:w-1/2 px-12">
+  <div class="flex flex-wrap p-6 mx-auto w-full">
+    <div id="introduction" class="mb-8 lg:w-1/2 lg:px-12 w-full">
       <hgroup class="mb-4">
         <h2 class="text-indigo-50 text-sm uppercase font-bold mb-4">
           Case study
@@ -40,7 +40,45 @@
       </h4>
       <Funnel :funnelSteps="funnelSteps" :width="600" :height="200" />
     </div>
-    <Hypotheses class="w-1/2 px-12" />
+    <div
+      class="
+        flex flex-wrap
+        justify-center
+        items-center
+        lg:w-1/2
+        w-full
+        relative
+      "
+    >
+      <IPhone
+        :animation="animation"
+        @openedNoiseMeter="delayedAnimation"
+        @closedNoiseMeter="toggleAnimation"
+      />
+      <div class="z-10 max-w-sm w-full flex flex-col items-center">
+        <button
+          class="
+            bg-gradient-to-br
+            from-pink-600
+            to-pink-800
+            hover:from-pink-800 hover:to-pink-900
+            px-4
+            py-2
+            rounded-xl
+            font-semibold
+            text-white
+            tracking-wide
+            m-2
+            w-52
+            block
+          "
+          @click="toggleAnimation"
+        >
+          {{ noiseAnimationButtonText }}
+        </button>
+      </div>
+    </div>
+    <!-- <Hypotheses  /> -->
     <div class="absolute left-0 bottom-0 w-80 h-80 lg:block hidden">
       <!-- <ProfilePic /> -->
     </div>
@@ -51,9 +89,10 @@
 import Hypotheses from "/src/components/hypotheses/Hypotheses.vue";
 import Funnel from "/src/components/Funnel.vue";
 import ProfilePic from "/src/assets/svg/ProfilePic.vue";
+import IPhone from "/src/components/UI-elements/IPhone.vue";
 
 export default {
-  components: { Hypotheses, ProfilePic, Funnel },
+  components: { Hypotheses, ProfilePic, Funnel, IPhone },
   data() {
     return {
       funnelSteps: [
@@ -63,8 +102,30 @@ export default {
         { stepId: 4, name: "Set Volume", percentage: 80 },
         { stepId: 5, name: "Start test", percentage: 79 },
         { stepId: 6, name: "Finish test", percentage: 76 }
-      ]
+      ],
+      animation: false,
+      noiseAnimationButtonText: "Animate Noise Meter"
     };
+  },
+  methods: {
+    toggleAnimation() {
+      if (this.animation) {
+        this.animation = false;
+        this.noiseAnimationButtonText = "Animate Noise Meter";
+      } else {
+        this.animation = true;
+        this.noiseAnimationButtonText = "Stop animation";
+      }
+    },
+    delayedAnimation(delay) {
+      let timeoutDelay = 0;
+      if (delay != null) {
+        timeoutDelay = delay;
+      } else {
+        timeoutDelay = 500;
+      }
+      setTimeout(() => this.toggleAnimation(), timeoutDelay);
+    }
   }
 };
 </script>
