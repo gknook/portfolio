@@ -3,7 +3,6 @@
   font-family: "Work Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  height: calc(100vh - 1rem);
 }
 .bg-gradient-green-200 {
   background: theme("colors.green.200");

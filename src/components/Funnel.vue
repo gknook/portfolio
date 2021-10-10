@@ -1,11 +1,13 @@
 <template>
-  <canvas
-    id="canvasContainer"
-    :width="width"
-    :height="height"
-    @mousemove="canvasMouseMove"
-  >
-  </canvas>
+  <div class="w-full overflow-scroll pb-4">
+    <canvas
+      id="canvasContainer"
+      :width="width"
+      :height="height"
+      @mousemove="canvasMouseMove"
+    >
+    </canvas>
+  </div>
 </template>
 <script>
 import roundedRect from "/src/mixins/roundedRect.js";

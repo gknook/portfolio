@@ -1,5 +1,17 @@
 <template>
-  <div class="w-full flex justify-end overflow-visible p-2">
+  <div
+    class="
+      fixed
+      p-4
+      bottom-0
+      w-full
+      lg:bg-none
+      bg-gradient-to-t
+      from-gray-800
+      to-transparent
+      z-50
+    "
+  >
     <ViewProgress />
   </div>
 </template>

@@ -1,8 +1,21 @@
 <template>
-  <div class="flex items-center flex-grow">
+  <div
+    class="
+      min-h-screen
+      flex
+      items-center
+      flex-grow
+      bg-gray-800
+      rounded-3xl
+      m-2
+      relative
+      lg:overflow-hidden
+      pb-20
+    "
+  >
     <router-view></router-view>
   </div>
-  <NavBar class="flex-none absolute bottom-0" />
+  <NavBar />
 </template>
 
 <script>

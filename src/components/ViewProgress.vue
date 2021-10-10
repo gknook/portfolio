@@ -1,6 +1,7 @@
 <template>
   <div
     class="
+      ml-auto
       max-w-sm
       w-full
       bg-white
@@ -9,7 +10,7 @@
       flex
       items-center
       relative
-      z-0
+      z-50
       overflow-visible
       justify-start
     "
