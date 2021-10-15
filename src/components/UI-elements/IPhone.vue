@@ -1,5 +1,5 @@
 <template>
-  <div class="py-12 relative flex justify-center items-center">
+  <div class="py-12 mx-12 relative flex justify-center items-center">
     <div
       id="iPhone"
       class="
@@ -29,6 +29,7 @@
         <NoiseMeter
           :animation="animation"
           v-if="currentScreen.id == 'noiseMeter'"
+          @noiseChange="changeEnvironment"
         />
         <svg
           width="120"
@@ -93,7 +94,9 @@
           tracking-wide
           mr-2
           z-10
+          disabled:opacity-50
         "
+        :disabled="currentEnvironment == 'loud'"
         @click="handleClick(currentScreen)"
       >
         {{ currentScreen.cta }}
@@ -202,7 +205,8 @@ export default {
           cta: "Restart prototype"
         }
       },
-      currentScreen: new Object()
+      currentScreen: new Object(),
+      currentEnvironment: "quiet"
     };
   },
   mounted() {
@@ -210,7 +214,6 @@ export default {
   },
   methods: {
     updateCurrentScreen(screenObject) {
-      console.log(screenObject);
       this.currentScreen = screenObject;
     },
     handleClick(currentScreen) {
@@ -224,6 +227,14 @@ export default {
         this.currentScreen = this.screens.hearingTest;
       } else {
         this.currentScreen = this.screens.micAccess;
+      }
+      this.$emit("changedPage", this.currentScreen);
+    },
+    changeEnvironment(event) {
+      if (this.currentEnvironment == event) {
+        return;
+      } else {
+        this.currentEnvironment = event;
       }
     }
   }
