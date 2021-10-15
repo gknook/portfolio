@@ -159,14 +159,17 @@ export default {
         );
         if (currentNoise < 6) {
           this.noiseMeterMessage = "It’s quiet enough around you";
+          this.$emit("noiseChange", "quiet");
           element.style.fill = this.green;
         } else if (currentNoise < 12) {
           this.noiseMeterMessage = "Not perfectly quiet, but ok";
           element.style.fill = this.yellow;
+          this.$emit("noiseChange", "ok");
         } else {
           this.noiseMeterMessage =
             "It’s quite loud, try to find a quieter place";
           element.style.fill = this.red;
+          this.$emit("noiseChange", "loud");
         }
         i++;
       }
