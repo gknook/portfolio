@@ -69,24 +69,24 @@ export default {
         {
           topicTitle: "hearing health",
           description:
-            "For most of my career I've helped people by making sense of the huge gap between 'perfect hearing' and 'hearing impaired' (even earning me a patent 📜)",
+            "The first 6 years of my career I've helped people by making sense of the huge gap between 'perfect hearing' and 'hearing impaired' (even earning me a patent 📜)",
           tags: ["health", "sound", "hearing"],
           isActive: true,
           topicId: 1
+        },
+        {
+          topicTitle: "leadership",
+          description:
+            "I believe the best results are achieved by collaboration, by teams. Being a _very_ early employee at Mimi, I had the distinct honor to build and or lead several teams, from design, product to engineering and product marketing.",
+          tags: ["leadership", "teams", "product"],
+          isActive: false,
+          topicId: 2
         },
         {
           topicTitle: "remote belonging",
           description:
             "It's the fascination with how to make teams work well together that led me, and my wonderful co-founders, to start Atium. There we've been exploring how we can build belonging in remote teams.",
           tags: ["remote work", "belonging", "connection"],
-          isActive: false,
-          topicId: 2
-        },
-        {
-          topicTitle: "leadership",
-          description:
-            "I believe the best results are achieved by collaboration, by teams. Being a `very` early employee at Mimi, I had the distinct honor to build and or lead several teams, from design, product to engineering and product marketing.",
-          tags: ["leadership", "teams", "product"],
           isActive: false,
           topicId: 3
         }

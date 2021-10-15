@@ -19,8 +19,7 @@
         (software) products.
       </p>
       <p class="text-indigo-50">
-        What I love most about product, is that you have to learn quickly. Three
-        topics are red threads throughout my career so far
+        In my career to date I've mostly had focused on these three topics
       </p>
     </div>
     <TabBox />
