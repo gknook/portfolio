@@ -13,7 +13,8 @@ module.exports = {
   variants: {
     extend: {
       backgroundColor: ["even", "odd"],
-      borderRadius: ["hover"]
+      borderRadius: ["hover"],
+      opacity: ["disabled"]
     }
   },
   plugins: []
