@@ -38,7 +38,7 @@
       <h4 class="text-indigo-50 text-sm uppercase font-bold mb-2">
         the funnel
       </h4>
-      <Funnel :funnelSteps="funnelSteps" :width="600" :height="200" />
+      <Funnel :funnelSteps="funnelSteps" :width="1800" :height="600" />
     </div>
     <div
       class="

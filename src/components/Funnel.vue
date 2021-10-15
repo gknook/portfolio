@@ -5,6 +5,8 @@
       :width="width"
       :height="height"
       @mousemove="canvasMouseMove"
+      :style="`width: ${width / 3}px;
+  height: ${height / 3}px`"
     >
     </canvas>
   </div>
@@ -30,12 +32,12 @@ export default {
       let ctx = c.getContext("2d");
 
       let steps = this.funnelSteps;
-      let width = c.width / steps.length - 10;
-      let currX = 8;
+      let width = c.width / steps.length - 20;
+      let currX = 24;
       let base = c.height;
 
       ctx.fillStyle = "#fff";
-      ctx.font = "16px Work Sans";
+      ctx.font = "48px Work Sans medium";
       ctx.textAlign = "center";
       let bgGradient = ctx.createLinearGradient(0, 0, c.width, c.height);
       bgGradient.addColorStop(0, "#EEF2FF");
@@ -43,9 +45,9 @@ export default {
 
       for (let i = 0; i < steps.length; i++) {
         let h = (steps[i].percentage / 100) * (c.height * 0.8);
-        let currH = c.height - h - 30;
+        let currH = c.height - h - 90;
         ctx.fillStyle = bgGradient;
-        this.roundRect(ctx, currX, currH, width, h, 8, true, false);
+        this.roundRect(ctx, currX, currH, width, h, 32, true, false);
         this.rects.push({ x: currX, y: currH, w: width, h: h });
         ctx.fillStyle = "#EEF2FF";
         this.addStepName(ctx, steps[i], width, currX, base);
@@ -53,10 +55,10 @@ export default {
         ctx.fillText(
           `${steps[i].percentage}%`,
           currX + width / 2,
-          base - h - 6,
+          base - h - 24,
           width
         );
-        currX += width + 8;
+        currX += width + 16;
       }
     },
     addStepName(ctx, step, maxWidth, currX, base) {
