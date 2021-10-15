@@ -38,5 +38,12 @@
     theme("colors.pink.900") 100%
   );
 }
+.min-h-portfolio {
+  min-height: calc(100vh - 1rem);
+}
 @tailwind components;
+
+#navigation .router-link-active {
+  @apply border-b-2 border-pink-600;
+}
 @tailwind utilities;

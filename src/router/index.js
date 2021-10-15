@@ -8,7 +8,7 @@ const routes = [
   { path: "/", name: "home", component: Introduction },
   {
     path: "/case-study/noise-meter/",
-    name: "noise meter",
+    name: "noise-meter",
     component: NoiseMeter
   },
   {
@@ -18,7 +18,7 @@ const routes = [
   },
   {
     path: "/experiments/flow-diagram/",
-    name: "flow diagram",
+    name: "flow-diagram",
     component: FlowDiagram
   }
 ];

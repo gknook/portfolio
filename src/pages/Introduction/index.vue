@@ -25,11 +25,23 @@
     </div>
     <TabBox />
   </div>
-  <div class="absolute left-0 bottom-0 w-80 h-80">
+  <div
+    class="
+      absolute
+      left-0
+      bottom-0
+      lg:w-80 lg:h-80
+      md:w-60 md:h-40
+      w-20
+      h-20
+      md:block
+      hidden
+    "
+  >
     <ProfilePic />
   </div>
 
-  <!-- <ul class="w-1/2">
+  <!-- <ul class="w-1/4">
     <h2 class="text-indigo-50 text-sm uppercase font-bold mb-4">
       What brings you here?
     </h2>

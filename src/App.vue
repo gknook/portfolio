@@ -1,7 +1,7 @@
 <template>
   <div
     class="
-      min-h-screen
+      min-h-portfolio
       flex
       items-center
       flex-grow
