@@ -9,11 +9,12 @@
       from-gray-800
       to-transparent
       z-50
-      flex
+      flex flex-wrap
       items-center
+      justify-end
     "
   >
-    <ul class="flex justify-end w-full mr-12" id="navigation">
+    <ul class="flex justify-end mr-12" id="navigation">
       <li>
         <router-link
           :to="{ name: 'home' }"
@@ -29,6 +30,7 @@
             transition-all
             duration-500
             border-white border-b-2
+            block
           "
         >
           Home
@@ -50,6 +52,7 @@
             duration-500
             hover:border-gray-200
             border-gray-700 border-b-2
+            block
           "
         >
           Case studies
