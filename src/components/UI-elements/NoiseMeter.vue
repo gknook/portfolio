@@ -96,7 +96,6 @@
 <script>
 // import { gsap } from "gsap";
 import SimplexNoise from "https://cdn.skypack.dev/simplex-noise";
-import SVG from "https://cdn.skypack.dev/@svgdotjs/svg.js";
 import { map } from "@georgedoescode/generative-utils";
 
 export default {
@@ -127,45 +126,56 @@ export default {
   methods: {
     startAnimation() {
       this.interval = setInterval(() => {
-        this.withoutGsap();
+        this.changeColor();
+        // Call color change every 50ms
       }, 50);
     },
     stopAnimation() {
       clearInterval(this.interval);
     },
     noiseTest() {
+      // sets up noise values to cycle through
       const simplex = new SimplexNoise();
       let time = 0;
 
       const width = 200;
       const height = 200;
       const numPoints = 2000;
+      // 2000 points to simulate 2000 frames
       const pointStep = width / numPoints;
       for (let x = 0; x < width; x += pointStep) {
         const noise = simplex.noise2D(time, time);
         const noiseValue = map(noise, -1, 1, 1, 16);
+        // remap values to 1 - 16 to map them to the noise meter indicators
         time += 0.01;
         this.noiseArray.push(Math.floor(noiseValue));
+        // add all values to one array
       }
     },
-    withoutGsap() {
+    changeColor() {
       let currentNoise = this.noiseArray[this.timeInterval];
+      // get the noise value for the current time interval
 
       let i = 1;
       this.resetToGray();
+      // reset all indicators to gray before coloring them again
       while (i <= currentNoise) {
+        // for each indicator that is below the currentNoise value
         let element = document.querySelector(
           `.noiseMeter path:nth-child(${i})`
         );
         if (currentNoise < 6) {
+          // if the current noise is below 6 color them all green
           this.noiseMeterMessage = "It’s quiet enough around you";
           this.$emit("noiseChange", "quiet");
           element.style.fill = this.green;
         } else if (currentNoise < 12) {
+          // if the current noise is below 12 color them all yellow
           this.noiseMeterMessage = "Not perfectly quiet, but ok";
           element.style.fill = this.yellow;
           this.$emit("noiseChange", "ok");
         } else {
+          // if the current noise is 12 or higher color them all red
           this.noiseMeterMessage =
             "It’s quite loud, try to find a quieter place";
           element.style.fill = this.red;
@@ -173,6 +183,7 @@ export default {
         }
         i++;
       }
+      // Restart the animation from the beginning if the time interval is above 2000
       if (this.timeInterval >= 2000) {
         this.timeInterval = 0;
       } else {
