@@ -72,7 +72,7 @@ import SimplexNoise from "https://cdn.skypack.dev/simplex-noise";
 import { map } from "@georgedoescode/generative-utils";
 
 export default {
-  name: "old-noise-meter-illustration",
+  name: "old-noise-meter",
   props: ["check", "animation"],
   data() {
     return {
@@ -115,7 +115,6 @@ export default {
     },
     changeColor() {
       let currentNoise = this.noiseArray[this.timeInterval];
-
       let i = 1;
       while (i <= currentNoise) {
         let element = document.querySelector(

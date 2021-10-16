@@ -67,13 +67,7 @@
           items-center
         "
       >
-        <IPhone
-          :animation="animation"
-          @openedNoiseMeter="delayedAnimation"
-          @closedNoiseMeter="toggleAnimation"
-          @changedPage="changePage"
-          class="flex-none"
-        />
+        <OldPrototypeRouter />
         <div class="text-gray-50 w-auto sm:pl-8 sm:flex-1">
           <div
             class="
@@ -136,30 +130,72 @@
       </h4>
       <Hypotheses class="mb-8" />
 
-      <h4 class="text-indigo-50 text-sm uppercase font-bold mb-2">
-        the prototype
-      </h4>
-      <p class="text-indigo-50 mb-8"></p>
-      <router-link
-        :to="{ name: 'noise-meter-prototype' }"
+      <h4 class="text-indigo-50 text-sm uppercase font-bold mb-2">New flow</h4>
+      <div
         class="
-          bg-gradient-to-br
-          from-pink-600
-          to-pink-800
-          hover:from-pink-800 hover:to-pink-900
-          px-4
-          py-2
-          rounded-xl
-          font-semibold
-          text-white
-          tracking-wide
-          w-44
-          text-center
-          inline-block
+          flex flex-wrap-reverse
+          sm:justify-between
+          justify-center
+          items-center
         "
       >
-        Prototype
-      </router-link>
+        <NewPrototypeRouter />
+        <div class="text-gray-50 w-auto sm:pl-8 sm:flex-1">
+          <div
+            class="
+              bg-gray-700
+              px-4
+              py-2
+              rounded-lg
+              inline-block
+              mb-4
+              font-semibold
+            "
+          >
+            Screen: {{ currentScreen }}
+          </div>
+          <h4 class="font-semibold uppercase text-xs mb-2">Try it out!</h4>
+          <p class="mb-8">
+            Try out the prototype as it was before. Don't worry, I won't
+            actually access your microphone. The 'environmental noise' is
+            simulated using a
+            <a
+              class="underline text-indigo-200"
+              href="https://en.wikipedia.org/wiki/Simplex_noise"
+              target="_blank"
+              alt="Wikipedia on Simplex Noise"
+              >Simplex Noise</a
+            >
+            function.
+          </p>
+
+          <h4 class="font-semibold uppercase text-xs mb-2">Note</h4>
+          <p class="mb-8">
+            I rebuilt this from memory because I don't have access to the files
+            from that time. For illustrative purposes it should do the job 😅!
+          </p>
+          <button
+            class="
+              bg-gradient-to-br
+              from-pink-600
+              to-pink-800
+              hover:from-pink-800 hover:to-pink-900
+              px-4
+              py-2
+              rounded-xl
+              font-semibold
+              text-white
+              tracking-wide
+              w-52
+              block
+            "
+            v-if="currentScreen == 'noiseMeter'"
+            @click="toggleAnimation"
+          >
+            {{ noiseAnimationButtonText }}
+          </button>
+        </div>
+      </div>
     </div>
 
     <div class="absolute left-0 bottom-0 lg:block hidden">
@@ -174,8 +210,18 @@ import Funnel from "/src/components/Funnel.vue";
 import ProfilePic from "/src/assets/svg/ProfilePic.vue";
 import IPhone from "/src/components/UI-elements/IPhone.vue";
 
+import OldPrototypeRouter from "/src/pages/NoiseMeter/Prototype/OldPrototypeRouter.vue";
+import NewPrototypeRouter from "/src/components/PrototypeRouters/NewMimiNoiseRouter.vue";
+
 export default {
-  components: { Hypotheses, ProfilePic, Funnel, IPhone },
+  components: {
+    Hypotheses,
+    ProfilePic,
+    Funnel,
+    IPhone,
+    OldPrototypeRouter,
+    NewPrototypeRouter
+  },
   data() {
     return {
       funnelSteps: [
@@ -192,39 +238,6 @@ export default {
       currentScreen: "micAccess"
     };
   },
-  methods: {
-    toggleAnimation() {
-      if (this.animation) {
-        this.animation = false;
-        this.noiseAnimationButtonText = "Animate Noise Meter";
-      } else {
-        this.animation = true;
-        this.noiseAnimationButtonText = "Stop animation";
-      }
-      if (this.toggleAnimationButton) {
-        this.toggleAnimationButton = false;
-      }
-    },
-    delayedAnimation(delay) {
-      let timeoutDelay = 0;
-      if (delay != null) {
-        timeoutDelay = delay;
-      } else {
-        timeoutDelay = 500;
-      }
-      setTimeout(() => this.toggleAnimation(), timeoutDelay);
-      this.toggleAnimationButton = true;
-    },
-    changePage(event) {
-      console.log("changed page");
-      console.log(event.id);
-      this.currentScreen = event.id;
-    }
-  }
+  methods: {}
 };
 </script>
-<style>
-.conv-option:hover div {
-  background-color: #fff;
-}
-</style>
