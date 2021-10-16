@@ -20,37 +20,40 @@
         </div>
       </hgroup>
 
-      <h4 class="text-indigo-50 text-sm uppercase font-bold mb-2">Situation</h4>
-      <p class="text-indigo-50 mb-8">
+      <paragraph-header id="situation">Situation</paragraph-header>
+      <paragraph-content>
         Our hearing test was doing well, more than a million people had
         downloaded the app by now.
-      </p>
-      <h4 class="text-indigo-50 text-sm uppercase font-bold mb-2">Metric</h4>
-      <p class="text-indigo-50 mb-8">
+      </paragraph-content>
+
+      <paragraph-header id="metric">Metric</paragraph-header>
+      <paragraph-content>
         The main metric for this product was
         <span class="underline">completed tests</span>. They're worth measuring
         because they equate to the core value for the user, but also because
         they generate data to further improve our algorithms.
-      </p>
-      <h4 class="text-indigo-50 text-sm uppercase font-bold mb-2">Problem</h4>
-      <p class="text-indigo-50 mb-8">
+      </paragraph-content>
+
+      <paragraph-header id="problem">Problem</paragraph-header>
+      <paragraph-content>
         Despite the large number of downloads, not everyone started a hearing
         test. Analyzing the funnel, I discovered that the biggest bottleneck had
         become the noise meter. This was a feature that we built in to increase
         the accuracy of the test. The accuracy goes down when it's noisy in the
         environment the user is doing a hearing test in.
-      </p>
-      <h4 class="text-indigo-50 text-sm uppercase font-bold mb-2">
-        the funnel
-      </h4>
-      <p class="text-indigo-50 mb-8">
+      </paragraph-content>
+
+      <paragraph-header id="funnel">The funnel</paragraph-header>
+
+      <paragraph-content>
         Clearly the biggest drop-off was between the intro and the noise meter.
         The events below are triggered when the user finished a certain step.
         E.g. <span class="font-mono font-bold">98%</span>
         <span class="italic"> "finished the introduction"</span>, and (only)
         <span class="font-mono font-bold">84%</span>
         <span class="italic"> "finished the noise meter"</span>.
-      </p>
+      </paragraph-content>
+
       <Funnel
         :funnelSteps="funnelSteps"
         :width="1800"
@@ -58,7 +61,7 @@
         class="mb-8"
       />
 
-      <h4 class="text-indigo-50 text-sm uppercase font-bold mb-2">Old flow</h4>
+      <paragraph-header id="old-flow">Old flow</paragraph-header>
       <div
         class="
           flex flex-wrap-reverse
@@ -83,7 +86,7 @@
             Screen: {{ currentScreen }}
           </div>
           <h4 class="font-semibold uppercase text-xs mb-2">Try it out!</h4>
-          <p class="mb-8">
+          <paragraph-content>
             Try out the prototype as it was before. Don't worry, I won't
             actually access your microphone. The 'environmental noise' is
             simulated using a
@@ -95,13 +98,13 @@
               >Simplex Noise</a
             >
             function.
-          </p>
+          </paragraph-content>
 
           <h4 class="font-semibold uppercase text-xs mb-2">Note</h4>
-          <p class="mb-8">
+          <paragraph-content>
             I rebuilt this from memory because I don't have access to the files
             from that time. For illustrative purposes it should do the job 😅!
-          </p>
+          </paragraph-content>
           <button
             class="
               bg-gradient-to-br
@@ -125,12 +128,12 @@
         </div>
       </div>
 
-      <h4 class="text-indigo-50 text-sm uppercase font-bold mb-2">
-        Hypotheses
-      </h4>
+      <paragraph-header id="hypotheses">Hypotheses</paragraph-header>
+
       <Hypotheses class="mb-8" />
 
-      <h4 class="text-indigo-50 text-sm uppercase font-bold mb-2">New flow</h4>
+      <paragraph-header id="new-flow">New flow</paragraph-header>
+
       <div
         class="
           flex flex-wrap-reverse
@@ -155,7 +158,7 @@
             Screen: {{ currentScreen }}
           </div>
           <h4 class="font-semibold uppercase text-xs mb-2">Try it out!</h4>
-          <p class="mb-8">
+          <paragraph-content>
             Try out the prototype as it was before. Don't worry, I won't
             actually access your microphone. The 'environmental noise' is
             simulated using a
@@ -167,13 +170,13 @@
               >Simplex Noise</a
             >
             function.
-          </p>
+          </paragraph-content>
 
           <h4 class="font-semibold uppercase text-xs mb-2">Note</h4>
-          <p class="mb-8">
+          <paragraph-content>
             I rebuilt this from memory because I don't have access to the files
             from that time. For illustrative purposes it should do the job 😅!
-          </p>
+          </paragraph-content>
           <button
             class="
               bg-gradient-to-br
@@ -213,6 +216,9 @@ import IPhone from "/src/components/UI-elements/IPhone.vue";
 import OldPrototypeRouter from "/src/pages/NoiseMeter/Prototype/OldPrototypeRouter.vue";
 import NewPrototypeRouter from "/src/components/PrototypeRouters/NewMimiNoiseRouter.vue";
 
+import ParagraphHeader from "/src/components/atoms/ParagraphHeader.vue";
+import ParagraphContent from "/src/components/atoms/ParagraphContent.vue";
+
 export default {
   components: {
     Hypotheses,
@@ -220,7 +226,9 @@ export default {
     Funnel,
     IPhone,
     OldPrototypeRouter,
-    NewPrototypeRouter
+    NewPrototypeRouter,
+    ParagraphHeader,
+    ParagraphContent
   },
   data() {
     return {
