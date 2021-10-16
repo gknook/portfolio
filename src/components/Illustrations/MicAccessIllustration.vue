@@ -1,0 +1,57 @@
+<template>
+  <svg
+    width="120"
+    height="120"
+    viewBox="0 0 120 120"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    class="w-2/5 mx-auto text-green-900"
+  >
+    <rect width="120" height="120" rx="40" fill="white" />
+    <path
+      d="M60 38C58.4087 38 56.8826 38.6321 55.7574 39.7574C54.6321 40.8826 54 42.4087 54 44V60C54 61.5913 54.6321 63.1174 55.7574 64.2426C56.8826 65.3679 58.4087 66 60 66C61.5913 66 63.1174 65.3679 64.2426 64.2426C65.3679 63.1174 66 61.5913 66 60V44C66 42.4087 65.3679 40.8826 64.2426 39.7574C63.1174 38.6321 61.5913 38 60 38V38Z"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+    <path
+      d="M74 56V60C74 63.713 72.525 67.274 69.8995 69.8995C67.274 72.525 63.713 74 60 74C56.287 74 52.726 72.525 50.1005 69.8995C47.475 67.274 46 63.713 46 60V56"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+    <path
+      d="M60 74V82"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+    <path
+      d="M52 82H68"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+    <path
+      d="M66 86C66 79.3726 71.3726 74 78 74C84.6274 74 90 79.3726 90 86C90 92.6274 84.6274 98 78 98C71.3726 98 66 92.6274 66 86Z"
+      fill="#86EFAC"
+    />
+    <path
+      d="M84 81.5L75.75 89.75L72 86"
+      stroke="#166534"
+      stroke-width="3"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </svg>
+</template>
+<script>
+export default {
+  name: "mic-access-illustration",
+  props: ["check", "screenId"]
+};
+</script>
