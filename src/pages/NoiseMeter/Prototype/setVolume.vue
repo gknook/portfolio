@@ -39,9 +39,8 @@ export default {
       currentScreen: {
         id: "setVolume",
         overline: "set up",
-        headline: "Restart the prototype",
-        subline:
-          "In the app, here you would start the test. That's not what this case study is about though. Feel free to restart the prototype.",
+        headline: "Set the volume",
+        subline: "Set the volume of your device to 50%.",
         cta: "Restart prototype"
       }
     };
