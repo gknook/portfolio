@@ -22,6 +22,24 @@ const store = new Vuex.Store({
         acvId: "acv-3",
         acvPoints: 5,
         acvAchieved: false
+      },
+      {
+        acvTitle: "Explored case studies",
+        acvId: "acv-4",
+        acvPoints: 5,
+        acvAchieved: false
+      },
+      {
+        acvTitle: "Old prototype",
+        acvId: "acv-5",
+        acvPoints: 10,
+        acvAchieved: false
+      },
+      {
+        acvTitle: "New prototype",
+        acvId: "acv-6",
+        acvPoints: 20,
+        acvAchieved: false
       }
     ]
   },

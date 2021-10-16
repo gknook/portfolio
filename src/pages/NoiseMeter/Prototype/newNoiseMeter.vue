@@ -22,6 +22,7 @@
   </IPhone>
 </template>
 <script>
+import { mapMutations } from "vuex";
 import Overline from "/src/components/atoms/mimiAppAtoms/Overline.vue";
 import Headline from "/src/components/atoms/mimiAppAtoms/Headline.vue";
 import Subline from "/src/components/atoms/mimiAppAtoms/Subline.vue";
@@ -72,8 +73,10 @@ export default {
     }
   },
   methods: {
+    ...mapMutations(["increaseProgress", "updateAchievements"]),
     handleClick() {
       this.$emit("handleClick");
+      this.updateAchievements("acv-6");
     },
     toggleAnimation() {
       if (this.animation) {
