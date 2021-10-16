@@ -4,7 +4,7 @@
       ml-auto
       max-w-sm
       w-full
-      bg-white
+      bg-gray-700
       p-4
       rounded-2xl
       flex
@@ -20,25 +20,43 @@
         w-12
         h-12
         rounded-full
-        border-2 border-green-300
-        bg-gradient-radial-green-200
+        border-2 border-purple-300
+        bg-gradient-to-br
+        from-purple-200
+        to-pink-300
         mr-2
         flex-none flex
         items-center
         justify-center
+        font-semibold
       "
       @click="updateAchievements('acv-2')"
     >
       {{ exploredPercentage }}%
     </div>
     <div class="flex-grow">
-      <strong>You've explored {{ exploredPercentage }}%</strong>
+      <span class="font-semibold mb-1 text-white block"
+        >You've explored {{ exploredPercentage }}%</span
+      >
       <div
-        class="w-full rounded-full h-4 border border-green-300 overflow-hidden"
+        class="
+          w-full
+          rounded-full
+          h-4
+          border border-pink-200
+          overflow-hidden
+          bg-gray-800
+        "
       >
         <div
           :style="`width: ${exploredPercentage + 2}%`"
-          class="bg-gradient-green-200 h-full rounded-r-full"
+          class="
+            bg-gradient-to-br
+            from-purple-200
+            to-pink-300
+            h-full
+            rounded-r-full
+          "
         ></div>
       </div>
     </div>
