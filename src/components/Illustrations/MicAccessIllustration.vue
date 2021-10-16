@@ -52,6 +52,6 @@
 <script>
 export default {
   name: "mic-access-illustration",
-  props: ["check", "screenId"]
+  props: ["check"]
 };
 </script>

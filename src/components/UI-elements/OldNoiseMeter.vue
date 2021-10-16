@@ -73,7 +73,7 @@ import { map } from "@georgedoescode/generative-utils";
 
 export default {
   name: "old-noise-meter-illustration",
-  props: ["check", "animation", "screenId"],
+  props: ["check", "animation"],
   data() {
     return {
       noise: 0,

@@ -29,18 +29,15 @@
         </div>
         <NoiseMeter
           :animation="animation"
-          :screenId="currentScreen.id"
           v-if="currentScreen.id == 'noiseMeter'"
           @noiseChange="changeEnvironment"
         />
         <MicAccessIllustration
-          :screenId="currentScreen.id"
           :check="currentEnvironment"
-          v-if="screenId == 'micAccess'"
+          v-if="currentScreen.id == 'micAccess'"
         />
         <OldNoiseMeter
           :animation="animation"
-          :screenId="currentScreen.id"
           @noiseChange="changeEnvironment"
           v-if="currentScreen.id == 'noiseMeterOld'"
           :check="currentEnvironment"
