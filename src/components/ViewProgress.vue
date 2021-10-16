@@ -101,7 +101,7 @@ export default {
   },
   watch: {
     achievementsGained(newVal, oldVal) {
-      console.log(`new value: ${newVal}, old value: ${oldVal}`);
+      // console.log(`new value: ${newVal}, old value: ${oldVal}`);
       for (let newAchievement of newVal) {
         if (oldVal.indexOf(newAchievement) === -1) {
           this.shownAchievementTitle = newAchievement.acvTitle;
