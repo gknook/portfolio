@@ -1,7 +1,6 @@
 <template>
   <div
     class="
-      ml-auto
       max-w-sm
       w-full
       bg-gray-700
@@ -13,6 +12,7 @@
       z-50
       overflow-visible
       justify-start
+      flex-none
     "
   >
     <div
