@@ -200,10 +200,6 @@
         </div>
       </div>
     </div>
-
-    <div class="absolute left-0 bottom-0 lg:block hidden">
-      <!-- <ProfilePic /> -->
-    </div>
   </div>
 </template>
 <script>
