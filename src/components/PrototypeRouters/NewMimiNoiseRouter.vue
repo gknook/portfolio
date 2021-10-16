@@ -25,6 +25,7 @@ import SetVolume from "/src/pages/NoiseMeter/Prototype/setVolume.vue";
 export default {
   name: "prototype-router",
   components: { MicAccessPriming, MicAccessAlert, NewNoiseMeter, SetVolume },
+  emits: ["clicked-prototype"],
   data() {
     return {
       currentPage: "micAccessPriming"
@@ -32,6 +33,7 @@ export default {
   },
   methods: {
     handleClick(nextPage) {
+      this.$emit("clicked-prototype", nextPage);
       return (this.currentPage = nextPage);
     }
   }

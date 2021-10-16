@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-wrap p-6 mx-auto w-full">
+  <div class="flex flex-wrap p-6 mx-auto w-full my-12">
     <div
       id="introduction"
       class="mb-8 md:px-12 sm:px-6 w-full max-w-screen-md mx-auto"
@@ -62,20 +62,17 @@
       />
 
       <paragraph-header id="old-flow">Old flow</paragraph-header>
-      <div
-        class="
-          flex flex-wrap-reverse
-          sm:justify-between
-          justify-center
-          items-center
-        "
-      >
-        <OldPrototypeRouter />
-        <div class="text-gray-50 w-auto sm:pl-8 sm:flex-1">
+      <div class="flex flex-wrap-reverse sm:justify-between justify-center">
+        <OldPrototypeRouter
+          ref="oldMimiRouter"
+          @clicked-prototype="clickedPrototype(event)"
+        />
+        <div class="text-gray-50 w-auto sm:pl-8 sm:flex-1 mt-8">
           <div
             class="
               bg-gray-700
               px-4
+              -mx-4
               py-2
               rounded-lg
               inline-block
@@ -83,13 +80,38 @@
               font-semibold
             "
           >
-            Screen: {{ currentScreen }}
+            Step: {{ oldMimiNoiseMeterPage }}
           </div>
-          <h4 class="font-semibold uppercase text-xs mb-2">Try it out!</h4>
-          <paragraph-content>
-            Try out the prototype as it was before. Don't worry, I won't
-            actually access your microphone. The 'environmental noise' is
-            simulated using a
+          <h4
+            class="font-semibold uppercase text-xs mb-2"
+            v-if="oldMimiNoiseMeterPage == 'micAccessPriming'"
+          >
+            Try it out!
+          </h4>
+          <paragraph-content v-if="oldMimiNoiseMeterPage == 'micAccessPriming'">
+            Try out the prototype as it was before!
+          </paragraph-content>
+
+          <h4
+            class="font-semibold uppercase text-xs mb-2"
+            v-if="oldMimiNoiseMeterPage == 'micAccessPriming'"
+          >
+            Note
+          </h4>
+          <paragraph-content v-if="oldMimiNoiseMeterPage == 'micAccessPriming'">
+            I rebuilt this from memory because I don't have access to the files
+            from that time. For illustrative purposes it should do the job 😅!
+          </paragraph-content>
+
+          <h4
+            class="font-semibold uppercase text-xs mb-2"
+            v-if="oldMimiNoiseMeterPage == 'micAccessAlert'"
+          >
+            Mic Permission
+          </h4>
+          <paragraph-content v-if="oldMimiNoiseMeterPage == 'micAccessAlert'">
+            Don't worry, I won't actually access your microphone. The
+            'environmental noise' is simulated using a
             <a
               class="underline text-indigo-200"
               href="https://en.wikipedia.org/wiki/Simplex_noise"
@@ -100,11 +122,18 @@
             function.
           </paragraph-content>
 
-          <h4 class="font-semibold uppercase text-xs mb-2">Note</h4>
-          <paragraph-content>
-            I rebuilt this from memory because I don't have access to the files
-            from that time. For illustrative purposes it should do the job 😅!
+          <h4
+            class="font-semibold uppercase text-xs mb-2"
+            v-if="oldMimiNoiseMeterPage == 'setVolume'"
+          >
+            Restart the prototype
+          </h4>
+          <paragraph-content v-if="oldMimiNoiseMeterPage == 'setVolume'">
+            In the app, here you would set the volume as the next step. That's
+            not what this case study is about though. Feel free to retry the
+            prototype though!
           </paragraph-content>
+
           <button
             class="
               bg-gradient-to-br
@@ -132,22 +161,27 @@
 
       <Hypotheses class="mb-8" />
 
-      <paragraph-header id="new-flow">New flow</paragraph-header>
+      <paragraph-header id="new-flow">User tests</paragraph-header>
 
-      <div
-        class="
-          flex flex-wrap-reverse
-          sm:justify-between
-          justify-center
-          items-center
-        "
+      <paragraph-content
+        >We did several user tests to discover what might be the problem, but
+        inviting people in we quickly discovered that either there was no
+        problem, because the big button would just allow them to continue (it
+        was quiet enough). Or they quickly just got frustrated, telling us they
+        couldn't continue, because the button was disabled as it was too loud.
+        They didn't seem to feel the agency to change their
+        situation.</paragraph-content
       >
-        <NewPrototypeRouter />
-        <div class="text-gray-50 w-auto sm:pl-8 sm:flex-1">
+
+      <paragraph-header id="new-flow">Redesigned noise meter</paragraph-header>
+
+      <div class="flex flex-wrap sm:justify-between justify-center">
+        <div class="text-gray-50 w-auto sm:pr-8 sm:flex-1 mt-8">
           <div
             class="
               bg-gray-700
               px-4
+              -mx-4
               py-2
               rounded-lg
               inline-block
@@ -155,28 +189,86 @@
               font-semibold
             "
           >
-            Screen: {{ currentScreen }}
+            Step: {{ newMimiNoiseMeterPage }}
           </div>
-          <h4 class="font-semibold uppercase text-xs mb-2">Try it out!</h4>
-          <paragraph-content>
-            Try out the prototype as it was before. Don't worry, I won't
-            actually access your microphone. The 'environmental noise' is
-            simulated using a
-            <a
-              class="underline text-indigo-200"
-              href="https://en.wikipedia.org/wiki/Simplex_noise"
-              target="_blank"
-              alt="Wikipedia on Simplex Noise"
-              >Simplex Noise</a
-            >
-            function.
+          <h4
+            class="font-semibold uppercase text-xs mb-2"
+            v-if="newMimiNoiseMeterPage == 'micAccessPriming'"
+          >
+            Updated prototype
+          </h4>
+          <paragraph-content v-if="newMimiNoiseMeterPage == 'micAccessPriming'">
+            To the right you find the prototype with the redesign of the noise
+            meter. The first steps are still the same, as they weren't the focus
+            of this story. I included them for context.
           </paragraph-content>
 
-          <h4 class="font-semibold uppercase text-xs mb-2">Note</h4>
-          <paragraph-content>
-            I rebuilt this from memory because I don't have access to the files
-            from that time. For illustrative purposes it should do the job 😅!
+          <h4
+            class="font-semibold uppercase text-xs mb-2"
+            v-if="newMimiNoiseMeterPage == 'newNoiseMeter'"
+          >
+            Extra range
+          </h4>
+          <paragraph-content v-if="newMimiNoiseMeterPage == 'newNoiseMeter'">
+            I spec'd and designed a noise meter that worked better starting with
+            adding a range
+            <ul class="list-disc ml-6 mt-2 mb-2">
+              <li>It's quiet around you</li>
+              <li>
+                There's some noise
+                <span
+                  class="
+                    bg-yellow-200
+                    px-2
+                    text-gray-900
+                    font-semibold
+                    rounded-md
+                  "
+                  >+ NEW</span
+                >
+              </li>
+              <li>It's loud</li>
+            </ul>
+            People in the second range could also continue, but with a warning.
           </paragraph-content>
+
+          <h4
+            class="font-semibold uppercase text-xs mb-2"
+            v-if="newMimiNoiseMeterPage == 'newNoiseMeter'"
+          >
+            Range visualization
+          </h4>
+          <paragraph-content v-if="newMimiNoiseMeterPage == 'newNoiseMeter'">
+            Instead of a binary 'good / bad' indicator, we now indicated how
+            much noise was around you, and where the ranges were. E.g. to see
+            whether it was just one loud sound or a continuous background sound
+            that caused the problem.
+          </paragraph-content>
+
+          <h4
+            class="font-semibold uppercase text-xs mb-2"
+            v-if="newMimiNoiseMeterPage == 'newNoiseMeter'"
+          >
+            Results
+          </h4>
+          <paragraph-content v-if="newMimiNoiseMeterPage == 'newNoiseMeter'">
+            Lastly, when the user decided to continue, even though there was
+            noise around them, we'd add a label to their hearing test results
+            that they were done in a noisy environment.
+          </paragraph-content>
+
+          <h4
+            class="font-semibold uppercase text-xs mb-2"
+            v-if="newMimiNoiseMeterPage == 'setVolume'"
+          >
+            Restart the prototype
+          </h4>
+          <paragraph-content v-if="newMimiNoiseMeterPage == 'setVolume'">
+            In the app, here you would set the volume as the next step. That's
+            not what this case study is about though. Feel free to retry the
+            prototype though!
+          </paragraph-content>
+
           <button
             class="
               bg-gradient-to-br
@@ -192,12 +284,17 @@
               w-52
               block
             "
-            v-if="currentScreen == 'noiseMeter'"
+            v-if="newMimiNoiseMeterPage == 'noiseMeter'"
             @click="toggleAnimation"
           >
             {{ noiseAnimationButtonText }}
           </button>
         </div>
+
+        <NewPrototypeRouter
+          ref="newMimiRouter"
+          @clicked-prototype="clickedPrototype(event)"
+        />
       </div>
     </div>
   </div>
@@ -209,7 +306,7 @@ import Funnel from "/src/components/Funnel.vue";
 import ProfilePic from "/src/assets/svg/ProfilePic.vue";
 import IPhone from "/src/components/UI-elements/IPhone.vue";
 
-import OldPrototypeRouter from "/src/pages/NoiseMeter/Prototype/OldPrototypeRouter.vue";
+import OldPrototypeRouter from "/src/components/PrototypeRouters/OldPrototypeRouter.vue";
 import NewPrototypeRouter from "/src/components/PrototypeRouters/NewMimiNoiseRouter.vue";
 
 import ParagraphHeader from "/src/components/atoms/ParagraphHeader.vue";
@@ -239,9 +336,27 @@ export default {
       animation: false,
       toggleAnimationButton: false,
       noiseAnimationButtonText: "Animate Noise Meter",
-      currentScreen: "micAccess"
+      currentScreen: "micAccess",
+      newMimiNoiseMeterPage: "micAccessPriming",
+      oldMimiNoiseMeterPage: "micAccessPriming"
     };
   },
-  methods: {}
+  mounted() {},
+  computed: {
+    // newMimiNoiseMeterPage() {
+    //   if (this.$refs.newMimiRouter == null) {
+    //     return "micAccessPriming";
+    //   } else return this.$refs.newMimiRouter.currentPage;
+    // }
+  },
+  methods: {
+    clickedPrototype(event) {
+      setTimeout(() => this.updatePrototypePages(), 100);
+    },
+    updatePrototypePages() {
+      this.newMimiNoiseMeterPage = this.$refs.newMimiRouter.currentPage;
+      this.oldMimiNoiseMeterPage = this.$refs.oldMimiRouter.currentPage;
+    }
+  }
 };
 </script>
