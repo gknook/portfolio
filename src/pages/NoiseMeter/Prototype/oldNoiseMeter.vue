@@ -24,14 +24,14 @@
   </IPhone>
 </template>
 <script>
-import Overline from "/src/components/atoms/Overline.vue";
-import Headline from "/src/components/atoms/Headline.vue";
-import Subline from "/src/components/atoms/Subline.vue";
+import Overline from "/src/components/atoms/mimiAppAtoms/Overline.vue";
+import Headline from "/src/components/atoms/mimiAppAtoms/Headline.vue";
+import Subline from "/src/components/atoms/mimiAppAtoms/Subline.vue";
 
 import OldNoiseMeter from "/src/components/UI-elements/OldNoiseMeter.vue";
 import NoiseIllustration from "/src/components/Illustrations/NoiseIllustration.vue";
 
-import IPhoneButton from "/src/components/atoms/IPhoneButton.vue";
+import IPhoneButton from "/src/components/atoms/mimiAppAtoms/IPhoneButton.vue";
 
 import IPhone from "/src/components/UI-elements/IPhone.vue";
 
