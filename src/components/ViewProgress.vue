@@ -108,7 +108,6 @@ export default {
     }
   },
   mounted() {
-    // setTimeout(() => this.increaseProgress(5), 2000);
     setTimeout(() => this.updateAchievements("acv-1"), 2000);
   },
   methods: {
