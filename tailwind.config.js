@@ -14,7 +14,8 @@ module.exports = {
     extend: {
       backgroundColor: ["even", "odd"],
       borderRadius: ["hover"],
-      opacity: ["disabled"]
+      opacity: ["disabled"],
+      cursor: ["disabled"]
     }
   },
   plugins: []
