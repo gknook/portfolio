@@ -2,7 +2,17 @@
   <router-link
     v-if="caseStudy.active"
     :to="{ name: caseStudy.name }"
-    class="bg-gray-900 p-6 rounded-3xl mb-4 shadow-xl block"
+    class="
+      bg-gradient-to-tl
+      from-gray-900
+      to-gray-700
+      border-4 border-pink-600
+      p-6
+      rounded-3xl
+      mb-4
+      shadow-xl
+      block
+    "
     :class="[
       { 'cursor-pointer perspective-left hover:shadow-2xl': caseStudy.active }
     ]"
@@ -43,14 +53,24 @@
         {{ caseStudy.status }}
       </div>
     </div>
-    <p class="mb-2 text-gray-200">
+    <p class="mb-4 text-gray-200 text-lg">
       {{ caseStudy.description }}
     </p>
     <ul class="text-gray-200 mb-4 flex">
-      <li class="mr-8">
-        <span class="font-semibold">Company:</span> {{ caseStudy.company }}
+      <li class="mr-2 font-semibold flex items-center">
+        <briefcase-icon class="mr-2"></briefcase-icon>
+        {{ caseStudy.company }}
       </li>
-      <li><span class="font-semibold">Role:</span> {{ caseStudy.role }}</li>
+      <li class="mr-2">•</li>
+      <li class="font-semibold flex items-center mr-2">
+        <user-icon class="mr-2"></user-icon>
+        {{ caseStudy.role }}
+      </li>
+      <li class="mr-2">•</li>
+      <li class="font-semibold flex items-center">
+        <calendar-icon class="mr-2"></calendar-icon>
+        {{ caseStudy.year }}
+      </li>
     </ul>
     <ul class="flex flex-wrap">
       <li
@@ -67,6 +87,7 @@
           font-semibold
           mr-2
           mb-2
+          opacity-75
         "
       >
         {{ tag }}
@@ -76,7 +97,16 @@
   <div
     v-else
     :to="{ name: caseStudy.name }"
-    class="bg-gray-700 p-6 rounded-3xl mb-4 shadow-xl block"
+    class="
+      bg-gradient-to-tl
+      from-gray-700
+      to-gray-800
+      p-6
+      rounded-3xl
+      mb-4
+      shadow-xl
+      block
+    "
   >
     <div class="flex justify-between items-start">
       <h3 class="text-indigo-50 sm:text-2xl text-lg font-bold mb-2">
@@ -114,14 +144,24 @@
         {{ caseStudy.status }}
       </div>
     </div>
-    <p class="mb-2 text-gray-200">
+    <p class="mb-4 text-gray-200 text-lg">
       {{ caseStudy.description }}
     </p>
     <ul class="text-gray-200 mb-4 flex">
-      <li class="mr-8">
-        <span class="font-semibold">Company:</span> {{ caseStudy.company }}
+      <li class="mr-2 font-semibold flex items-center">
+        <briefcase-icon class="mr-2"></briefcase-icon>
+        {{ caseStudy.company }}
       </li>
-      <li><span class="font-semibold">Role:</span> {{ caseStudy.role }}</li>
+      <li class="mr-2">•</li>
+      <li class="font-semibold flex items-center mr-2">
+        <user-icon class="mr-2"></user-icon>
+        {{ caseStudy.role }}
+      </li>
+      <li class="mr-2">•</li>
+      <li class="font-semibold flex items-center">
+        <calendar-icon class="mr-2"></calendar-icon>
+        {{ caseStudy.year }}
+      </li>
     </ul>
     <ul class="flex flex-wrap">
       <li
@@ -138,6 +178,7 @@
           font-semibold
           mr-2
           mb-2
+          opacity-50
         "
       >
         {{ tag }}
@@ -146,8 +187,15 @@
   </div>
 </template>
 <script>
+import {
+  BriefcaseIcon,
+  UserIcon,
+  CalendarIcon
+} from "@zhuowenli/vue-feather-icons";
+
 export default {
   name: "case-study-card",
-  props: ["caseStudy"]
+  props: ["caseStudy"],
+  components: { BriefcaseIcon, UserIcon, CalendarIcon }
 };
 </script>
