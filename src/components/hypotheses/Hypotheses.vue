@@ -27,7 +27,7 @@ export default {
           id: "H1",
           title: "People are wary giving microphone access to the app.",
           description:
-            "We asked for microphone access on this specific screen (because it was contextually relevant). Since this required permission it could be a blocker for people."
+            "We asked for microphone access just before the noise meter screen (because it was contextually relevant) and didn't track that separately."
         },
         {
           id: "H2",
