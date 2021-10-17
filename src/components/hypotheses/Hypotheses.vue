@@ -38,7 +38,8 @@ export default {
         {
           id: "H4",
           title: "People weren't able to find a quiet environment.",
-          description: "As this was a mobile"
+          description:
+            "If you're living in a busy city it might just be impossible to find a room which is quiet to German standards."
         }
       ]
     };
