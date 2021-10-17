@@ -41,6 +41,15 @@
 .min-h-portfolio {
   min-height: calc(100vh - 1rem);
 }
+
+.perspective-left {
+  transition: transform 0.5s ease 0s;
+}
+
+.perspective-left:hover {
+  transform: perspective(1500px) rotateX(4deg) rotateY(2deg);
+}
+
 @tailwind components;
 
 #navigation .router-link-active {
