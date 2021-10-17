@@ -1,8 +1,8 @@
 <template>
-  <div class="flex flex-wrap p-6 mx-auto w-full my-12">
+  <div class="p-6 mx-auto w-full my-12">
     <div
       id="introduction"
-      class="mb-8 md:px-12 sm:px-6 w-full max-w-screen-md mx-auto"
+      class="md:px-12 sm:px-6 w-full max-w-screen-md mx-auto"
     >
       <hgroup class="mb-4">
         <h2 class="text-indigo-50 text-sm uppercase font-bold mb-4">
@@ -19,7 +19,17 @@
           <span class="mb-0"> - UX designer</span>
         </div>
       </hgroup>
+      <paragraph-content
+        >I often start with data. It's one of my favorite ways to learn that
+        something needs to be done, what the potential impact is and where to
+        start looking to empathize.</paragraph-content
+      >
+    </div>
 
+    <div
+      id="case-wrapper"
+      class="mb-8 md:px-12 sm:px-6 w-full max-w-screen-md mx-auto"
+    >
       <paragraph-header id="situation">Situation</paragraph-header>
       <paragraph-content>
         Our hearing test was doing well, more than a million people had
@@ -247,14 +257,19 @@
 
           <h4
             class="font-semibold uppercase text-xs mb-2"
-            v-if="newMimiNoiseMeterPage == 'newNoiseMeter'"
+            v-if="newMimiNoiseMeterPage == 'accuracyAlert'"
           >
-            Results
+            Warning and results
           </h4>
-          <paragraph-content v-if="newMimiNoiseMeterPage == 'newNoiseMeter'">
-            Lastly, when the user decided to continue, even though there was
-            noise around them, we'd add a label to their hearing test results
-            that they were done in a noisy environment.
+          <paragraph-content v-if="newMimiNoiseMeterPage == 'accuracyAlert'">
+            When the user decided to continue, even though there was noise
+            around them, we warned them and added a label to their hearing test
+            results that they were done in a noisy environment.
+          </paragraph-content>
+          <paragraph-content v-if="newMimiNoiseMeterPage == 'accuracyAlert'">
+            Note that we only showed this warning if the environment wasn't
+            quiet (so in the 'ok'-range). In this prototype I always show it for
+            illustrative purposes.
           </paragraph-content>
 
           <h4
