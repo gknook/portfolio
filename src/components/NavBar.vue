@@ -22,7 +22,6 @@
             hover:bg-gray-800
             px-6
             py-4
-            hover:rounded-xl
             font-semibold
             text-white
             tracking-wide
@@ -38,12 +37,11 @@
       </li>
       <li>
         <router-link
-          :to="{ name: 'noise-meter' }"
+          :to="{ name: 'case-study' }"
           class="
             hover:bg-gray-800
             px-6
             py-4
-            hover:rounded-xl
             font-semibold
             text-white
             tracking-wide

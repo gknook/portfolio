@@ -4,9 +4,15 @@ import NoiseMeter from "/src/pages/NoiseMeter/index.vue";
 import NoiseMeterPrototype from "/src/pages/NoiseMeter/prototype.vue";
 import Mimi from "/src/pages/Companies/Mimi.vue";
 import FlowDiagram from "/src/pages/Experiments/FlowDiagram.vue";
+import CaseStudies from "/src/pages/CaseStudies/index.vue";
 
 const routes = [
   { path: "/", name: "home", component: Introduction },
+  {
+    path: "/case-study/",
+    name: "case-study",
+    component: CaseStudies
+  },
   {
     path: "/case-study/noise-meter/",
     name: "noise-meter",
