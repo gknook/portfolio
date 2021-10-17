@@ -14,7 +14,7 @@
         :disableButton="disableButton"
         @clicked-button="handleClick(currentScreen)"
       />
-      <IOSAlert @clickedAlert="handleClick(currentScreen)" />
+      <IOSAlert @clickedAlert="handleClick(currentScreen)" :alert="alert" />
     </template>
   </IPhone>
 </template>
@@ -51,6 +51,12 @@ export default {
         subline:
           "We use the microphone to listen whether your environment is quiet enough to ensure an accurate hearing test.",
         cta: "Provide access"
+      },
+      alert: {
+        text: '"Mimi Hearing Test" Would Like To Access the Microphone',
+        twoButtons: true,
+        cta1: "Don't allow",
+        cta2: "Ok"
       }
     };
   },

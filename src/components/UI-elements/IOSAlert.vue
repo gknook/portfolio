@@ -18,33 +18,35 @@
       class="
         w-5/6
         backdrop-filter backdrop-blur-lg
-        bg-opacity-50 bg-white
+        bg-opacity-75 bg-white
         z-20
         shadow-lg
         rounded-2xl
       "
     >
       <div class="p-4 text-center text-sm font-semibold">
-        "Mimi Hearing Test" Would Like To Access the Microphone
+        {{ alert.text }}
       </div>
       <div class="flex border-t border-gray-400">
         <div
-          class="text-blue-500 w-1/2 border-r border-gray-400 text-center py-2"
+          v-if="alert.twoButtons"
+          class="text-blue-500 text-center py-2"
+          :class="[
+            { 'border-r border-gray-400 w-1/2': alert.twoButtons },
+            { 'w-full font-semibold': !alert.twoButtons }
+          ]"
         >
-          Don't Allow
+          {{ alert.cta1 }}
         </div>
         <div
-          class="
-            text-blue-500
-            w-1/2
-            text-center
-            py-2
-            font-semibold
-            cursor-pointer
-          "
+          class="text-blue-500 text-center py-2 font-semibold cursor-pointer"
+          :class="[
+            { 'w-1/2': alert.twoButtons },
+            { 'w-full font-semibold': !alert.twoButtons }
+          ]"
           @click="clickedAlert"
         >
-          Ok
+          {{ alert.cta2 }}
         </div>
       </div>
     </div>
@@ -53,6 +55,7 @@
 <script>
 export default {
   name: "iOS-alert",
+  props: ["alert"],
   methods: {
     clickedAlert() {
       this.$emit("clickedAlert");
