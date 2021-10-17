@@ -18,7 +18,7 @@
       </hgroup>
 
       <ul>
-        <li v-for="(caseStudy, index) in caseStudies" :key="index">
+        <li v-for="(caseStudy, index) in sortedCaseStudies" :key="index">
           <CaseStudyCard :caseStudy="caseStudy" />
         </li>
       </ul>
@@ -43,21 +43,24 @@ export default {
             "Increase the number of people that start a hearing test by making the noise meter work and feel better.",
           company: "Mimi",
           role: "UX designer",
-          tags: ["Mobile (iOS)", "User Testing", "Design", "Data"],
+          year: 2017,
+          tags: ["Mobile (iOS)", "User Testing", "Design", "Data", "B2C"],
           active: true
         },
         {
           title: "Mimi's hearing test SDK",
           status: "soon",
           description:
-            "Increase the number of people that start a hearing test by making the noise meter work and feel better.",
+            "Design and build a flexible SDK for partners to do a hearing test in their apps.",
           company: "Mimi",
           role: "Head of Product and Senior Product Manager",
+          year: 2019,
           tags: [
             "Mobile (iOS)",
             "Mobile (Android)",
             "Story Mapping",
-            "Design System"
+            "Design System",
+            "B2B"
           ],
           active: false
         },
@@ -65,8 +68,9 @@ export default {
           title: "Mimi's sound processing prototype",
           status: "soon",
           description:
-            "Increase the number of people that start a hearing test by making the noise meter work and feel better.",
+            "Create a prototype that showcased our sound processing technology to potential partners in sales meetings.",
           company: "Mimi",
+          year: 2019,
           role: "Head of Product and Senior Product Manager",
           tags: ["Prototyping", "Design", "Sales Enablement", "DSP"],
           active: false
@@ -75,9 +79,10 @@ export default {
           title: "Bizcuit's KYC flow",
           status: "soon",
           description:
-            "Increase the number of people that start a hearing test by making the noise meter work and feel better.",
+            "Increase the number of people who successfully finish the KYC checks after connecting a bank account.",
           company: "Bizcuit (via Koos)",
           role: "Senior Product Designer",
+          year: 2021,
           tags: ["Prototyping", "Design", "User Testing", "KYC", "Finance"],
           active: false
         },
@@ -85,9 +90,10 @@ export default {
           title: "Iddink tender concepts",
           status: "soon",
           description:
-            "Increase the number of people that start a hearing test by making the noise meter work and feel better.",
+            "Create five strong product concepts that convice high schools to choose Iddink in tenders.",
           company: "Iddink (via Koos)",
           role: "Senior Product Designer",
+          year: 2021,
           tags: [
             "Concept Design",
             "Sprints",
@@ -101,9 +107,10 @@ export default {
           title: "Atium's social schedule",
           status: "soon",
           description:
-            "Increase the number of people that start a hearing test by making the noise meter work and feel better.",
+            "Increase retention of the platform by scheduling a rhythm of activities.",
           company: "Atium",
           role: "Designer, Front-end Dev, Product Manager and CEO",
+          year: 2020,
           tags: [
             "Breadboarding",
             "Wireframing",
@@ -116,10 +123,10 @@ export default {
         {
           title: "Atium's 'two truths, one lie' game",
           status: "soon",
-          description:
-            "Increase the number of people that start a hearing test by making the noise meter work and feel better.",
+          description: "Create a fun and insightful ice-breaker game.",
           company: "Atium",
-          role: "Game Designer, Front-end Dev, Product Manager and CEO",
+          role: "Game Designer, Front-end Dev",
+          year: 2021,
           tags: [
             "Breadboarding",
             "Wireframing",
@@ -131,6 +138,14 @@ export default {
         }
       ]
     };
+  },
+  computed: {
+    sortedCaseStudies() {
+      let sortedCaseStudies = this.caseStudies.sort((a, b) =>
+        a.year > b.year ? 1 : -1
+      );
+      return sortedCaseStudies;
+    }
   }
 };
 </script>
