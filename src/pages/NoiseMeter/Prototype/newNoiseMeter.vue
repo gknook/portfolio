@@ -16,7 +16,7 @@
       <IPhoneButton
         :cta="currentScreen.cta"
         :disableButton="disableButton"
-        @clicked-button="handleClick(currentScreen)"
+        @clicked-button="handleClick(currentEnvironment)"
       />
     </template>
   </IPhone>
@@ -28,7 +28,6 @@ import Headline from "/src/components/atoms/mimiAppAtoms/Headline.vue";
 import Subline from "/src/components/atoms/mimiAppAtoms/Subline.vue";
 
 import NewNoiseMeter from "/src/components/UI-elements/NoiseMeter.vue";
-import NoiseIllustration from "/src/components/Illustrations/NoiseIllustration.vue";
 
 import IPhoneButton from "/src/components/atoms/mimiAppAtoms/IPhoneButton.vue";
 
@@ -42,13 +41,12 @@ export default {
     Subline,
     IPhoneButton,
     NewNoiseMeter,
-    NoiseIllustration,
     IPhone
   },
   data() {
     return {
       currentScreen: {
-        id: "noiseMeterOld",
+        id: "noiseMeterNew",
         overline: "set up",
         headline: "Find a quiet place",
         subline: "The hearing test is most accurate when done in silence.",
@@ -56,7 +54,6 @@ export default {
       },
       animation: false,
       toggleAnimationButton: false,
-      noiseAnimationButtonText: "Animate Noise Meter",
       currentEnvironment: "quiet"
     };
   },
