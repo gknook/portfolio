@@ -29,11 +29,11 @@
       </div>
     </li>
   </ul>
-  <div v-if="activeTopic" class="h-32 overflow-visible">
+  <div v-if="activeTopic" class="h-40 overflow-visible">
     <p class="text-indigo-50 text-lg mb-4" id="topic-text">
       {{ activeTopic[0].description }}
     </p>
-    <ul>
+    <ul class="hidden">
       <li
         v-for="(tag, index) in activeTopic[0].tags"
         :key="index"
@@ -67,25 +67,26 @@ export default {
     return {
       tabTopics: [
         {
-          topicTitle: "hearing health",
+          topicTitle: "Mimi",
           description:
-            "The first 6 years of my career I've helped people by making sense of the huge gap between 'perfect hearing' and 'hearing impaired' (even earning me a patent 📜)",
+            "The first 6 years of my career I've helped people by making sense of the huge gap between 'perfect hearing' and 'hearing impaired' at Mimi. I've been a designer, design manager, product manager and head of product there (I even earned a patent 📜, fulfilling my dream to become an inventor)!",
           tags: ["health", "sound", "hearing"],
           isActive: true,
           topicId: 1
         },
         {
           topicTitle: "leadership",
+          topicTitle: "Atium",
           description:
-            "I believe the best results are achieved by collaboration, by teams. Being a _very_ early employee at Mimi, I had the distinct honor to build and or lead several teams, from design, product to engineering and product marketing.",
-          tags: ["leadership", "teams", "product"],
+            "I've had a fascination with how to make teams work well together from very early on in my career. Building connection is key and to this end, with my co-founders, I started Atium. For about 2 years we've been exploring how we can build belonging in remote teams. Still alive, it's more of a side-project now.",
+          tags: ["remote work", "belonging", "connection"],
           isActive: false,
           topicId: 2
         },
         {
-          topicTitle: "remote belonging",
+          topicTitle: "Koos",
           description:
-            "It's the fascination with how to make teams work well together that led me, and my wonderful co-founders, to start Atium. There we've been exploring how we can build belonging in remote teams.",
+            "To fill the gap after Atium I worked on several projects at Koos as a Senior Product Designer, amongst others redesigning the KYC flow for a financial app and developing innovative concepts for an educational publisher.",
           tags: ["remote work", "belonging", "connection"],
           isActive: false,
           topicId: 3

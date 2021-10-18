@@ -1,6 +1,9 @@
 <template>
-  <div class="max-w-screen-md px-4 mx-auto w-full">
-    <div id="introduction" class="mb-8">
+  <div class="p-6 mx-auto w-full my-12">
+    <div
+      id="introduction"
+      class="mb-8 md:px-12 sm:px-6 w-full max-w-screen-md mx-auto"
+    >
       <hgroup class="mb-4">
         <h2 class="text-indigo-50 text-sm uppercase font-bold mb-4">
           Guido's portfolio
@@ -15,14 +18,25 @@
       </hgroup>
 
       <p class="text-indigo-50">
-        I'm deeply curious, and love to make people's lives easier with
-        (software) products.
-      </p>
-      <p class="text-indigo-50">
-        In my career to date I've mostly had focused on these three topics
+        I love to make people's lives easier with (software) products and have
+        done that at three companies so far:
       </p>
     </div>
-    <TabBox />
+    <div class="mb-8 md:px-12 sm:px-6 w-full max-w-screen-md mx-auto">
+      <TabBox />
+
+      <p class="text-indigo-50 mb-2">
+        In this portfolio I'm currently building out case-studies so that you
+        can get an idea of how I think and work.
+      </p>
+
+      <p class="text-indigo-50 mb-40">
+        <em>
+          p.s. If your company also has a name with 5 or less characters, let's
+          talk.</em
+        >
+      </p>
+    </div>
   </div>
   <div
     class="

@@ -2,9 +2,7 @@
   <div
     class="
       min-h-portfolio
-      flex
-      items-center
-      flex-grow
+      flex flex-grow
       bg-gray-800
       rounded-3xl
       m-2
