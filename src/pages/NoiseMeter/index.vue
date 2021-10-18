@@ -72,13 +72,15 @@
       />
 
       <paragraph-header id="old-flow">Old flow</paragraph-header>
-      <div class="flex flex-wrap-reverse sm:justify-between justify-center">
+      <div
+        class="flex flex-wrap-reverse sm:justify-between justify-center mb-8"
+      >
         <OldPrototypeRouter
           ref="oldMimiRouter"
           @clicked-prototype="clickedPrototype(event)"
         />
         <div class="text-gray-50 w-auto sm:pl-8 sm:flex-1 mt-8">
-          <div
+          <!-- <div
             class="
               bg-gray-700
               px-4
@@ -91,7 +93,7 @@
             "
           >
             Step: {{ oldMimiNoiseMeterPage }}
-          </div>
+          </div> -->
           <h4
             class="font-semibold uppercase text-xs mb-2"
             v-if="oldMimiNoiseMeterPage == 'micAccessPriming'"
@@ -120,8 +122,31 @@
             Mic Permission
           </h4>
           <paragraph-content v-if="oldMimiNoiseMeterPage == 'micAccessAlert'">
-            Don't worry, I won't actually access your microphone. The
-            'environmental noise' is simulated using a
+            Don't worry, I won't actually access your microphone.
+          </paragraph-content>
+
+          <h4
+            class="font-semibold uppercase text-xs mb-2"
+            v-if="oldMimiNoiseMeterPage == 'oldNoiseMeter'"
+          >
+            Noise meter
+          </h4>
+          <paragraph-content v-if="oldMimiNoiseMeterPage == 'oldNoiseMeter'">
+            The simulation does a pretty good job of showing how frustrating
+            this feature was. When it's loud around, you're blocked, and it's
+            hard to do something about it. We had good reasons for designing it
+            like this, but the user experience wasn't great.
+          </paragraph-content>
+
+          <h4
+            class="font-semibold uppercase text-xs mb-2"
+            v-if="oldMimiNoiseMeterPage == 'oldNoiseMeter'"
+          >
+            Noise simulation
+          </h4>
+          <paragraph-content v-if="oldMimiNoiseMeterPage == 'oldNoiseMeter'">
+            The 'environmental noise' in this and the redesigned flow prototypes
+            is simulated using a
             <a
               class="underline text-indigo-200"
               href="https://en.wikipedia.org/wiki/Simplex_noise"
@@ -167,27 +192,43 @@
         </div>
       </div>
 
-      <paragraph-header id="hypotheses">Hypotheses</paragraph-header>
+      <!-- <paragraph-header id="hypotheses" class="mb-4"
+        >Hypotheses</paragraph-header
+      >
 
-      <Hypotheses class="mb-8" />
+      <Hypotheses class="mb-8" /> -->
 
       <paragraph-header id="new-flow">User tests</paragraph-header>
 
       <paragraph-content
-        >We did several user tests to discover what might be the problem, but
-        inviting people in we quickly discovered that either there was no
-        problem, because the big button would just allow them to continue (it
-        was quiet enough). Or they quickly just got frustrated, telling us they
-        couldn't continue, because the button was disabled as it was too loud.
-        They didn't seem to feel the agency to change their
-        situation.</paragraph-content
+        >We did several user tests to discover what the problem was. When we
+        invited people in and encountered one of two scenarios:
+        <ol class="list-decimal ml-8 my-2">
+          <li class="mb-2">
+            Either there was no problem, because the big button would just allow
+            them to continue (it was quiet enough).
+          </li>
+          <li>
+            Or they quickly just got frustrated, telling us they couldn't
+            continue, because the button was disabled (it was too loud).
+          </li>
+        </ol>
+        Although this also makes clear why a user test is not always perfect
+        (people behave differently in a test setting). A real problem in the
+        latter case was that the users didn't seem to feel the agency to change
+        their situation.</paragraph-content
       >
 
       <paragraph-header id="new-flow">Redesigned noise meter</paragraph-header>
+      <paragraph-content
+        >In the prototype below I show what we changed on the noise meter to
+        address the issues we encounted (click through the iPhone
+        app).</paragraph-content
+      >
 
       <div class="flex flex-wrap sm:justify-between justify-center">
         <div class="text-gray-50 w-auto sm:pr-8 sm:flex-1 mt-8">
-          <div
+          <!-- <div
             class="
               bg-gray-700
               px-4
@@ -200,7 +241,7 @@
             "
           >
             Step: {{ newMimiNoiseMeterPage }}
-          </div>
+          </div> -->
           <h4
             class="font-semibold uppercase text-xs mb-2"
             v-if="newMimiNoiseMeterPage == 'micAccessPriming'"
@@ -220,8 +261,8 @@
             Extra range
           </h4>
           <paragraph-content v-if="newMimiNoiseMeterPage == 'newNoiseMeter'">
-            I spec'd and designed a noise meter that worked better starting with
-            adding a range
+            By adding an extra range, we increased the number of people that
+            were able to continue at the risk of test result accuracy.
             <ul class="list-disc ml-6 mt-2 mb-2">
               <li>It's quiet around you</li>
               <li>
@@ -239,7 +280,9 @@
               </li>
               <li>It's loud</li>
             </ul>
-            People in the second range could also continue, but with a warning.
+            Where's previously the loud range included both 'some noise' and
+            'loud', people in the 'some noise' could now also continue, but with
+            a warning.
           </paragraph-content>
 
           <h4
@@ -249,10 +292,10 @@
             Range visualization
           </h4>
           <paragraph-content v-if="newMimiNoiseMeterPage == 'newNoiseMeter'">
-            Instead of a binary 'good / bad' indicator, we now indicated how
-            much noise was around you, and where the ranges were. E.g. to see
-            whether it was just one loud sound or a continuous background sound
-            that caused the problem.
+            Instead of a binary 'good / bad' indicator, we made the noise around
+            you more insightful and actionable. With the steps in the meter you
+            can now for example see whether it was just one loud sound or a
+            continuous background sound that caused the problem.
           </paragraph-content>
 
           <h4
@@ -264,7 +307,8 @@
           <paragraph-content v-if="newMimiNoiseMeterPage == 'accuracyAlert'">
             When the user decided to continue, even though there was noise
             around them, we warned them and added a label to their hearing test
-            results that they were done in a noisy environment.
+            results that they were done in a noisy environment. Balancing the
+            need for accuracy.
           </paragraph-content>
           <paragraph-content v-if="newMimiNoiseMeterPage == 'accuracyAlert'">
             Note that we only showed this warning if the environment wasn't
@@ -311,6 +355,31 @@
           @clicked-prototype="clickedPrototype(event)"
         />
       </div>
+      <paragraph-header id="wish-list"
+        >What I'd still have loved to add</paragraph-header
+      >
+      <paragraph-content
+        >Beyond the improvements mentioned here I still had a few on my wish
+        list:
+        <ul class="list-disc ml-6 mt-2">
+          <li class="mb-2">
+            <strong>Add a reminder feature.</strong> Beyond the direct issue,
+            part of the problem was that people didn't have access to a quieter
+            place at the moment they downloaded the app. I'd love to have added
+            a reminder feature to do the test later that day or that week when
+            they were more likely in a quieter environment.
+          </li>
+          <li>
+            <strong>Intelligent noise monitor during the hearing test.</strong>
+            Not all noise is created equal, and if you have bad hearing some of
+            it doesn't matter. Technically we would have been able to measure
+            whether the noise that we registered during the test actually had an
+            impact on your hearing. To explain why I'd have to go deeply into
+            sound and hearing, so if you're interested in how that might work,
+            feel free to ask!
+          </li>
+        </ul>
+      </paragraph-content>
     </div>
   </div>
 </template>
