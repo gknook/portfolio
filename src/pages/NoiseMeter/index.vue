@@ -379,6 +379,7 @@
         </ul>
       </paragraph-content>
     </div>
+    <RateCaseStudy />
   </div>
 </template>
 <script>
@@ -387,6 +388,7 @@ import Hypotheses from "/src/components/hypotheses/Hypotheses.vue";
 import Funnel from "/src/components/Funnel.vue";
 import ProfilePic from "/src/assets/svg/ProfilePic.vue";
 import IPhone from "/src/components/UI-elements/IPhone.vue";
+import RateCaseStudy from "/src/components/organisms/RateCaseStudy.vue";
 
 import OldPrototypeRouter from "/src/components/PrototypeRouters/OldPrototypeRouter.vue";
 import NewPrototypeRouter from "/src/components/PrototypeRouters/NewMimiNoiseRouter.vue";
@@ -403,7 +405,8 @@ export default {
     OldPrototypeRouter,
     NewPrototypeRouter,
     ParagraphHeader,
-    ParagraphContent
+    ParagraphContent,
+    RateCaseStudy
   },
   data() {
     return {
