@@ -379,7 +379,7 @@
         </ul>
       </paragraph-content>
     </div>
-    <RateCaseStudy />
+    <!-- <RateCaseStudy /> -->
   </div>
 </template>
 <script>
