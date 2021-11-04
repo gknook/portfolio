@@ -164,9 +164,9 @@
             Restart the prototype
           </h4>
           <paragraph-content v-if="oldMimiNoiseMeterPage == 'setVolume'">
-            In the app, here you would set the volume as the next step. That's
-            not what this case study is about though. Feel free to retry the
-            prototype though!
+            In the app, here you would set the volume as the next step. However,
+            that's not what this case study is about. Feel free to retry the
+            prototype!
           </paragraph-content>
 
           <button
@@ -201,8 +201,8 @@
       <paragraph-header id="new-flow">User tests</paragraph-header>
 
       <paragraph-content
-        >We did several user tests to discover what the problem was. When we
-        invited people in and encountered one of two scenarios:
+        >We did several user tests to discover what the underlying problem was.
+        When we invited people in, we encountered one of two scenarios:
         <ol class="list-decimal ml-8 my-2">
           <li class="mb-2">
             Either there was no problem, because the big button would just allow
@@ -293,9 +293,9 @@
           </h4>
           <paragraph-content v-if="newMimiNoiseMeterPage == 'newNoiseMeter'">
             Instead of a binary 'good / bad' indicator, we made the noise around
-            you more insightful and actionable. With the steps in the meter you
-            can now for example see whether it was just one loud sound or a
-            continuous background sound that caused the problem.
+            you more insightful and actionable. Because of the granular steps in
+            the meter users could now better understand whether it was just one
+            loud or a continuous background sound that caused the problem.
           </paragraph-content>
 
           <h4
@@ -307,8 +307,8 @@
           <paragraph-content v-if="newMimiNoiseMeterPage == 'accuracyAlert'">
             When the user decided to continue, even though there was noise
             around them, we warned them and added a label to their hearing test
-            results that they were done in a noisy environment. Balancing the
-            need for accuracy.
+            result that it was done in a noisy environment. Balancing the need
+            for accuracy.
           </paragraph-content>
           <paragraph-content v-if="newMimiNoiseMeterPage == 'accuracyAlert'">
             Note that we only showed this warning if the environment wasn't
@@ -323,9 +323,9 @@
             Restart the prototype
           </h4>
           <paragraph-content v-if="newMimiNoiseMeterPage == 'setVolume'">
-            In the app, here you would set the volume as the next step. That's
-            not what this case study is about though. Feel free to retry the
-            prototype though!
+            In the app, here you would set the volume as the next step. However,
+            that's not what this case study is about. Feel free to retry the
+            prototype!
           </paragraph-content>
 
           <button
@@ -358,9 +358,7 @@
       <paragraph-header id="wish-list"
         >What I'd still have loved to add</paragraph-header
       >
-      <paragraph-content
-        >Beyond the improvements mentioned here I still had a few on my wish
-        list:
+      <paragraph-content>
         <ul class="list-disc ml-6 mt-2">
           <li class="mb-2">
             <strong>Add a reminder feature.</strong> Beyond the direct issue,
