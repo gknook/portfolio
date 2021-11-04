@@ -56,19 +56,19 @@
     <p class="mb-4 text-gray-200 text-lg">
       {{ caseStudy.description }}
     </p>
-    <ul class="text-gray-200 mb-4 flex">
-      <li class="mr-2 font-semibold flex items-center">
-        <briefcase-icon class="mr-2"></briefcase-icon>
+    <ul class="text-gray-200 mb-4 sm:flex">
+      <li class="mr-2 font-semibold flex items-center sm:mb-0 mb-2">
+        <briefcase-icon class="mr-2 flex-none"></briefcase-icon>
         {{ caseStudy.company }}
       </li>
-      <li class="mr-2">•</li>
-      <li class="font-semibold flex items-center mr-2">
-        <user-icon class="mr-2"></user-icon>
+      <li class="mr-2 sm:block hidden">•</li>
+      <li class="font-semibold flex items-center mr-2 sm:mb-0 mb-2">
+        <user-icon class="mr-2 flex-none"></user-icon>
         {{ caseStudy.role }}
       </li>
-      <li class="mr-2">•</li>
+      <li class="mr-2 sm:block hidden">•</li>
       <li class="font-semibold flex items-center">
-        <calendar-icon class="mr-2"></calendar-icon>
+        <calendar-icon class="mr-2 flex-none"></calendar-icon>
         {{ caseStudy.year }}
       </li>
     </ul>
@@ -147,19 +147,19 @@
     <p class="mb-4 text-gray-200 text-lg">
       {{ caseStudy.description }}
     </p>
-    <ul class="text-gray-200 mb-4 flex">
-      <li class="mr-2 font-semibold flex items-center">
-        <briefcase-icon class="mr-2"></briefcase-icon>
+    <ul class="text-gray-200 mb-4 sm:flex">
+      <li class="mr-2 font-semibold flex items-center sm:mb-0 mb-2">
+        <briefcase-icon class="mr-2 flex-none"></briefcase-icon>
         {{ caseStudy.company }}
       </li>
-      <li class="mr-2">•</li>
-      <li class="font-semibold flex items-center mr-2">
-        <user-icon class="mr-2"></user-icon>
+      <li class="mr-2 sm:block hidden">•</li>
+      <li class="font-semibold flex items-center mr-2 sm:mb-0 mb-2">
+        <user-icon class="mr-2 flex-none"></user-icon>
         {{ caseStudy.role }}
       </li>
-      <li class="mr-2">•</li>
+      <li class="mr-2 sm:block hidden">•</li>
       <li class="font-semibold flex items-center">
-        <calendar-icon class="mr-2"></calendar-icon>
+        <calendar-icon class="mr-2 flex-none"></calendar-icon>
         {{ caseStudy.year }}
       </li>
     </ul>
