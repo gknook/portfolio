@@ -379,7 +379,9 @@
         </ul>
       </paragraph-content>
     </div>
-    <!-- <RateCaseStudy /> -->
+    <div class="mx-auto max-w-sm mt-20">
+      <RateCaseStudy />
+    </div>
   </div>
 </template>
 <script>
