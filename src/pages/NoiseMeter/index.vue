@@ -385,7 +385,6 @@
   </div>
 </template>
 <script>
-// import { gsap } from "gsap";
 import Hypotheses from "/src/components/hypotheses/Hypotheses.vue";
 import Funnel from "/src/components/Funnel.vue";
 import ProfilePic from "/src/assets/svg/ProfilePic.vue";
