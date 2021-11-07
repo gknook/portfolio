@@ -30,6 +30,10 @@
         </ul>
       </li>
     </ul>
+    <div class="hidden">
+      <label>What's the reason for that score?</label>
+      <input class="w-full" placeholder="Reason" />
+    </div>
     <IPhoneButton
       :cta="`Rate ${starRating}`"
       :disableButton="disableButton"
@@ -68,7 +72,7 @@ export default {
       }
     },
     submitRating() {
-      console.log("submit");
+      console.log(this.starRating);
     },
     registerRatingClick(ratingName, index) {
       this.disableButton = false;
