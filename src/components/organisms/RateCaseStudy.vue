@@ -1,64 +1,99 @@
 <template>
-  <div class="bg-white w-full max-w-md rounded-xl p-4 mb-8">
-    What did you think of this case study?
-    <div
-      v-for="(rating, ratingIndex) in rating"
-      :key="ratingIndex"
-      class="flex w-full items-end"
-    >
-      <div class="text-semibold w-28 flex-none">
-        {{ rating.name }} {{ ratingIndex }}
-      </div>
-      <ul class="flex text-yellow-400 items-end h-8">
-        <li v-for="(star, index) in 5" :key="index">
-          <star-icon
-            size="1.5x"
-            class="flex-none"
-            :class="{
-              'fill-current': currentHover == `${rating.name}-${index}`
-            }"
-            :id="`${rating.name}-${index + 1}`"
-            @mouseenter="registerHover(rating.name, index - 1)"
-          ></star-icon>
-          {{ index }}
-        </li>
-      </ul>
-    </div>
+  <div class="bg-gray-900 w-full max-w-md rounded-xl p-6 mb-8">
+    <h3 class="font-semibold mb-4 text-gray-50 text-center">
+      What did you think of this case study?
+    </h3>
+    <ul class="mb-8">
+      <li
+        v-for="(rating, ratingIndex) in rating"
+        :key="ratingIndex"
+        class="flex w-full items-end justify-center"
+      >
+        <ul class="flex text-yellow-400 items-end h-8">
+          <li v-for="(star, index) in 5" :key="index">
+            <star-icon
+              class="
+                flex-none
+                h-8
+                w-8
+                hover:w-10 hover:h-10
+                transition-all
+                duration-200
+                cursor-pointer
+              "
+              :id="`${rating.name}-${index}`"
+              @mouseenter="registerHover(rating.name, index)"
+              @mouseleave="resetHover(rating.name, index)"
+              @click="registerRatingClick(rating.name, index)"
+            ></star-icon>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <IPhoneButton
+      :cta="`Rate ${starRating}`"
+      :disableButton="disableButton"
+      @clicked-button="submitRating"
+      :color="'pink'"
+    />
   </div>
 </template>
 <script>
 import { StarIcon } from "@zhuowenli/vue-feather-icons";
+import IPhoneButton from "/src/components/atoms/mimiAppAtoms/IPhoneButton.vue";
 
 export default {
   name: "rate-case-study",
-  components: { StarIcon },
+  components: { StarIcon, IPhoneButton },
   data() {
     return {
-      rating: [
-        { name: "Story", average: "3.8", vote: null },
-        { name: "Presentation", average: "4.3", vote: null },
-        { name: "Result", average: "4.8", vote: null }
-      ],
-      currentHover: null
+      rating: [{ name: "Presentation", average: "4.3", vote: null }],
+      disableButton: true,
+      starRating: "case study"
     };
   },
   methods: {
     registerHover(ratingName, index) {
-      console.log(`${ratingName}-${index}`);
-      this.currentHover = `${ratingName}-${index}`;
+      for (let i = 0; i <= index; i++) {
+        document
+          .getElementById(`${ratingName}-${i}`)
+          .classList.add("fill-current");
+      }
+    },
+    resetHover(ratingName, index) {
+      for (let i = 0; i <= index; i++) {
+        document
+          .getElementById(`${ratingName}-${i}`)
+          .classList.remove("fill-current");
+      }
+    },
+    submitRating() {
+      console.log("submit");
+    },
+    registerRatingClick(ratingName, index) {
+      this.disableButton = false;
+      for (let i = 0; i < 5; i++) {
+        if (i <= index) {
+          document
+            .getElementById(`${ratingName}-${i}`)
+            .classList.add("fill-star");
+          if (index > 0) {
+            this.starRating = `${index + 1} stars`;
+          } else {
+            this.starRating = `${index + 1} star`;
+          }
+        } else {
+          document
+            .getElementById(`${ratingName}-${i}`)
+            .classList.remove("fill-star");
+        }
+      }
     }
   }
 };
 </script>
 <style scoped>
-.feather-star:hover {
-  fill: #f59e0b;
-  width: 28px;
-  height: 28px;
-  transition: 0.1s;
-}
-.feather-star {
-  transition: all 0.3s;
-  transition-timing-function: ease-out;
+.fill-star {
+  @apply fill-current;
 }
 </style>
