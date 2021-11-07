@@ -1,13 +1,11 @@
 <template>
   <button
     class="
-      bg-green-400
       w-full
       px-4
       py-2
       rounded-xl
       font-semibold
-      text-green-900
       tracking-wide
       mr-2
       z-10

@@ -40,6 +40,9 @@
       @clicked-button="submitRating"
       :color="'pink'"
     />
+    <div v-if="ratingAlert" class="text-white text-sm text-center p-4">
+      <span v-html="ratingAlert"></span>
+    </div>
   </div>
 </template>
 <script>
@@ -53,7 +56,8 @@ export default {
     return {
       rating: [{ name: "Presentation", average: "4.3", vote: null }],
       disableButton: true,
-      starRating: "case study"
+      starRating: "case study",
+      ratingAlert: null
     };
   },
   methods: {
@@ -73,6 +77,7 @@ export default {
     },
     submitRating() {
       console.log(this.starRating);
+      this.ratingAlert = `You rated the case study ${this.starRating}.<br /><br /> I'm still trying to figure out how to hook this up to a backend so I can gather feedback and show average ratings. Let me know if you want to help!`;
     },
     registerRatingClick(ratingName, index) {
       this.disableButton = false;
