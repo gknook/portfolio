@@ -15,7 +15,9 @@ module.exports = {
       backgroundColor: ["even", "odd"],
       borderRadius: ["hover"],
       opacity: ["disabled"],
-      cursor: ["disabled"]
+      cursor: ["disabled"],
+      height: ["hover", "focus"],
+      width: ["hover", "focus"]
     }
   },
   plugins: []
