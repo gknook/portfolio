@@ -13,6 +13,7 @@
       z-10
       disabled:opacity-50 disabled:cursor-not-allowed
     "
+    :class="`bg-${color}-400 text-${color}-900`"
     :disabled="disableButton"
     @click="click"
   >
@@ -22,7 +23,11 @@
 <script>
 export default {
   name: "iPhone-button",
-  props: ["cta", "disableButton"],
+  props: {
+    cta: { type: String, default: "Button cta" },
+    disableButton: { type: Boolean, default: false },
+    color: { type: String, default: "green" }
+  },
   methods: {
     click() {
       return this.$emit("clicked-button");
