@@ -76,7 +76,7 @@ export default {
       }
     },
     submitRating() {
-      this.ratingAlert = `You rated the case study ${this.starRating}.<br /><br /> I'm still trying to figure out how to hook this up to a backend so I can gather feedback and show average ratings. Let me know if you want to help!`;
+      this.ratingAlert = `You rated the case study ${this.starRating}.<br /><br /> I'm still trying to figure out how to hook this up so I can gather feedback and show average ratings. Let me know if you want to help!`;
     },
     registerRatingClick(ratingName, index) {
       this.disableButton = false;
