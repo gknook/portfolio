@@ -3,31 +3,23 @@
     <h3 class="font-semibold mb-4 text-gray-50 text-center">
       What did you think of this case study?
     </h3>
-    <ul class="mb-8">
-      <li
-        v-for="(rating, ratingIndex) in rating"
-        :key="ratingIndex"
-        class="flex w-full items-end justify-center"
-      >
-        <ul class="flex text-yellow-400 items-end h-8">
-          <li v-for="(star, index) in 5" :key="index">
-            <star-icon
-              class="
-                flex-none
-                h-8
-                w-8
-                hover:w-10 hover:h-10
-                transition-all
-                duration-200
-                cursor-pointer
-              "
-              :id="`${rating.name}-${index}`"
-              @mouseenter="registerHover(rating.name, index)"
-              @mouseleave="resetHover(rating.name, index)"
-              @click="registerRatingClick(rating.name, index)"
-            ></star-icon>
-          </li>
-        </ul>
+    <ul class="flex text-yellow-400 items-end justify-center h-8 mb-8">
+      <li v-for="(star, index) in 5" :key="index">
+        <star-icon
+          class="
+            flex-none
+            h-8
+            w-8
+            hover:w-10 hover:h-10
+            transition-all
+            duration-200
+            cursor-pointer
+          "
+          :id="`rating-${index}`"
+          @mouseenter="registerHover('rating', index)"
+          @mouseleave="resetHover('rating', index)"
+          @click="registerRatingClick('rating', index)"
+        ></star-icon>
       </li>
     </ul>
     <div class="hidden">
@@ -35,32 +27,96 @@
       <input class="w-full" placeholder="Reason" />
     </div>
     <IPhoneButton
-      :cta="`Rate ${starRating}`"
+      :cta="buttonCopy"
       :disableButton="disableButton"
       @clicked-button="submitRating"
       :color="'pink'"
+      v-if="!showAverageRating"
     />
-    <div v-if="ratingAlert" class="text-white text-sm text-center p-4">
-      <span v-html="ratingAlert"></span>
+    <div v-if="averageRating && showAverageRating">
+      <div class="text-white mb-4 text-center" v-html="ratingAlert"></div>
+      <ul>
+        <li class="mb-4 flex justify-between">
+          <span
+            class="
+              px-2
+              py-1
+              rounded-lg
+              bg-gray-800
+              text-yellow-300
+              font-semibold
+              flex
+              items-center
+            "
+            >Average {{ averageRating }}
+            <star-icon class="flex-none h-4 w-4 ml-2"></star-icon
+          ></span>
+          <span
+            class="px-2 py-1 rounded-lg bg-pink-400 text-gray-900 font-semibold"
+            >{{ numberOfRatings }} ratings</span
+          >
+        </li>
+        <li
+          class="flex space-x-2 items-center text-yellow-300 mx-3"
+          v-for="star in 5"
+          :key="star"
+        >
+          <span class="font-semibold w-4 text-yellow-50">{{ star }}</span
+          ><star-icon class="flex-none h-4 w-4"></star-icon>
+          <div class="w-full">
+            <div class="h-1 rounded bg-yellow-200 w-2/3"></div>
+          </div>
+          <span class="font-semibold text-yellow-50">45%</span>
+        </li>
+      </ul>
     </div>
   </div>
 </template>
 <script>
 import { StarIcon } from "@zhuowenli/vue-feather-icons";
 import IPhoneButton from "/src/components/atoms/mimiAppAtoms/IPhoneButton.vue";
+import faunadb from "faunadb";
 
 export default {
   name: "rate-case-study",
   components: { StarIcon, IPhoneButton },
   data() {
     return {
-      rating: [{ name: "Presentation", average: "4.3", vote: null }],
       disableButton: true,
-      starRating: "case study",
-      ratingAlert: null
+      starRating: { type: Number, default: 0 },
+      starPlural: "case study",
+      ratingAlert: null,
+      q: faunadb.query,
+      client: null,
+      noiseMeterRatings: new Object(),
+      averageRating: null,
+      showAverageRating: false,
+      numberOfRatings: 0
     };
   },
+  mounted() {
+    this.createClient();
+    // this.logRating();
+  },
+  computed: {
+    buttonCopy() {
+      if (this.disableButton == true) {
+        return "Rate case study";
+      } else {
+        return `Rate ${this.starRating} ${this.starPlural}`;
+      }
+    }
+  },
   methods: {
+    createClient() {
+      this.client = new faunadb.Client({
+        secret: this.process.env.FAUNADB_SECRET,
+        domain: "db.eu.fauna.com",
+        // NOTE: Use the correct domain for your database's Region Group.
+        port: 443,
+        scheme: "https"
+      });
+    },
     registerHover(ratingName, index) {
       for (let i = 0; i <= index; i++) {
         document
@@ -75,8 +131,53 @@ export default {
           .classList.remove("fill-current");
       }
     },
-    submitRating() {
-      this.ratingAlert = `You rated the case study ${this.starRating}.<br /><br /> I'm still trying to figure out how to hook this up so I can gather feedback and show average ratings. Let me know if you want to help!`;
+    async runQuery() {
+      try {
+        return await this.client.query(
+          this.q.Paginate(
+            this.q.Match(this.q.Index("average-ratings"), "noise-meter"),
+            {
+              size: 2000
+            }
+          )
+        );
+      } catch (err) {
+        console.error("Error: %s", err);
+      }
+    },
+    async logRating() {
+      this.noiseMeterRatings = await this.runQuery();
+      // console.log(this.noiseMeterRatings);
+      let ratingsArray = this.noiseMeterRatings.data;
+      let averageRating =
+        ratingsArray.reduce((a, b) => parseInt(a) + parseInt(b)) /
+        ratingsArray.length;
+      // console.log(averageRating);
+      this.averageRating = this.roundToTwo(averageRating);
+      this.numberOfRatings = ratingsArray.length;
+    },
+    async submitRatingToDB() {
+      try {
+        return await this.client.query(
+          this.q.Create(this.q.Collection("Rating"), {
+            data: {
+              caseStudy: "noise-meter",
+              rating: this.starRating
+            }
+          })
+        );
+      } catch (err) {
+        console.error("Error: %s", err);
+      }
+    },
+    roundToTwo(num) {
+      return +(Math.round(num + "e+2") + "e-2");
+    },
+    async submitRating() {
+      this.ratingAlert = `You rated ${this.starRating} ${this.starPlural}. Thank you for rating!`;
+      await this.submitRatingToDB();
+      await this.logRating();
+      this.showAverageRating = true;
     },
     registerRatingClick(ratingName, index) {
       this.disableButton = false;
@@ -85,10 +186,11 @@ export default {
           document
             .getElementById(`${ratingName}-${i}`)
             .classList.add("fill-star");
+          this.starRating = `${index + 1}`;
           if (index > 0) {
-            this.starRating = `${index + 1} stars`;
+            this.starPlural = "stars";
           } else {
-            this.starRating = `${index + 1} star`;
+            this.starPlural = "star";
           }
         } else {
           document
