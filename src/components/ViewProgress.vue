@@ -68,8 +68,10 @@
         max-w-xs
         w-full
         -mt-16
-        bg-gradient-yellow-400
-        text-white
+        bg-gradient-to-r
+        from-yellow-200
+        to-yellow-400
+        text-yellow-900
         px-4
         py-1
         rounded-full
