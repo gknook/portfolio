@@ -123,71 +123,266 @@
         schedule the right activities.</paragraph-content
       >
 
-      <paragraph-header id="funnel">The funnel</paragraph-header>
+      <paragraph-header id="funnel">For whom</paragraph-header>
 
       <paragraph-content>
-        Clearly the biggest drop-off was between the intro and the noise meter.
-        The events below are triggered when the user finished a certain step.
-        E.g. <span class="font-mono font-bold">98%</span>
-        <span class="italic"> "finished the introduction"</span>, and (only)
-        <span class="font-mono font-bold">84%</span>
-        <span class="italic"> "finished the noise meter"</span>.
+        As alluded to in the problem statement, the feature was really focused
+        on team leads who care about their team culture and want to help their
+        team work well together by fostering human connections.
       </paragraph-content>
 
-      <paragraph-header id="old-flow">Old flow</paragraph-header>
-
-      <paragraph-header id="new-flow">User tests</paragraph-header>
+      <paragraph-header id="new-flow">Insights</paragraph-header>
 
       <paragraph-content
-        >We did several user tests to discover what the underlying problem was.
-        When we invited people in, we encountered one of two scenarios:
+        >During the research and its synthesis we realised that in making this
+        happen as a team lead you have three levels of understanding:
         <ol class="list-decimal ml-8 my-2">
           <li class="mb-2">
-            Either there was no problem, because the big button would just allow
-            them to continue (it was quiet enough).
+            You know what meetings you have, and can thus conclude when a social
+            moment would make sense.
+          </li>
+          <li class="mb-2">
+            You might know what the reasons are for adding social moments.
+            You're generally looking to improve your team's connections, but
+            might not see the full benefits that regularly doing social
+            activities have on your team's ability to effectively work together.
           </li>
           <li>
-            Or they quickly just got frustrated, telling us they couldn't
-            continue, because the button was disabled (it was too loud).
+            You don't know what activities you should be doing. It's hard to
+            come up with something week in week out, and out of the many things
+            you have to be good at, picking social activities is not something
+            that you want to excel in.
           </li>
         </ol>
-        Although this also makes clear why a user test is not always perfect
-        (people behave differently in a test setting). A real problem in the
-        latter case was that the users didn't seem to feel the agency to change
-        their situation.</paragraph-content
-      >
-
-      <paragraph-header id="new-flow">Redesigned noise meter</paragraph-header>
-      <paragraph-content
-        >In the prototype below I show what we changed on the noise meter to
-        address the issues we encounted (click through the iPhone
-        app).</paragraph-content
-      >
-
-      <paragraph-header id="wish-list"
-        >What I'd still have loved to add</paragraph-header
-      >
-      <paragraph-content>
-        <ul class="list-disc ml-6 mt-2">
-          <li class="mb-2">
-            <strong>Add a reminder feature.</strong> Beyond the direct issue,
-            part of the problem was that people didn't have access to a quieter
-            place at the moment they downloaded the app. I'd love to have added
-            a reminder feature to do the test later that day or that week when
-            they were more likely in a quieter environment.
-          </li>
-          <li>
-            <strong>Intelligent noise monitor during the hearing test.</strong>
-            Not all noise is created equal, and if you have bad hearing some of
-            it doesn't matter. Technically we would have been able to measure
-            whether the noise that we registered during the test actually had an
-            impact on your hearing. To explain why I'd have to go deeply into
-            sound and hearing, so if you're interested in how that might work,
-            feel free to ask!
-          </li>
-        </ul>
       </paragraph-content>
+
+      <paragraph-header id="flow">User flow</paragraph-header>
+
+      <div class="relative h-52">
+        <div class="flex items-center space-x-4 absolute left-0 top-0 h-40">
+          <div
+            class="
+              rounded-full
+              text-white
+              border-4 border-gray-700 border-dotted
+              hover:border-indigo-700
+              transition-all
+              duration-200
+              w-52
+              cursor-pointer
+            "
+            @mouseenter="toggleDescription('step-1')"
+            @mouseleave="toggleDescription(null)"
+          >
+            <div
+              class="
+                bg-gray-900
+                hover:bg-indigo-900
+                p-4
+                rounded-full
+                transition-all
+                duration-200
+              "
+            >
+              <div class="text-sm w-full text-center mb-px">Social rhythm</div>
+              <div
+                class="text-xs w-full text-center"
+                :class="[{ hidden: description != 'step-1' }]"
+              >
+                Set up a social rhythm
+              </div>
+            </div>
+          </div>
+          <svg
+            width="62"
+            height="18"
+            viewBox="0 0 62 18"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle cx="4.5" cy="9" r="3.5" stroke="#7B61FF" stroke-width="2" />
+            <rect x="8" y="8" width="42" height="2" fill="#7B61FF" />
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M50.7513 0.880336C51.0823 0.446857 51.6906 0.372877 52.1099 0.715097L61.2988 8.2151C61.5311 8.40474 61.6667 8.69393 61.6667 8.99998C61.6667 9.30603 61.5311 9.59522 61.2988 9.78486L52.1099 17.2849C51.6906 17.6271 51.0823 17.5531 50.7513 17.1196C50.4203 16.6861 50.4919 16.0573 50.9111 15.7151L57.9132 9.99998H49.6667C49.6667 9.99998 49.6667 9.55227 49.6667 8.99998C49.6667 8.4477 49.6667 7.99998 49.6667 7.99998H57.9132L50.9111 2.28486C50.4919 1.94264 50.4203 1.31381 50.7513 0.880336Z"
+              fill="#7B61FF"
+            />
+          </svg>
+          <div
+            class="
+              rounded-2xl
+              text-white
+              border-4 border-gray-700 border-dotted
+              hover:border-indigo-700
+              w-52
+              cursor-pointer
+            "
+            @mouseenter="toggleDescription('step-2')"
+            @mouseleave="toggleDescription(null)"
+          >
+            <div
+              class="
+                bg-gray-900
+                hover:bg-indigo-900
+                p-4
+                rounded-xl
+                transition-all
+                duration-200
+              "
+            >
+              <div class="text-sm w-full text-center mb-px">
+                Add a regular meeting
+              </div>
+              <div
+                class="text-xs w-full text-center"
+                :class="[{ hidden: description != 'step-2' }]"
+              >
+                Typically a meeting you already have.
+              </div>
+            </div>
+          </div>
+          <svg
+            width="62"
+            height="18"
+            viewBox="0 0 62 18"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle
+              cx="4.5"
+              cy="9"
+              r="3.5"
+              stroke="#7B61FF"
+              stroke-width="2"
+              class="flex-none"
+            />
+            <rect
+              x="8"
+              y="8"
+              width="42"
+              height="2"
+              fill="#7B61FF"
+              class="flex-shrink"
+            />
+            <path
+              class="flex-none"
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M50.7513 0.880336C51.0823 0.446857 51.6906 0.372877 52.1099 0.715097L61.2988 8.2151C61.5311 8.40474 61.6667 8.69393 61.6667 8.99998C61.6667 9.30603 61.5311 9.59522 61.2988 9.78486L52.1099 17.2849C51.6906 17.6271 51.0823 17.5531 50.7513 17.1196C50.4203 16.6861 50.4919 16.0573 50.9111 15.7151L57.9132 9.99998H49.6667C49.6667 9.99998 49.6667 9.55227 49.6667 8.99998C49.6667 8.4477 49.6667 7.99998 49.6667 7.99998H57.9132L50.9111 2.28486C50.4919 1.94264 50.4203 1.31381 50.7513 0.880336Z"
+              fill="#7B61FF"
+            />
+          </svg>
+          <div
+            class="
+              rounded-2xl
+              text-white
+              border-4 border-gray-700 border-dotted
+              hover:border-indigo-700
+              w-52
+              cursor-pointer
+            "
+            @mouseenter="toggleDescription('step-3')"
+            @mouseleave="toggleDescription(null)"
+          >
+            <div
+              class="
+                bg-gray-900
+                hover:bg-indigo-900
+                p-4
+                rounded-xl
+                transition-all
+                duration-200
+              "
+            >
+              <div class="text-sm w-full text-center mb-px">Define length</div>
+              <div
+                class="text-xs w-full text-center"
+                :class="[{ hidden: description != 'step-3' }]"
+              >
+                How much time you spend on the social moment
+              </div>
+            </div>
+          </div>
+          <svg
+            width="62"
+            height="18"
+            viewBox="0 0 62 18"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle
+              cx="4.5"
+              cy="9"
+              r="3.5"
+              stroke="#7B61FF"
+              stroke-width="2"
+              class="flex-none"
+            />
+            <rect
+              x="8"
+              y="8"
+              width="42"
+              height="2"
+              fill="#7B61FF"
+              class="flex-shrink"
+            />
+            <path
+              class="flex-none"
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M50.7513 0.880336C51.0823 0.446857 51.6906 0.372877 52.1099 0.715097L61.2988 8.2151C61.5311 8.40474 61.6667 8.69393 61.6667 8.99998C61.6667 9.30603 61.5311 9.59522 61.2988 9.78486L52.1099 17.2849C51.6906 17.6271 51.0823 17.5531 50.7513 17.1196C50.4203 16.6861 50.4919 16.0573 50.9111 15.7151L57.9132 9.99998H49.6667C49.6667 9.99998 49.6667 9.55227 49.6667 8.99998C49.6667 8.4477 49.6667 7.99998 49.6667 7.99998H57.9132L50.9111 2.28486C50.4919 1.94264 50.4203 1.31381 50.7513 0.880336Z"
+              fill="#7B61FF"
+            />
+          </svg>
+          <div
+            class="
+              rounded-full
+              text-white
+              border-4 border-gray-700 border-dotted
+              hover:border-indigo-700
+              w-52
+              cursor-pointer
+            "
+            @mouseenter="toggleDescription('step-4')"
+            @mouseleave="toggleDescription(null)"
+          >
+            <div
+              class="
+                bg-gray-900
+                hover:bg-indigo-900
+                p-4
+                rounded-full
+                transition-all
+                duration-200
+              "
+            >
+              <div class="text-sm w-full text-center mb-px">Receive rhythm</div>
+              <div
+                class="text-xs w-full text-center"
+                :class="[{ hidden: description != 'step-4' }]"
+              >
+                Suggested activities for the regular meeting
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- <RhythmFlow /> -->
+
+      <paragraph-header id="new-flow">Concepts</paragraph-header>
+      <paragraph-content
+        >To solve the problem statement above we came up with the social rhythm
+        feature. Initially basing this on standard moments that fit agile
+        meetings like retrospectives, I eventually took the insights mentioned
+        above to heart.</paragraph-content
+      >
+      <span class="text-white text-3xl w-full text-center font-bold block mt-20"
+        >WIP</span
+      >
     </div>
+
     <div class="bg-pink-400 hidden"></div>
     <div class="mx-auto max-w-sm mt-20">
       <RateCaseStudy />
@@ -197,7 +392,7 @@
 <script>
 import Hypotheses from "/src/components/hypotheses/Hypotheses.vue";
 import Funnel from "/src/components/Funnel.vue";
-import ProfilePic from "/src/assets/svg/ProfilePic.vue";
+import RhythmFlow from "/src/assets/svg/RhythmFlow.vue";
 import RateCaseStudy from "/src/components/organisms/RateCaseStudy.vue";
 
 import ParagraphHeader from "/src/components/atoms/ParagraphHeader.vue";
@@ -206,17 +401,27 @@ import ParagraphContent from "/src/components/atoms/ParagraphContent.vue";
 export default {
   components: {
     Hypotheses,
-    ProfilePic,
+    RhythmFlow,
     Funnel,
     ParagraphHeader,
     ParagraphContent,
     RateCaseStudy
   },
   data() {
-    return {};
+    return {
+      description: null
+    };
   },
   mounted() {},
   computed: {},
-  methods: {}
+  methods: {
+    toggleDescription(id) {
+      if (this.descript == id) {
+        this.description = null;
+      } else {
+        this.description = id;
+      }
+    }
+  }
 };
 </script>
