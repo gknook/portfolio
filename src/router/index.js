@@ -5,6 +5,7 @@ import NoiseMeterPrototype from "/src/pages/NoiseMeter/prototype.vue";
 import Mimi from "/src/pages/Companies/Mimi.vue";
 import FlowDiagram from "/src/pages/Experiments/FlowDiagram.vue";
 import CaseStudies from "/src/pages/CaseStudies/index.vue";
+import SocialRhythm from "/src/pages/CaseStudies/AtiumRhythm/index.vue";
 
 const routes = [
   { path: "/", name: "home", component: Introduction },
@@ -12,6 +13,11 @@ const routes = [
     path: "/case-study/",
     name: "case-study",
     component: CaseStudies
+  },
+  {
+    path: "/case-study/social-rhythm/",
+    name: "social-rhythm",
+    component: SocialRhythm
   },
   {
     path: "/case-study/noise-meter/",
