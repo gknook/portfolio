@@ -44,20 +44,53 @@ const store = new Vuex.Store({
     ]
   },
   mutations: {
+    initializeStore(state) {
+      console.log("initializeStore");
+      if (localStorage.getItem("userProgress") != undefined) {
+        state.userProgress = parseInt(localStorage.getItem("userProgress"));
+      }
+      if (localStorage.getItem("achievementsArray") != undefined) {
+        try {
+          state.achievements = JSON.parse(
+            localStorage.getItem("achievementsArray")
+          );
+        } catch (e) {
+          localStorage.removeItem("achievementsArray");
+        }
+      } else {
+        localStorage.setItem(
+          "achievementsArray",
+          JSON.stringify(state.achievements)
+        );
+      }
+    },
     increment(state) {
       state.count++;
     },
     increaseProgress(state, value) {
-      state.userProgress = value;
+      let currentProgress = parseInt(state.userProgress);
+      let newProgress = parseInt(value) + currentProgress;
+      state.userProgress = newProgress;
+      console.log("increase progress", newProgress);
     },
     updateAchievements(state, acvId) {
-      let achievementsArray = state.achievements;
+      let achievementsArray = JSON.parse(
+        localStorage.getItem("achievementsArray")
+      );
       let achievementIndex = achievementsArray.findIndex(i => i.acvId == acvId);
       if (achievementsArray[achievementIndex].acvAchieved != true) {
         achievementsArray[achievementIndex].acvAchieved = true;
-        state.userProgress += achievementsArray[achievementIndex].acvPoints;
+        let currentProgress = state.userProgress;
+        let newProgress =
+          achievementsArray[achievementIndex].acvPoints + currentProgress;
+        state.userProgress = newProgress;
+        localStorage.setItem("userProgress", newProgress);
       }
       state.achievements = achievementsArray;
+      localStorage.setItem(
+        "achievementsArray",
+        JSON.stringify(achievementsArray)
+      );
     }
   },
   getters: {

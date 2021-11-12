@@ -20,7 +20,10 @@
 import NavBar from "./components/NavBar.vue";
 export default {
   name: "app",
-  components: { NavBar }
+  components: { NavBar },
+  beforeCreate() {
+    this.$store.commit("initializeStore");
+  }
 };
 
 // This starter template is using Vue 3 experimental <script setup> SFCs

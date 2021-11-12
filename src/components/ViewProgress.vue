@@ -118,13 +118,21 @@ export default {
   },
   watch: {
     achievementsGained(newVal, oldVal) {
-      // console.log(`new value: ${newVal}, old value: ${oldVal}`);
-      for (let newAchievement of newVal) {
-        if (oldVal.indexOf(newAchievement) === -1) {
-          this.shownAchievementTitle = newAchievement.acvTitle;
+      // console.log(
+      //   `new value: ${JSON.stringify(newVal)}, old value: ${JSON.stringify(
+      //     oldVal
+      //   )}`
+      // );
+      if (JSON.stringify(newVal) === JSON.stringify(oldVal)) {
+        return;
+      } else {
+        for (let newAchievement of newVal) {
+          if (oldVal.indexOf(newAchievement) === -1) {
+            this.shownAchievementTitle = newAchievement.acvTitle;
+          }
         }
+        this.showNewAchievement();
       }
-      this.showNewAchievement();
     }
   }
 };
