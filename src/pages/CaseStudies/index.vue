@@ -105,7 +105,8 @@ export default {
         },
         {
           title: "Atium's social schedule",
-          status: "soon",
+          name: "social-rhythm",
+          status: "WIP",
           description:
             "Increase retention of the platform by scheduling a rhythm of activities.",
           company: "Atium",
@@ -118,7 +119,7 @@ export default {
             "Design",
             "Implementation"
           ],
-          active: false
+          active: true
         },
         {
           title: "Atium's 'two truths, one lie' game",

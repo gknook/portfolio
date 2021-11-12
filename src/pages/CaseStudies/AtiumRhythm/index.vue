@@ -12,7 +12,7 @@
           Social Rhythm
         </h1>
         <div class="text-indigo-50 sm:text-lg text-md flex items-end">
-          <span class="mb-0">2017 - </span>
+          <span class="mb-0">2020 - </span>
           <div class="mx-2 rounded-lg">
             <img
               src="/src/assets/company_logos/atium_logo_dark_fin_simple@4x.png"
@@ -28,9 +28,10 @@
         activities were being played, but it was very much a one-off experience
         for most. Our vision was, and to this date is, to help build true
         connections in remote teams. So a one-off experience, albeit helpful,
-        doesn't make the lasting change we thought our customers were looking
-        for. So we set out to discover how we might inject our activities into
-        the weekly rhythm that teams already had.</paragraph-content
+        doesn't establish the lasting change we thought our customers were
+        looking for. That's when we set out to discover how we might inject our
+        activities into the weekly rhythm that teams already
+        had.</paragraph-content
       >
     </div>
 
@@ -49,9 +50,9 @@
       <paragraph-header id="team">Team</paragraph-header>
       <paragraph-content>
         I worked together with my two co-founders on this, where Mario mainly
-        helped me conduct the research in talking to customers, and Giannis
-        built part of the front-end and the whole back-end (including the Slack
-        integration).
+        helped me conduct the research by joining customer conversations,
+        Giannis built part of the front-end and the back-end (including the
+        Slack integration).
       </paragraph-content>
 
       <paragraph-header id="problem">Problem</paragraph-header>
@@ -79,16 +80,16 @@
         their weekly rhythms?</q
       >
       <paragraph-content>
-        Talking to (potential) users, we learned that although they saw the need
-        and use for play to create connections, they had trouble
+        Talking to (potential) users, we learned that, although they saw the
+        need and use for play to create connections, they had trouble
         operationalizing that into their teams. Many team leads would schedule a
-        remote event now and then, had fun but the moved on. At the same time we
-        did learn about some leads who used our and others activities in a more
-        regular way, either adding them to the beginning of meetings or setting
-        up regular social moments for their team to get to know each other and
-        have fun. They however indicated that this whole process was quite a
-        pain in the ass, and that after a few weeks of doing this well, the
-        excitement wore off and it was hard to maintain the effort.
+        remote event now and then, had fun but they moved on. At the same time
+        we did learn about some leads who used our and others activities in a
+        more regular way, either adding them to the beginning of meetings or
+        setting up regular social moments for their team to get to know each
+        other and have fun. They, however, indicated that this whole process was
+        quite a pain in the ass, and that after a few weeks of doing this well,
+        the excitement wore off and it was hard to maintain the effort.
       </paragraph-content>
 
       <paragraph-content
