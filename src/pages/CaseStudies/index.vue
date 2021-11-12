@@ -26,7 +26,6 @@
   </div>
 </template>
 <script>
-// import { gsap } from "gsap";
 import CaseStudyCard from "/src/components/organisms/CaseStudyCard.vue";
 
 export default {
