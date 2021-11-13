@@ -14,10 +14,10 @@
         <div class="text-indigo-50 sm:text-lg text-md flex items-end">
           <span class="mb-0">2020 - </span>
           <div class="mx-2 rounded-lg">
-            <img
-              src="/src/assets/company_logos/atium_logo_dark_fin_simple@4x.png"
+            <!-- <img
+              src="/src/assets/company_logos/atium_logo_dark.png"
               class="h-10"
-            />
+            /> -->
           </div>
           <span class="mb-0"> - Product Manager / Designer</span>
         </div>
