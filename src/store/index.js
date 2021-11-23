@@ -45,11 +45,6 @@ const store = new Vuex.Store({
   },
   mutations: {
     initializeStore(state) {
-      console.log("initializeStore");
-      if (localStorage.getItem("userProgress") != undefined) {
-        // Initialize the current user progress based on what's in the local storage
-        state.userProgress = parseInt(localStorage.getItem("userProgress"));
-      }
       if (localStorage.getItem("achievementsArray") != undefined) {
         // Initialize the achievements gained based on what's in the local storage
         try {
@@ -66,38 +61,41 @@ const store = new Vuex.Store({
         );
       }
     },
-    // increaseProgress(state, value) {
-    //   let currentProgress = parseInt(state.userProgress);
-    //   let newProgress = parseInt(value) + currentProgress;
-    //   state.userProgress = newProgress;
-    // },
     updateAchievements(state, acvId) {
+      // Parse the Achievements array JSON and store it locally
       let achievementsArray = JSON.parse(
         localStorage.getItem("achievementsArray")
       );
-      // Parse the Achievements array JSON and store it locally
-      let achievementIndex = achievementsArray.findIndex(i => i.acvId == acvId);
       // Check what the index is of the achievement we're updating
+      let achievementIndex = achievementsArray.findIndex(i => i.acvId == acvId);
+      // If the achievement has not yet been achieved
       if (achievementsArray[achievementIndex].acvAchieved != true) {
-        // If the achievement has not yet been achieved do this
-        achievementsArray[achievementIndex].acvAchieved = true;
         // Set the achievement.achieved to true
-        let currentProgress = state.userProgress;
-        let newProgress =
-          achievementsArray[achievementIndex].acvPoints + currentProgress;
-        // Set the total progress
-        state.userProgress = newProgress;
-        // In the store
-        localStorage.setItem("userProgress", newProgress);
-        // And in local storage
+        achievementsArray[achievementIndex].acvAchieved = true;
       }
-      state.achievements = achievementsArray;
       // Update the achievements in the store
+      state.achievements = achievementsArray;
+      // And on local storage
       localStorage.setItem(
         "achievementsArray",
         JSON.stringify(achievementsArray)
       );
-      // And on local storage
+
+      // Filter the array for achieved achievements
+      let achievedArray = achievementsArray.filter(
+        achievement => achievement.acvAchieved === true
+      );
+
+      // set the progress to 0
+      let progress = 0;
+      for (let achievement of achievedArray) {
+        // add the points for each achievement that was achieved
+        progress += achievement.acvPoints;
+      }
+      // set the progress in the store
+      state.userProgress = progress;
+      // set the progress locally
+      localStorage.setItem("userProgress", progress);
     }
   },
   getters: {
@@ -110,11 +108,6 @@ const store = new Vuex.Store({
     achievementsGained(state) {
       return state.achievements.filter(a => a.acvAchieved === true);
     }
-  },
-  actions: {
-    // increaseProgress({ commit }, value) {
-    //   commit("increaseProgress", value);
-    // }
   }
 });
 
