@@ -6,6 +6,7 @@ import Mimi from "/src/pages/Companies/Mimi.vue";
 import FlowDiagram from "/src/pages/Experiments/FlowDiagram.vue";
 import CaseStudies from "/src/pages/CaseStudies/index.vue";
 import SocialRhythm from "/src/pages/CaseStudies/AtiumRhythm/index.vue";
+import AllAchievements from "/src/components/organisms/AllAchievements.vue";
 
 const routes = [
   { path: "/", name: "home", component: Introduction },
@@ -33,12 +34,17 @@ const routes = [
     path: "/companies/mimi/",
     name: "Mimi",
     component: Mimi
-  },
-  {
-    path: "/experiments/flow-diagram/",
-    name: "flow-diagram",
-    component: FlowDiagram
   }
+  // {
+  //   path: "/experiments/flow-diagram/",
+  //   name: "flow-diagram",
+  //   component: FlowDiagram
+  // },
+  // {
+  //   path: "/experiments/all-achievements/",
+  //   name: "all-achievements",
+  //   component: AllAchievements
+  // }
 ];
 
 const router = createRouter({
