@@ -37,6 +37,9 @@ export default {
   },
   methods: {
     showNewAchievement() {
+      document
+        .getElementById("new-achievement-container")
+        .classList.remove("hidden");
       this.achievementTimeline.play(0);
     }
   }

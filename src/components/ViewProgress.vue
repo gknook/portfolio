@@ -74,17 +74,8 @@
       @remove-achievements="removeAchievements"
     />
     <div
-      class="
-        absolute
-        achievement
-        top-0
-        right-0
-        w-full
-        -mt-16
-        z-10
-        opacity-0
-        px-1
-      "
+      class="absolute achievement top-0 right-0 w-full -mt-16 z-10 hidden px-1"
+      id="new-achievement-container"
     >
       <div
         class="
