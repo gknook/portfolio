@@ -35,9 +35,17 @@
       {{ exploredPercentage }}%
     </div>
     <div class="flex-grow">
-      <span class="font-semibold mb-1 text-white block"
-        >You've explored {{ exploredPercentage }}%</span
-      >
+      <div class="flex justify-between">
+        <span class="font-semibold mb-1 text-white block"
+          >You've explored {{ exploredPercentage }}%</span
+        >
+        <button
+          class="px-4 py-1 bg-pink-200 text-pink-900 rounded-lg text-xs mb-1"
+          @click="showAllAchievements"
+        >
+          see all
+        </button>
+      </div>
       <div
         class="
           w-full
@@ -60,33 +68,44 @@
         ></div>
       </div>
     </div>
+    <AllAchievements
+      ref="allAchievements"
+      v-if="allAchievementsShown"
+      @remove-achievements="removeAchievements"
+    />
     <div
       class="
-        achievement
         absolute
+        achievement
         top-0
-        max-w-xs
+        right-0
         w-full
         -mt-16
-        bg-gradient-to-r
-        from-yellow-200
-        to-yellow-400
-        text-yellow-900
-        px-4
-        py-1
-        rounded-full
-        shadow-glow
-        font-semibold
         z-10
         opacity-0
-        flex
-        items-center
+        px-1
       "
     >
-      <div class="text-xl flex-none mr-4">💎</div>
-      <div>
-        <div class="uppercase text-sm -mb-1">Achievement unlocked!</div>
-        <div class="text-lg">{{ shownAchievementTitle }}</div>
+      <div
+        class="
+          bg-gradient-to-r
+          from-yellow-200
+          to-yellow-400
+          text-yellow-900
+          px-4
+          py-1
+          rounded-full
+          shadow-glow
+          font-semibold
+          flex
+          items-center
+        "
+      >
+        <div class="text-xl flex-none mr-4">💎</div>
+        <div>
+          <div class="uppercase text-sm -mb-1">Achievement unlocked!</div>
+          <div class="text-lg">{{ shownAchievementTitle }}</div>
+        </div>
       </div>
     </div>
   </div>
@@ -94,13 +113,16 @@
 <script>
 import { mapGetters, mapMutations } from "vuex";
 import achievementAnimation from "/src/mixins/achievementAnimation.js";
+import AllAchievements from "/src/components/organisms/AllAchievements.vue";
 
 export default {
   name: "view-progress",
   mixins: [achievementAnimation],
+  components: { AllAchievements },
   data() {
     return {
-      shownAchievementTitle: null
+      shownAchievementTitle: null,
+      allAchievementsShown: false
     };
   },
   computed: {
@@ -115,7 +137,14 @@ export default {
     }
   },
   methods: {
-    ...mapMutations(["updateAchievements"])
+    ...mapMutations(["updateAchievements"]),
+    showAllAchievements() {
+      this.allAchievementsShown = true;
+      setTimeout(() => this.$refs.allAchievements.playAnimation(), 100);
+    },
+    removeAchievements() {
+      this.allAchievementsShown = false;
+    }
   },
   watch: {
     achievementsGained(newVal, oldVal) {
