@@ -110,28 +110,29 @@ export default {
     }
   },
   mounted() {
-    setTimeout(() => this.updateAchievements("acv-1"), 2000);
+    if (localStorage.getItem("userProgress") == null) {
+      setTimeout(() => this.updateAchievements("acv-1"), 2000);
+    }
   },
   methods: {
-    ...mapMutations(["increaseProgress", "updateAchievements"]),
-    incrementCount() {
-      this.$store.dispatch("incrementAction");
-    }
+    ...mapMutations(["updateAchievements"])
   },
   watch: {
     achievementsGained(newVal, oldVal) {
-      // console.log(
-      //   `new value: ${JSON.stringify(newVal)}, old value: ${JSON.stringify(
-      //     oldVal
-      //   )}`
-      // );
+      console.log(
+        `new value: ${JSON.stringify(newVal)}, old value: ${JSON.stringify(
+          oldVal
+        )}`
+      );
       if (JSON.stringify(newVal) === JSON.stringify(oldVal)) {
         return;
       } else {
-        for (let newAchievement of newVal) {
-          if (oldVal.indexOf(newAchievement) === -1) {
-            this.shownAchievementTitle = newAchievement.acvTitle;
-          }
+        let newestAchievement = sessionStorage.getItem("acv-id");
+        if (oldVal.findIndex(x => x.acvId === newestAchievement) === -1) {
+          let newTitle = newVal.find(
+            x => x.acvId === newestAchievement
+          ).acvTitle;
+          this.shownAchievementTitle = newTitle;
         }
         this.showNewAchievement();
       }

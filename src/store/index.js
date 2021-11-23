@@ -51,6 +51,7 @@ const store = new Vuex.Store({
           state.achievements = JSON.parse(
             localStorage.getItem("achievementsArray")
           );
+          state.userProgress = localStorage.getItem("userProgress");
         } catch (e) {
           localStorage.removeItem("achievementsArray");
         }
@@ -62,6 +63,8 @@ const store = new Vuex.Store({
       }
     },
     updateAchievements(state, acvId) {
+      // Save the last achievement gained to the session storage
+      sessionStorage.setItem("acv-id", acvId);
       // Parse the Achievements array JSON and store it locally
       let achievementsArray = JSON.parse(
         localStorage.getItem("achievementsArray")
