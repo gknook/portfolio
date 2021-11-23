@@ -150,11 +150,11 @@ export default {
   },
   watch: {
     achievementsGained(newVal, oldVal) {
-      console.log(
-        `new value: ${JSON.stringify(newVal)}, old value: ${JSON.stringify(
-          oldVal
-        )}`
-      );
+      // console.log(
+      //   `new value: ${JSON.stringify(newVal)}, old value: ${JSON.stringify(
+      //     oldVal
+      //   )}`
+      // );
       if (JSON.stringify(newVal) === JSON.stringify(oldVal)) {
         return;
       } else {
