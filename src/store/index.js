@@ -110,6 +110,9 @@ const store = new Vuex.Store({
     },
     achievementsGained(state) {
       return state.achievements.filter(a => a.acvAchieved === true);
+    },
+    achievements(state) {
+      return state.achievements;
     }
   }
 });
