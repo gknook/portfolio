@@ -15,7 +15,7 @@
       flex-none
     "
   >
-    <div
+    <!-- <div
       class="
         w-12
         h-12
@@ -23,7 +23,8 @@
         border-2 border-purple-300
         bg-gradient-to-br
         from-purple-200
-        to-pink-300
+        via-pink-300
+        to-yellow-500
         mr-2
         flex-none flex
         items-center
@@ -33,22 +34,26 @@
       @click="updateAchievements('acv-2')"
     >
       {{ exploredPercentage }}%
-    </div>
+    </div> -->
     <div class="flex-grow">
       <div class="flex justify-between">
-        <span class="font-semibold mb-1 text-white block"
-          >You've explored {{ exploredPercentage }}%</span
+        <span
+          class="font-semibold mb-2 text-white block"
+          @click="updateAchievements('acv-2')"
+          >You explored {{ exploredPercentage }}%</span
         >
         <button
           class="
             px-4
             py-1
-            bg-pink-200
+            bg-gradient-to-br
+            from-purple-100
+            to-yellow-300
             hover:bg-pink-300
             text-pink-900
             rounded-lg
             text-xs
-            mb-1
+            mb-2
             font-semibold
             tracking-wide
             transform
@@ -74,7 +79,8 @@
           class="
             bg-gradient-to-br
             from-purple-200
-            to-pink-300
+            via-pink-300
+            to-yellow-500
             h-full
             rounded-r-full
           "

@@ -8,37 +8,37 @@ const store = new Vuex.Store({
       {
         acvTitle: "Found my portfolio!",
         acvId: "acv-1",
-        acvPoints: 3,
+        acvPoints: 5,
         acvAchieved: false
       },
       {
         acvTitle: "Found hidden debug button",
         acvId: "acv-2",
-        acvPoints: 2,
+        acvPoints: 5,
         acvAchieved: false
       },
       {
         acvTitle: "Get to know Guido",
         acvId: "acv-3",
-        acvPoints: 5,
+        acvPoints: 10,
         acvAchieved: false
       },
-      // {
-      //   acvTitle: "Explored case studies",
-      //   acvId: "acv-4",
-      //   acvPoints: 5,
-      //   acvAchieved: false
-      // },
+      {
+        acvTitle: "Explored case studies",
+        acvId: "acv-4",
+        acvPoints: 15,
+        acvAchieved: false
+      },
       {
         acvTitle: "Noise meter - old prototype",
         acvId: "acv-5",
-        acvPoints: 10,
+        acvPoints: 25,
         acvAchieved: false
       },
       {
         acvTitle: "Noise meter - new prototype",
         acvId: "acv-6",
-        acvPoints: 20,
+        acvPoints: 40,
         acvAchieved: false
       }
     ]
