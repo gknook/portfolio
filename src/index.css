@@ -59,4 +59,5 @@
 #navigation .router-link-active {
   @apply text-indigo-50 bg-pink-600;
 }
+
 @tailwind utilities;

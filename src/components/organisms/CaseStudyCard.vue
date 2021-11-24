@@ -3,18 +3,20 @@
     v-if="caseStudy.active"
     :to="{ name: caseStudy.name }"
     class="
+      shadow-card-glow
       bg-gradient-to-tl
       from-gray-900
       to-gray-700
-      border-4 border-pink-600
       p-6
       rounded-3xl
       mb-4
-      shadow-xl
       block
     "
     :class="[
-      { 'cursor-pointer perspective-left hover:shadow-2xl': caseStudy.active }
+      {
+        'cursor-pointer perspective-left hover:shadow-card-glow-grow transition-shadow duration-400':
+          caseStudy.active
+      }
     ]"
   >
     <div class="flex justify-between items-start">
@@ -56,17 +58,17 @@
     <p class="mb-4 text-gray-200 text-lg">
       {{ caseStudy.description }}
     </p>
-    <ul class="text-gray-200 mb-4 sm:flex">
-      <li class="mr-2 font-semibold flex items-center sm:mb-0 mb-2">
+    <ul class="text-gray-200 mb-4 md:flex">
+      <li class="mr-2 font-semibold flex items-center md:mb-0 mb-2">
         <briefcase-icon class="mr-2 flex-none"></briefcase-icon>
         {{ caseStudy.company }}
       </li>
-      <li class="mr-2 sm:block hidden">•</li>
-      <li class="font-semibold flex items-center mr-2 sm:mb-0 mb-2">
+      <li class="mr-2 md:block hidden">•</li>
+      <li class="font-semibold flex items-center mr-2 md:mb-0 mb-2">
         <user-icon class="mr-2 flex-none"></user-icon>
         {{ caseStudy.role }}
       </li>
-      <li class="mr-2 sm:block hidden">•</li>
+      <li class="mr-2 md:block hidden">•</li>
       <li class="font-semibold flex items-center">
         <calendar-icon class="mr-2 flex-none"></calendar-icon>
         {{ caseStudy.year }}
@@ -147,17 +149,17 @@
     <p class="mb-4 text-gray-200 text-lg">
       {{ caseStudy.description }}
     </p>
-    <ul class="text-gray-200 mb-4 sm:flex">
-      <li class="mr-2 font-semibold flex items-center sm:mb-0 mb-2">
+    <ul class="text-gray-200 mb-4 md:flex">
+      <li class="mr-2 font-semibold flex items-center md:mb-0 mb-2">
         <briefcase-icon class="mr-2 flex-none"></briefcase-icon>
         {{ caseStudy.company }}
       </li>
-      <li class="mr-2 sm:block hidden">•</li>
-      <li class="font-semibold flex items-center mr-2 sm:mb-0 mb-2">
+      <li class="mr-2 md:block hidden">•</li>
+      <li class="font-semibold flex items-center mr-2 md:mb-0 mb-2">
         <user-icon class="mr-2 flex-none"></user-icon>
         {{ caseStudy.role }}
       </li>
-      <li class="mr-2 sm:block hidden">•</li>
+      <li class="mr-2 md:block hidden">•</li>
       <li class="font-semibold flex items-center">
         <calendar-icon class="mr-2 flex-none"></calendar-icon>
         {{ caseStudy.year }}
