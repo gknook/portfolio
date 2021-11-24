@@ -19,7 +19,7 @@
       }
     ]"
   >
-    <div class="flex justify-between items-start">
+    <div class="flex justify-between items-start space-x-4">
       <h3 class="text-indigo-50 sm:text-2xl text-lg font-bold mb-2">
         {{ caseStudy.title }}
       </h3>
@@ -110,7 +110,7 @@
       block
     "
   >
-    <div class="flex justify-between items-start">
+    <div class="flex justify-between items-start space-x-4">
       <h3 class="text-indigo-50 sm:text-2xl text-lg font-bold mb-2">
         {{ caseStudy.title }}
       </h3>

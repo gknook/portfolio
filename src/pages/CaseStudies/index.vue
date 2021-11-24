@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-wrap p-6 mx-auto w-full my-12">
+  <div class="flex flex-wrap p-6 mx-auto w-full">
     <div
       id="introduction"
       class="mb-8 md:px-12 sm:px-6 w-full max-w-screen-md mx-auto"
@@ -27,6 +27,7 @@
 </template>
 <script>
 import CaseStudyCard from "/src/components/organisms/CaseStudyCard.vue";
+import { mapMutations } from "vuex";
 
 export default {
   name: "case-study",
@@ -153,6 +154,28 @@ export default {
     activeCaseStudies() {
       let activeCaseStudies = this.sortedCaseStudies.filter(a => a.active);
       return activeCaseStudies;
+    }
+  },
+  mounted() {
+    this.scroll();
+  },
+  methods: {
+    ...mapMutations(["updateAchievements"]),
+    scroll() {
+      window.onscroll = () => {
+        let bottomOfWindow =
+          Math.max(
+            window.pageYOffset,
+            document.documentElement.scrollTop,
+            document.body.scrollTop
+          ) +
+            window.innerHeight ===
+          document.documentElement.offsetHeight;
+
+        if (bottomOfWindow) {
+          this.updateAchievements("acv-4");
+        }
+      };
     }
   }
 };

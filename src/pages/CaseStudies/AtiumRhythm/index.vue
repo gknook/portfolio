@@ -1,5 +1,5 @@
 <template>
-  <div class="p-6 mx-auto w-full my-12">
+  <div class="p-6 mx-auto w-full">
     <div
       id="introduction"
       class="md:px-12 sm:px-6 w-full max-w-screen-md mx-auto"

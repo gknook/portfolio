@@ -1,17 +1,18 @@
 <template>
   <div class="flex sm:flex-row flex-col sm:pl-2 sm:pt-0 pt-2 relative">
     <NavBar />
-
     <div
       class="
-        min-h-portfolio
+        min-h-screen
+        sm:rounded-none
+        rounded-t-3xl
         flex flex-grow
         bg-gray-800
-        rounded-3xl
-        m-2
+        mx-2
         relative
         lg:overflow-hidden
         pb-20
+        pt-4
       "
     >
       <router-view></router-view>

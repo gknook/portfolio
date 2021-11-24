@@ -1,5 +1,5 @@
 <template>
-  <div class="p-6 mx-auto w-full my-12">
+  <div class="p-6 mx-auto w-full">
     <div
       id="introduction"
       class="mb-8 md:px-12 sm:px-6 w-full max-w-screen-md mx-auto"
@@ -24,7 +24,11 @@
     </div>
     <div class="mb-8 md:px-12 sm:px-6 w-full max-w-screen-md mx-auto">
       <TabBox />
-
+    </div>
+    <div class="mb-8 md:px-12 sm:px-6 w-full max-w-screen-md mx-auto">
+      <h3 class="text-indigo-50 sm:text-xl text-lg font-bold mb-4">
+        This portfolio
+      </h3>
       <p class="text-indigo-50 mb-2">
         In this portfolio I'm currently building out case-studies so that you
         can get an idea of how I think and work.
@@ -32,8 +36,8 @@
 
       <p class="text-indigo-50 mb-40">
         <em>
-          p.s. If your company also has a name with 5 or less characters, let's
-          talk.</em
+          p.s. If your company also has a name of 5 characters or less, let's
+          talk ;).</em
         >
       </p>
     </div>
