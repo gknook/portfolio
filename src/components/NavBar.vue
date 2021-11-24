@@ -20,23 +20,36 @@
         "
       >
         <li>
-          <router-link :to="{ name: 'home' }" class="nav-item">
+          <router-link :to="{ name: 'home' }" class="nav-item" title="home">
             <home-icon class="w-8 h-8"></home-icon>
           </router-link>
         </li>
         <li>
-          <router-link :to="{ name: 'case-study' }" class="nav-item">
+          <router-link
+            :to="{ name: 'case-study' }"
+            class="nav-item"
+            title="case studies"
+          >
             <briefcase-icon class="w-8 h-8"></briefcase-icon>
           </router-link>
         </li>
+        <!-- <li>
+          <router-link
+            :to="{ name: 'case-study' }"
+            class="nav-item"
+            title="process"
+          >
+            <cpu-icon class="w-8 h-8"></cpu-icon>
+          </router-link>
+        </li> -->
       </ul>
     </div>
   </div>
 </template>
 <script>
-import { HomeIcon, BriefcaseIcon } from "@zhuowenli/vue-feather-icons";
+import { HomeIcon, BriefcaseIcon, CpuIcon } from "@zhuowenli/vue-feather-icons";
 export default {
   name: "navbar",
-  components: { HomeIcon, BriefcaseIcon }
+  components: { HomeIcon, BriefcaseIcon, CpuIcon }
 };
 </script>
