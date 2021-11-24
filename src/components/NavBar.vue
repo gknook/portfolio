@@ -1,68 +1,42 @@
 <template>
-  <div
-    class="
-      fixed
-      p-4
-      bottom-0
-      w-full
-      bg-gradient-to-t
-      from-gray-800
-      to-transparent
-      z-50
-      flex flex-wrap
-      items-center
-      justify-end
-    "
-  >
-    <ul class="flex justify-end mr-12" id="navigation">
-      <li>
-        <router-link
-          :to="{ name: 'home' }"
-          class="
-            hover:bg-gray-800
-            px-6
-            py-4
-            font-semibold
-            text-white
-            tracking-wide
-            m-2
-            transition-all
-            duration-500
-            border-white border-b-2
-            block
-          "
-        >
-          Home
-        </router-link>
-      </li>
-      <li>
-        <router-link
-          :to="{ name: 'case-study' }"
-          class="
-            hover:bg-gray-800
-            px-6
-            py-4
-            font-semibold
-            text-white
-            tracking-wide
-            m-2
-            transition-all
-            duration-500
-            hover:border-gray-200
-            border-gray-700 border-b-2
-            block
-          "
-        >
-          Case studies
-        </router-link>
-      </li>
-    </ul>
-    <ViewProgress />
+  <div class="relative sm:w-16 w-full sm:h-full h-16 sm:mt-8 sm:mx-0 flex-none">
+    <div class="fixed sm:w-auto w-full sm:px-0 px-4 z-30" id="navigation">
+      <ul
+        class="
+          z-30
+          rounded-3xl
+          sm:bg-none
+          bg-gradient-to-br
+          from-pink-800
+          to-pink-700
+          flex
+          sm:flex-col
+          flex-row
+          items-center
+          sm:space-y-8 sm:space-x-0 sm:py-0
+          py-2
+          space-x-4
+          px-2
+        "
+      >
+        <li>
+          <router-link :to="{ name: 'home' }" class="nav-item">
+            <home-icon class="w-8 h-8"></home-icon>
+          </router-link>
+        </li>
+        <li>
+          <router-link :to="{ name: 'case-study' }" class="nav-item">
+            <briefcase-icon class="w-8 h-8"></briefcase-icon>
+          </router-link>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 <script>
-import ViewProgress from "/src/components/ViewProgress.vue";
+import { HomeIcon, BriefcaseIcon } from "@zhuowenli/vue-feather-icons";
 export default {
-  components: { ViewProgress }
+  name: "navbar",
+  components: { HomeIcon, BriefcaseIcon }
 };
 </script>

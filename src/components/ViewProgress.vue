@@ -1,7 +1,7 @@
 <template>
   <div
     class="
-      max-w-sm
+      sm:max-w-sm
       w-full
       bg-gray-700
       p-4
@@ -40,7 +40,20 @@
           >You've explored {{ exploredPercentage }}%</span
         >
         <button
-          class="px-4 py-1 bg-pink-200 text-pink-900 rounded-lg text-xs mb-1"
+          class="
+            px-4
+            py-1
+            bg-pink-200
+            hover:bg-pink-300
+            text-pink-900
+            rounded-lg
+            text-xs
+            mb-1
+            font-semibold
+            tracking-wide
+            transform
+            hover:-translate-y-px
+          "
           @click="showAllAchievements"
         >
           see all

@@ -17,7 +17,8 @@ module.exports = {
       opacity: ["disabled"],
       cursor: ["disabled"],
       height: ["hover", "focus"],
-      width: ["hover", "focus"]
+      width: ["hover", "focus"],
+      translate: ["hover", "focus"]
     }
   },
   plugins: []

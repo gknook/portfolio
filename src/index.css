@@ -52,7 +52,11 @@
 
 @tailwind components;
 
+#navigation .nav-item {
+  @apply hover:bg-pink-100 p-2 text-pink-50 hover:text-pink-800 transition-all duration-200 block rounded-2xl;
+}
+
 #navigation .router-link-active {
-  @apply border-b-2 border-pink-600;
+  @apply text-indigo-50 bg-pink-600;
 }
 @tailwind utilities;

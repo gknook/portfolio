@@ -1,26 +1,31 @@
 <template>
-  <div
-    class="
-      min-h-portfolio
-      flex flex-grow
-      bg-gray-800
-      rounded-3xl
-      m-2
-      relative
-      lg:overflow-hidden
-      pb-20
-    "
-  >
-    <router-view></router-view>
+  <div class="flex sm:flex-row flex-col sm:pl-2 sm:pt-0 pt-2 relative">
+    <NavBar />
+
+    <div
+      class="
+        min-h-portfolio
+        flex flex-grow
+        bg-gray-800
+        rounded-3xl
+        m-2
+        relative
+        lg:overflow-hidden
+        pb-20
+      "
+    >
+      <router-view></router-view>
+    </div>
   </div>
-  <NavBar />
+  <ProgressBar />
 </template>
 
 <script>
+import ProgressBar from "./components/organisms/ProgressBar.vue";
 import NavBar from "./components/NavBar.vue";
 export default {
   name: "app",
-  components: { NavBar },
+  components: { ProgressBar, NavBar },
   beforeCreate() {
     this.$store.commit("initializeStore");
   }
