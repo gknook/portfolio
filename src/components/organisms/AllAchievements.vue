@@ -1,23 +1,40 @@
 <template>
   <div
     id="all-achievement-container"
-    class="w-full z-10 px-1 mb-20 absolute bottom-0 right-0 hidden"
+    class="
+      w-full
+      z-10
+      px-1
+      mb-20
+      absolute
+      bottom-0
+      right-0
+      hidden
+      overflow-visible
+      pt-8
+    "
   >
-    <x-circle-icon
+    <div
       class="
-        text-white
-        h-6
+        x-circle
         w-6
-        mb-2
-        ml-auto
+        h-6
+        overflow-visible
         shadow-glow
         rounded-full
+        ml-auto
         opacity-0
-        x-circle
-        cursor-pointer
+        mb-2
+        flex
+        items-center
+        justify-center
       "
-      @click="closeList"
-    ></x-circle-icon>
+    >
+      <x-circle-icon
+        class="text-white x-circle cursor-pointer overflow-visible w-6 h-6"
+        @click="closeList"
+      ></x-circle-icon>
+    </div>
     <div
       v-for="(achievement, index) in achievements"
       :key="index"
