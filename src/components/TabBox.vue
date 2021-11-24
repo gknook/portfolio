@@ -29,7 +29,7 @@
       </div>
     </li>
   </ul>
-  <div v-if="activeTopic" class="h-40 overflow-visible">
+  <div v-if="activeTopic" class="">
     <p class="text-indigo-50 text-lg mb-4" id="topic-text">
       {{ activeTopic[0].description }}
     </p>
