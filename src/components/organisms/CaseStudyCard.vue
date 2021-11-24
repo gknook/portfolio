@@ -29,7 +29,7 @@
           pr-4
           py-1
           font-semibold
-          bg-white
+          bg-gray-900
           rounded-lg
           text-sm
           flex
@@ -37,9 +37,9 @@
           capitalize
         "
         :class="[
-          { 'text-green-900': caseStudy.status == 'published' },
-          { 'text-yellow-900': caseStudy.status == 'WIP' },
-          { 'text-blue-900': caseStudy.status == 'soon' }
+          { 'text-green-100': caseStudy.status == 'published' },
+          { 'text-yellow-100': caseStudy.status == 'WIP' },
+          { 'text-blue-100': caseStudy.status == 'soon' }
         ]"
       >
         <div
@@ -120,7 +120,7 @@
           pr-4
           py-1
           font-semibold
-          bg-white
+          bg-gray-900
           rounded-lg
           text-sm
           flex
@@ -128,9 +128,9 @@
           capitalize
         "
         :class="[
-          { 'text-green-900': caseStudy.status == 'published' },
-          { 'text-yellow-900': caseStudy.status == 'WIP' },
-          { 'text-blue-900': caseStudy.status == 'soon' }
+          { 'text-green-100': caseStudy.status == 'published' },
+          { 'text-yellow-100': caseStudy.status == 'WIP' },
+          { 'text-blue-100': caseStudy.status == 'soon' }
         ]"
       >
         <div
