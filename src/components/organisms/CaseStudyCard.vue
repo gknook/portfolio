@@ -9,7 +9,7 @@
       to-gray-700
       p-6
       rounded-3xl
-      mb-4
+      mb-8
       block
     "
     :class="[

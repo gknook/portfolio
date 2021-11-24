@@ -37,7 +37,7 @@ export default {
         {
           title: "Mimi's new noise meter",
           name: "noise-meter",
-          status: "WIP",
+          status: "published",
           description:
             "Increase the number of people that start a hearing test by making the noise meter work and feel better.",
           company: "Mimi",
@@ -52,7 +52,7 @@ export default {
           description:
             "Design and build a flexible SDK for partners to do a hearing test in their apps.",
           company: "Mimi",
-          role: "Head of Product and Senior Product Manager",
+          role: "Senior Product Manager",
           year: 2019,
           tags: [
             "Mobile (iOS)",
@@ -70,7 +70,7 @@ export default {
             "Create a prototype that showcased our sound processing technology to potential partners in sales meetings.",
           company: "Mimi",
           year: 2019,
-          role: "Head of Product and Senior Product Manager",
+          role: "Senior Product Manager",
           tags: ["Prototyping", "Design", "Sales Enablement", "DSP"],
           active: false
         },
@@ -109,7 +109,7 @@ export default {
           description:
             "Increase retention of the platform by scheduling a rhythm of activities.",
           company: "Atium",
-          role: "Designer, Front-end Dev, Product Manager and CEO",
+          role: "Founder",
           year: 2020,
           tags: [
             "Breadboarding",
@@ -125,7 +125,7 @@ export default {
           status: "soon",
           description: "Create a fun and insightful ice-breaker game.",
           company: "Atium",
-          role: "Game Designer, Front-end Dev",
+          role: "Founder",
           year: 2021,
           tags: [
             "Breadboarding",
@@ -141,10 +141,18 @@ export default {
   },
   computed: {
     sortedCaseStudies() {
-      let sortedCaseStudies = this.caseStudies.sort((a, b) =>
-        a.year > b.year ? 1 : -1
-      );
+      let sortedCaseStudies = this.caseStudies.sort(function (a, b) {
+        if (a.active && !b.active) return -1;
+        if (a.active && b.active) return 0;
+        if (!a.active && b.active) return 1;
+        if (!a.active && !b.active) return 0;
+        a.year > b.year ? 1 : -1;
+      });
       return sortedCaseStudies;
+    },
+    activeCaseStudies() {
+      let activeCaseStudies = this.sortedCaseStudies.filter(a => a.active);
+      return activeCaseStudies;
     }
   }
 };
