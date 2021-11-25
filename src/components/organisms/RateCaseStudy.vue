@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gray-900 w-full max-w-md rounded-xl p-6 mb-8">
+  <div class="bg-gray-900 w-full max-w-md rounded-2xl p-6 mb-8">
     <h3 class="font-semibold mb-4 text-gray-50 text-center">
       What did you think of this case study?
     </h3>
@@ -35,30 +35,33 @@
     />
     <div v-if="averageRating && showAverageRating">
       <div class="text-white mb-4 text-center" v-html="ratingAlert"></div>
-      <ul>
-        <li class="mb-4 flex justify-between">
-          <span
-            class="
-              px-2
-              py-1
-              rounded-lg
-              bg-gray-800
-              text-yellow-300
-              font-semibold
-              flex
-              items-center
-            "
-            >Average {{ averageRating }}
-            <star-icon class="flex-none h-4 w-4 ml-2"></star-icon
-          ></span>
-          <span
-            class="px-2 py-1 rounded-lg bg-pink-400 text-gray-900 font-semibold"
-            >{{ numberOfRatings }} ratings</span
-          >
+      <div v-if="numberOfRatings < 5" class="text-white mb-4 text-center">
+        This case study has received too few ratings to show an average. <br />
+        Come back later!
+      </div>
+      <ul v-else>
+        <li
+          class="
+            mb-4
+            flex
+            items-center
+            justify-center
+            space-x-2
+            px-2
+            py-1
+            rounded-xl
+            bg-gray-800
+            text-yellow-50
+            font-semibold
+          "
+        >
+          <span class="">Average {{ averageRating }} </span>
+          <star-icon class="flex-none h-4 w-4 fill-current"></star-icon>
+          <span>out of {{ numberOfRatings }} ratings</span>
         </li>
         <li
           class="flex space-x-2 items-center text-yellow-300 mx-3"
-          v-for="star in 5"
+          v-for="star in stars"
           :key="star"
         >
           <span class="font-semibold w-4 text-yellow-50">{{ star }}</span
@@ -81,7 +84,6 @@
 <script>
 import { StarIcon } from "@zhuowenli/vue-feather-icons";
 import IPhoneButton from "/src/components/atoms/mimiAppAtoms/IPhoneButton.vue";
-import faunadb from "faunadb";
 
 export default {
   name: "rate-case-study",
@@ -93,12 +95,12 @@ export default {
       starRating: { type: Number, default: 0 },
       starPlural: "case study",
       ratingAlert: null,
-      q: faunadb.query,
       client: null,
-      noiseMeterRatings: new Object(),
+      caseStudyRatings: new Object(),
       averageRating: null,
       showAverageRating: false,
-      numberOfRatings: 0
+      numberOfRatings: 0,
+      stars: [5, 4, 3, 2, 1]
     };
   },
   mounted() {},
@@ -127,8 +129,15 @@ export default {
       }
     },
     async runQuery() {
+      let script = "";
+      if (this.caseStudy == "noise-meter") {
+        script = "getNoiseMeterRatings";
+      } else if (this.caseStudy == "atium-rhythm") {
+        script = "getAtiumRhythmRatings";
+      }
+
       try {
-        return await fetch("/.netlify/functions/getNoiseMeterRatings", {
+        return await fetch(`/.netlify/functions/${script}`, {
           headers: { accept: "Accept: application/json" }
         }).then(x => {
           return x.json();
@@ -138,9 +147,9 @@ export default {
       }
     },
     async logRating() {
-      this.noiseMeterRatings = await this.runQuery();
-      // console.log(this.noiseMeterRatings);
-      let ratingsArray = this.noiseMeterRatings;
+      this.caseStudyRatings = await this.runQuery();
+      // console.log(this.caseStudyRatings);
+      let ratingsArray = this.caseStudyRatings;
       let averageRating =
         ratingsArray.reduce((a, b) => parseInt(a) + parseInt(b)) /
         ratingsArray.length;
@@ -193,7 +202,7 @@ export default {
     },
     getPercentageOfRatingsForStar(star) {
       let starRatingArray = new Array();
-      for (let rating of this.noiseMeterRatings) {
+      for (let rating of this.caseStudyRatings) {
         starRatingArray.push(rating);
       }
       starRatingArray = starRatingArray.filter(rating => rating == star);
