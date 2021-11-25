@@ -6,3 +6,5 @@ dist-ssr
 jsconfig.json
 *.png
 *.env
+# Local Netlify folder
+.netlify
