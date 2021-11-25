@@ -96,7 +96,6 @@ export default {
   },
   mounted() {
     this.createClient();
-    // this.logRating();
   },
   computed: {
     buttonCopy() {
