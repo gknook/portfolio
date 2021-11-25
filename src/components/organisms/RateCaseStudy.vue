@@ -70,6 +70,9 @@
         </li>
       </ul>
     </div>
+    <button class="bg-white text-gray-700 px-4 py-1" @click="logRating">
+      Test
+    </button>
   </div>
 </template>
 <script>
@@ -80,6 +83,7 @@ import faunadb from "faunadb";
 export default {
   name: "rate-case-study",
   components: { StarIcon, IPhoneButton },
+  props: ["caseStudy"],
   data() {
     return {
       disableButton: true,
@@ -96,8 +100,6 @@ export default {
   },
   mounted() {
     this.createClient();
-    console.log(import.meta.env.VITE_FAUNADB_SERVER_SECRET);
-    // console.log(process.env.VUE_APP_FAUNADB_SERVER_SECRET);
   },
   computed: {
     buttonCopy() {
@@ -135,39 +137,36 @@ export default {
     },
     async runQuery() {
       try {
-        return await this.client.query(
-          this.q.Paginate(
-            this.q.Match(this.q.Index("average-ratings"), "noise-meter"),
-            {
-              size: 2000
-            }
-          )
-        );
+        return await fetch("/.netlify/functions/getNoiseMeterRatings", {
+          headers: { accept: "Accept: application/json" }
+        }).then(x => {
+          return x.json();
+        });
       } catch (err) {
         console.error("Error: %s", err);
       }
     },
     async logRating() {
       this.noiseMeterRatings = await this.runQuery();
-      // console.log(this.noiseMeterRatings);
-      let ratingsArray = this.noiseMeterRatings.data;
+      console.log(this.noiseMeterRatings);
+      let ratingsArray = this.noiseMeterRatings;
       let averageRating =
         ratingsArray.reduce((a, b) => parseInt(a) + parseInt(b)) /
         ratingsArray.length;
-      // console.log(averageRating);
+      console.log(averageRating);
       this.averageRating = this.roundToTwo(averageRating);
       this.numberOfRatings = ratingsArray.length;
     },
     async submitRatingToDB() {
       try {
-        return await this.client.query(
-          this.q.Create(this.q.Collection("Rating"), {
-            data: {
-              caseStudy: "noise-meter",
-              rating: this.starRating
-            }
-          })
-        );
+        return await fetch("/.netlify/functions/submitRating", {
+          headers: { accept: "Accept: application/json" },
+          body: JSON.stringify({
+            caseStudy: this.caseStudy,
+            rating: this.starRating
+          }),
+          method: "POST"
+        });
       } catch (err) {
         console.error("Error: %s", err);
       }

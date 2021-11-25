@@ -381,7 +381,7 @@
     </div>
     <div class="bg-pink-400 hidden"></div>
     <div class="mx-auto max-w-sm mt-20">
-      <RateCaseStudy />
+      <RateCaseStudy :caseStudy="'noise-meter'" />
     </div>
   </div>
 </template>

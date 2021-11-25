@@ -4,13 +4,14 @@ import vue from "@vitejs/plugin-vue";
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  server: {
+    proxy: {
+      "/.netlify/functions": {
+        target: "http://localhost:8888",
+        changeOrigin: true,
+        rewrite: path => path.replace("^/\\.netlify/functions", "")
+      }
+    }
+  },
   plugins: [vue()]
-  // build: {
-  //   rollupOptions: {
-  //     input: {
-  //       main: resolve(__dirname, "index.html"),
-  //       noiseMeter: resolve(__dirname, "case-study/noise-meter/index.html")
-  //     }
-  //   }
-  // }
 });
