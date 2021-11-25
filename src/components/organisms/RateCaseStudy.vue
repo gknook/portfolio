@@ -96,7 +96,6 @@ export default {
       starRating: { type: Number, default: 0 },
       starPlural: "case study",
       ratingAlert: null,
-      client: null,
       caseStudyRatings: new Object(),
       averageRating: null,
       showAverageRating: false,
@@ -109,7 +108,7 @@ export default {
     this.initLoadingTimeline();
   },
   beforeUnmount() {
-    if (loadingTl != null) {
+    if (this.loadingTl != null) {
       this.loadingTl.kill();
     }
   },
@@ -117,6 +116,8 @@ export default {
     buttonCopy() {
       if (this.disableButton == true) {
         return "Rate case study";
+      } else if (this.ratingAlert != null) {
+        return "...";
       } else {
         return `Rate ${this.starRating} ${this.starPlural}`;
       }
@@ -137,6 +138,9 @@ export default {
           ease: "Power2.inout"
         });
       }
+    },
+    play() {
+      this.loadingTl.play();
     },
     registerHover(ratingName, index) {
       for (let i = 0; i <= index; i++) {
@@ -180,6 +184,8 @@ export default {
       // console.log(averageRating);
       this.averageRating = this.roundToTwo(averageRating);
       this.numberOfRatings = ratingsArray.length;
+      this.loadingTl.progress("0");
+      this.loadingTl.pause();
     },
     async submitRatingToDB() {
       try {
@@ -204,8 +210,6 @@ export default {
       await this.submitRatingToDB();
       await this.logRating();
       this.showAverageRating = true;
-      this.loadingTl.progress("0");
-      this.loadingTl.pause();
     },
     registerRatingClick(ratingName, index) {
       this.disableButton = false;
