@@ -109,7 +109,7 @@ export default {
   methods: {
     createClient() {
       this.client = new faunadb.Client({
-        secret: FAUNADB_SERVER_SECRET,
+        secret: process.env.FAUNADB_SERVER_SECRET,
         domain: "db.eu.fauna.com",
         // NOTE: Use the correct domain for your database's Region Group.
         port: 443,
