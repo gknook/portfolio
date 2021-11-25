@@ -96,7 +96,7 @@ export default {
   },
   mounted() {
     this.createClient();
-    console.log(import.meta.env);
+    console.log(import.meta.env.VITE_FAUNADB_SERVER_SECRET);
     // console.log(process.env.VUE_APP_FAUNADB_SERVER_SECRET);
   },
   computed: {
