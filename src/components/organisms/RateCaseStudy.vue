@@ -96,8 +96,8 @@ export default {
   },
   mounted() {
     this.createClient();
-    // console.log(import.meta.env);
-    console.log(process.env.FAUNADB_SERVER_SECRET);
+    console.log(import.meta.env);
+    // console.log(process.env.VUE_APP_FAUNADB_SERVER_SECRET);
   },
   computed: {
     buttonCopy() {
@@ -112,7 +112,7 @@ export default {
   methods: {
     createClient() {
       this.client = new faunadb.Client({
-        secret: process.env.FAUNADB_SERVER_SECRET,
+        secret: import.meta.env.VITE_FAUNADB_SERVER_SECRET,
         domain: "db.eu.fauna.com",
         // NOTE: Use the correct domain for your database's Region Group.
         port: 443,
