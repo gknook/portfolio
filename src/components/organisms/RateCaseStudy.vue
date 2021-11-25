@@ -84,6 +84,7 @@
 <script>
 import { StarIcon } from "@zhuowenli/vue-feather-icons";
 import IPhoneButton from "/src/components/atoms/mimiAppAtoms/IPhoneButton.vue";
+import { gsap } from "gsap";
 
 export default {
   name: "rate-case-study",
@@ -100,10 +101,18 @@ export default {
       averageRating: null,
       showAverageRating: false,
       numberOfRatings: 0,
-      stars: [5, 4, 3, 2, 1]
+      stars: [5, 4, 3, 2, 1],
+      loadingTl: null
     };
   },
-  mounted() {},
+  mounted() {
+    this.initLoadingTimeline();
+  },
+  beforeUnmount() {
+    if (loadingTl != null) {
+      this.loadingTl.kill();
+    }
+  },
   computed: {
     buttonCopy() {
       if (this.disableButton == true) {
@@ -114,6 +123,21 @@ export default {
     }
   },
   methods: {
+    initLoadingTimeline() {
+      this.loadingTl = gsap.timeline({ repeat: -1 }).pause();
+      for (let i = 0; i < 5; i++) {
+        this.loadingTl.to(`#rating-${i}`, {
+          y: -6,
+          duration: 0.2,
+          ease: "Power3.out"
+        });
+        this.loadingTl.to(`#rating-${i}`, {
+          y: 0,
+          duration: 0.1,
+          ease: "Power2.inout"
+        });
+      }
+    },
     registerHover(ratingName, index) {
       for (let i = 0; i <= index; i++) {
         document
@@ -175,10 +199,13 @@ export default {
       return +(Math.round(num + "e+2") + "e-2");
     },
     async submitRating() {
+      this.loadingTl.play();
       this.ratingAlert = `You rated ${this.starRating} ${this.starPlural}. Thank you for rating!`;
       await this.submitRatingToDB();
       await this.logRating();
       this.showAverageRating = true;
+      this.loadingTl.progress("0");
+      this.loadingTl.pause();
     },
     registerRatingClick(ratingName, index) {
       this.disableButton = false;
