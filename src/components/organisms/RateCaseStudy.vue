@@ -64,15 +64,18 @@
           <span class="font-semibold w-4 text-yellow-50">{{ star }}</span
           ><star-icon class="flex-none h-4 w-4"></star-icon>
           <div class="w-full">
-            <div class="h-1 rounded bg-yellow-200 w-2/3"></div>
+            <div
+              class="h-1 rounded bg-yellow-200"
+              :style="`width: ${getPercentageOfRatingsForStar(star)}%`"
+            ></div>
           </div>
-          <span class="font-semibold text-yellow-50">45%</span>
+          <span class="font-semibold text-yellow-50">{{
+            getPercentageOfRatingsForStar(star)
+          }}</span
+          ><span> %</span>
         </li>
       </ul>
     </div>
-    <button class="bg-white text-gray-700 px-4 py-1" @click="logRating">
-      Test
-    </button>
   </div>
 </template>
 <script>
@@ -98,9 +101,7 @@ export default {
       numberOfRatings: 0
     };
   },
-  mounted() {
-    this.createClient();
-  },
+  mounted() {},
   computed: {
     buttonCopy() {
       if (this.disableButton == true) {
@@ -108,19 +109,9 @@ export default {
       } else {
         return `Rate ${this.starRating} ${this.starPlural}`;
       }
-    },
-    currentSecret() {}
+    }
   },
   methods: {
-    createClient() {
-      this.client = new faunadb.Client({
-        secret: import.meta.env.VITE_FAUNADB_SERVER_SECRET,
-        domain: "db.eu.fauna.com",
-        // NOTE: Use the correct domain for your database's Region Group.
-        port: 443,
-        scheme: "https"
-      });
-    },
     registerHover(ratingName, index) {
       for (let i = 0; i <= index; i++) {
         document
@@ -148,12 +139,12 @@ export default {
     },
     async logRating() {
       this.noiseMeterRatings = await this.runQuery();
-      console.log(this.noiseMeterRatings);
+      // console.log(this.noiseMeterRatings);
       let ratingsArray = this.noiseMeterRatings;
       let averageRating =
         ratingsArray.reduce((a, b) => parseInt(a) + parseInt(b)) /
         ratingsArray.length;
-      console.log(averageRating);
+      // console.log(averageRating);
       this.averageRating = this.roundToTwo(averageRating);
       this.numberOfRatings = ratingsArray.length;
     },
@@ -199,6 +190,17 @@ export default {
             .classList.remove("fill-star");
         }
       }
+    },
+    getPercentageOfRatingsForStar(star) {
+      let starRatingArray = new Array();
+      for (let rating of this.noiseMeterRatings) {
+        starRatingArray.push(rating);
+      }
+      starRatingArray = starRatingArray.filter(rating => rating == star);
+      const percentage = Math.round(
+        (starRatingArray.length / this.numberOfRatings) * 100
+      );
+      return percentage;
     }
   }
 };
