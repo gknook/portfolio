@@ -11,7 +11,6 @@ const client = new faunadb.Client({
 
 exports.handler = (event, context, callback) => {
   // const caseStudy = JSON.parse(event.body);
-  console.log(process.env.FAUNADB_SERVER_SECRET);
 
   return client
     .query(
