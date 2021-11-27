@@ -84,7 +84,7 @@
         need and use for play to create connections, they had trouble
         operationalizing that into their teams. Many team leads would schedule a
         remote event now and then, had fun but they moved on. At the same time
-        we did learn about some leads who used our and others activities in a
+        we did learn about some leads who used our and other activities in a
         more regular way, either adding them to the beginning of meetings or
         setting up regular social moments for their team to get to know each
         other and have fun. They, however, indicated that this whole process was
@@ -93,7 +93,7 @@
       </paragraph-content>
 
       <paragraph-content
-        >Learning that we re-defined our problem statement to focus on helping
+        >Learning that, we re-defined our problem statement to focus on helping
         team leads operationalize those best practices.</paragraph-content
       >
       <label
@@ -117,258 +117,52 @@
         moments in their week that fit their rhythm?</q
       >
       <paragraph-content
-        >The idea being that this would help the team leads that had no clue
-        learn the best practices by being prescriptive about what to do so that
-        in the end they would build connections more effectively, and give the
-        team leads that were already doing this the tools to easily find and
-        schedule the right activities.</paragraph-content
+        >The idea being that this would help the team leads learn the best
+        practices by being prescriptive about what activities to do. In the end
+        this should help them build connections more effectively. While at the
+        same time we gave the team leads that were already doing this the tools
+        to easily find and schedule the right activities.</paragraph-content
       >
 
       <paragraph-header id="funnel">For whom</paragraph-header>
 
       <paragraph-content>
-        As alluded to in the problem statement, the feature was really focused
-        on team leads who care about their team culture and want to help their
-        team work well together by fostering human connections.
+        The feature was focused on team leads who care about their team culture
+        and want to help their team work well together by fostering human
+        connections.
       </paragraph-content>
 
       <paragraph-header id="new-flow">Insights</paragraph-header>
 
       <paragraph-content
-        >During the research and its synthesis we realised that in making this
-        happen as a team lead you have three levels of understanding:
+        >During the research and its synthesis we realised that, in making this
+        happen, team leads have the following understanding:
         <ol class="list-decimal ml-8 my-2">
           <li class="mb-2">
-            You know what meetings you have, and can thus conclude when a social
-            moment would make sense.
+            <span class="font-semibold">Known:</span> They know what meetings
+            they have, and can thus conclude when a social moment would make
+            sense.
           </li>
           <li class="mb-2">
-            You might know what the reasons are for adding social moments.
-            You're generally looking to improve your team's connections, but
-            might not see the full benefits that regularly doing social
-            activities have on your team's ability to effectively work together.
+            <span class="font-semibold">Possibly known:</span> They might know
+            what the reasons are for adding social moments. They're generally
+            looking to improve their team's connections, but might not see the
+            full benefits that regularly doing social activities have on their
+            team's ability to effectively work together.
           </li>
           <li>
-            You don't know what activities you should be doing. It's hard to
-            come up with something week in week out, and out of the many things
-            you have to be good at, picking social activities is not something
-            that you want to excel in.
+            <span class="font-semibold">Mostly unknown:</span>They don't know
+            what activities you should be doing. It's hard to come up with
+            something week in week out, and out of the many things you have to
+            be good at, picking social activities is not something that they
+            want to excel in.
           </li>
         </ol>
       </paragraph-content>
 
       <paragraph-header id="flow">User flow</paragraph-header>
 
-      <div class="relative h-52">
-        <div class="flex items-center space-x-4 absolute left-0 top-0 h-40">
-          <div
-            class="
-              rounded-full
-              text-white
-              border-4 border-gray-700 border-dotted
-              hover:border-indigo-700
-              transition-all
-              duration-200
-              w-52
-              cursor-pointer
-            "
-            @mouseenter="toggleDescription('step-1')"
-            @mouseleave="toggleDescription(null)"
-          >
-            <div
-              class="
-                bg-gray-900
-                hover:bg-indigo-900
-                p-4
-                rounded-full
-                transition-all
-                duration-200
-              "
-            >
-              <div class="text-sm w-full text-center mb-px">Social rhythm</div>
-              <div
-                class="text-xs w-full text-center"
-                :class="[{ hidden: description != 'step-1' }]"
-              >
-                Set up a social rhythm
-              </div>
-            </div>
-          </div>
-          <svg
-            width="62"
-            height="18"
-            viewBox="0 0 62 18"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <circle cx="4.5" cy="9" r="3.5" stroke="#7B61FF" stroke-width="2" />
-            <rect x="8" y="8" width="42" height="2" fill="#7B61FF" />
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M50.7513 0.880336C51.0823 0.446857 51.6906 0.372877 52.1099 0.715097L61.2988 8.2151C61.5311 8.40474 61.6667 8.69393 61.6667 8.99998C61.6667 9.30603 61.5311 9.59522 61.2988 9.78486L52.1099 17.2849C51.6906 17.6271 51.0823 17.5531 50.7513 17.1196C50.4203 16.6861 50.4919 16.0573 50.9111 15.7151L57.9132 9.99998H49.6667C49.6667 9.99998 49.6667 9.55227 49.6667 8.99998C49.6667 8.4477 49.6667 7.99998 49.6667 7.99998H57.9132L50.9111 2.28486C50.4919 1.94264 50.4203 1.31381 50.7513 0.880336Z"
-              fill="#7B61FF"
-            />
-          </svg>
-          <div
-            class="
-              rounded-2xl
-              text-white
-              border-4 border-gray-700 border-dotted
-              hover:border-indigo-700
-              w-52
-              cursor-pointer
-            "
-            @mouseenter="toggleDescription('step-2')"
-            @mouseleave="toggleDescription(null)"
-          >
-            <div
-              class="
-                bg-gray-900
-                hover:bg-indigo-900
-                p-4
-                rounded-xl
-                transition-all
-                duration-200
-              "
-            >
-              <div class="text-sm w-full text-center mb-px">
-                Add a regular meeting
-              </div>
-              <div
-                class="text-xs w-full text-center"
-                :class="[{ hidden: description != 'step-2' }]"
-              >
-                Typically a meeting you already have.
-              </div>
-            </div>
-          </div>
-          <svg
-            width="62"
-            height="18"
-            viewBox="0 0 62 18"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <circle
-              cx="4.5"
-              cy="9"
-              r="3.5"
-              stroke="#7B61FF"
-              stroke-width="2"
-              class="flex-none"
-            />
-            <rect
-              x="8"
-              y="8"
-              width="42"
-              height="2"
-              fill="#7B61FF"
-              class="flex-shrink"
-            />
-            <path
-              class="flex-none"
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M50.7513 0.880336C51.0823 0.446857 51.6906 0.372877 52.1099 0.715097L61.2988 8.2151C61.5311 8.40474 61.6667 8.69393 61.6667 8.99998C61.6667 9.30603 61.5311 9.59522 61.2988 9.78486L52.1099 17.2849C51.6906 17.6271 51.0823 17.5531 50.7513 17.1196C50.4203 16.6861 50.4919 16.0573 50.9111 15.7151L57.9132 9.99998H49.6667C49.6667 9.99998 49.6667 9.55227 49.6667 8.99998C49.6667 8.4477 49.6667 7.99998 49.6667 7.99998H57.9132L50.9111 2.28486C50.4919 1.94264 50.4203 1.31381 50.7513 0.880336Z"
-              fill="#7B61FF"
-            />
-          </svg>
-          <div
-            class="
-              rounded-2xl
-              text-white
-              border-4 border-gray-700 border-dotted
-              hover:border-indigo-700
-              w-52
-              cursor-pointer
-            "
-            @mouseenter="toggleDescription('step-3')"
-            @mouseleave="toggleDescription(null)"
-          >
-            <div
-              class="
-                bg-gray-900
-                hover:bg-indigo-900
-                p-4
-                rounded-xl
-                transition-all
-                duration-200
-              "
-            >
-              <div class="text-sm w-full text-center mb-px">Define length</div>
-              <div
-                class="text-xs w-full text-center"
-                :class="[{ hidden: description != 'step-3' }]"
-              >
-                How much time you spend on the social moment
-              </div>
-            </div>
-          </div>
-          <svg
-            width="62"
-            height="18"
-            viewBox="0 0 62 18"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <circle
-              cx="4.5"
-              cy="9"
-              r="3.5"
-              stroke="#7B61FF"
-              stroke-width="2"
-              class="flex-none"
-            />
-            <rect
-              x="8"
-              y="8"
-              width="42"
-              height="2"
-              fill="#7B61FF"
-              class="flex-shrink"
-            />
-            <path
-              class="flex-none"
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M50.7513 0.880336C51.0823 0.446857 51.6906 0.372877 52.1099 0.715097L61.2988 8.2151C61.5311 8.40474 61.6667 8.69393 61.6667 8.99998C61.6667 9.30603 61.5311 9.59522 61.2988 9.78486L52.1099 17.2849C51.6906 17.6271 51.0823 17.5531 50.7513 17.1196C50.4203 16.6861 50.4919 16.0573 50.9111 15.7151L57.9132 9.99998H49.6667C49.6667 9.99998 49.6667 9.55227 49.6667 8.99998C49.6667 8.4477 49.6667 7.99998 49.6667 7.99998H57.9132L50.9111 2.28486C50.4919 1.94264 50.4203 1.31381 50.7513 0.880336Z"
-              fill="#7B61FF"
-            />
-          </svg>
-          <div
-            class="
-              rounded-full
-              text-white
-              border-4 border-gray-700 border-dotted
-              hover:border-indigo-700
-              w-52
-              cursor-pointer
-            "
-            @mouseenter="toggleDescription('step-4')"
-            @mouseleave="toggleDescription(null)"
-          >
-            <div
-              class="
-                bg-gray-900
-                hover:bg-indigo-900
-                p-4
-                rounded-full
-                transition-all
-                duration-200
-              "
-            >
-              <div class="text-sm w-full text-center mb-px">Receive rhythm</div>
-              <div
-                class="text-xs w-full text-center"
-                :class="[{ hidden: description != 'step-4' }]"
-              >
-                Suggested activities for the regular meeting
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <UserFlowRhythm />
 
       <!-- <RhythmFlow /> -->
 
@@ -394,6 +188,7 @@
 import Hypotheses from "/src/components/hypotheses/Hypotheses.vue";
 import Funnel from "/src/components/Funnel.vue";
 import RhythmFlow from "/src/assets/svg/RhythmFlow.vue";
+import UserFlowRhythm from "/src/components/organisms/UserFlowRhythm.vue";
 import RateCaseStudy from "/src/components/organisms/RateCaseStudy.vue";
 
 import ParagraphHeader from "/src/components/atoms/ParagraphHeader.vue";
@@ -403,26 +198,11 @@ export default {
   components: {
     Hypotheses,
     RhythmFlow,
+    UserFlowRhythm,
     Funnel,
     ParagraphHeader,
     ParagraphContent,
     RateCaseStudy
-  },
-  data() {
-    return {
-      description: null
-    };
-  },
-  mounted() {},
-  computed: {},
-  methods: {
-    toggleDescription(id) {
-      if (this.descript == id) {
-        this.description = null;
-      } else {
-        this.description = id;
-      }
-    }
   }
 };
 </script>
