@@ -166,17 +166,149 @@
 
       <!-- <RhythmFlow /> -->
 
-      <paragraph-header id="new-flow">Concepts</paragraph-header>
+      <paragraph-header id="concepts">Concepts</paragraph-header>
       <paragraph-content
         >To solve the problem statement above we came up with the social rhythm
         feature. Initially basing this on standard moments that fit agile
         meetings like retrospectives, I eventually took the insights mentioned
         above to heart.</paragraph-content
       >
-      <span class="text-white text-3xl w-full text-center font-bold block mt-20"
-        >WIP</span
+
+      <paragraph-content
+        >The team lead knows most about what would fit their team, what they
+        really need help with is getting suggestions for the activities. So I
+        decided to focus the feature on that. The main flow, as shown above thus
+        assumes you already have a meeting set up where you want to
+        <span class="font-semibold">add</span> a social moment, an activity, to.
+      </paragraph-content>
+
+      <paragraph-content
+        >I came up with three concepts to achieve this.</paragraph-content
       >
+      <h4 class="font-semibold text-lg mb-2 text-gray-50">
+        Concept 1: The calendar
+      </h4>
+      <paragraph-content
+        >The core idea of this concept is to show a blank weekly calendar view
+        where the team lead can select the time for their
+        meeting.</paragraph-content
+      >
+      <paragraph-content>
+        <ol class="list-decimal ml-8 my-2 text-gray-50">
+          <li class="mb-2 pl-2">
+            In the calendar view the team lead adds the meeting to which they
+            want to add a social moment.
+          </li>
+          <li class="mb-2 pl-2">
+            In the overlay of the event (the meeting) the team lead indicates
+            what time te meeting starts and ends, gives it a name and indicates
+            whether it is recurring.
+          </li>
+          <li class="mb-2 pl-2">
+            The team lead will then also be able to indicate how long the social
+            moment should be that they want to include in that meeting.
+          </li>
+        </ol>
+      </paragraph-content>
+      <paragraph-content
+        >Once saved, they get to see the events populated in the calendar, with
+        the specific activity that they'll be doing during those events. If they
+        want to, they can change/exchange a singular
+        activity.</paragraph-content
+      >
+      <h4 class="font-semibold text-lg mb-2 text-gray-50">
+        Concept 2: The rhythm
+      </h4>
+      <paragraph-content
+        >Similar to the calendar, the core idea is to lean in to the musical
+        metaphor and visualize a week as a 'measure' with social moments as
+        'notes'. This more abstract view would roughly indicate when a social
+        moment happens, and show the rhythm of the week.</paragraph-content
+      >
+
+      <paragraph-content>
+        <ol class="list-decimal ml-8 my-2 text-gray-50">
+          <li class="mb-2 pl-2">
+            In the rhythm view the team lead adds a meeting by adding a 'note'
+            to a specific week.
+          </li>
+          <li class="mb-2 pl-2">
+            Here the team lead will again have the options to indicate the
+            meeting name, beginning and end time, and the recurrence
+            (weekly/monthly and on what day). We interpret the start of the
+            meetings by looking at the week the user added the meeting to, and
+            then the first day they set it up. If that is in the past, we'll
+            choose the next one.
+          </li>
+          <li class="mb-2 pl-2">
+            Also here the team lead will indicate how long the social moment
+            should be that they want to include in that meeting.
+          </li>
+        </ol>
+      </paragraph-content>
+      <paragraph-content
+        >Once saved the moment is added it will be visualized in the 'musical
+        bar' with weeks as measures.</paragraph-content
+      >
+
+      <h4 class="font-semibold text-lg mb-2 text-gray-50">
+        Concept 3: The schedule
+      </h4>
+      <paragraph-content
+        >Likely the simplest concept, the core idea of the schedule is to show a
+        list of the meetings that the team will do grouped by
+        week.</paragraph-content
+      >
+
+      <paragraph-content>
+        <ol class="list-decimal ml-8 my-2 text-gray-50">
+          <li class="mb-2 pl-2">
+            In the schedule view you see a list of the meetings that you have
+            added a social moment to per week (like the meetings in the schedule
+            view in google calendar). The team lead can add a specific moment.
+          </li>
+          <li class="mb-2 pl-2">
+            They indicate the name of the meeting, the beginning and end times,
+            recurrence (days and weekly/monthly). Like in the rhythm, we
+            interpret the start of the meetings by taking the next day in terms
+            of recurrence and the week that they started to add the moment.
+          </li>
+          <li class="mb-2 pl-2">
+            The team lead indicates how long the social moment should be that
+            they want to include in that meeting.
+          </li>
+        </ol>
+      </paragraph-content>
+      <paragraph-content
+        >Once saved the meeting is added to the schedule, and the activity that
+        belongs to it is listed with it.</paragraph-content
+      >
+
+      <paragraph-header id="choice">Choice</paragraph-header>
+      <paragraph-content
+        >After discussing it with the team, we concluded that we'd go for the
+        schedule:</paragraph-content
+      >
+      <paragraph-content>
+        <ol class="list-decimal ml-8 my-2 text-gray-50">
+          <li class="mb-2 pl-2">
+            It was simpler, not using additional metaphors that might confuse
+            people, or trying to force people to use a calendar on top of their
+            calendar.
+          </li>
+          <li class="mb-2 pl-2">It was also the easiest to built.</li>
+        </ol>
+      </paragraph-content>
+      <paragraph-content>
+        Together those two reasons were enough, as in the end we wanted to
+        quickly see if this made a real difference. If it did, there is always
+        time to iterate and make the feature better.
+      </paragraph-content>
     </div>
+
+    <span class="text-white text-3xl w-full text-center font-bold block mt-20"
+      >WIP</span
+    >
 
     <div class="bg-pink-400 hidden"></div>
     <div class="mx-auto max-w-sm mt-20">
