@@ -14,6 +14,7 @@
         <div class="text-indigo-50 sm:text-lg text-md flex items-end">
           <span class="mb-0">2020 - </span>
           <div class="mx-2 rounded-lg">
+            ATIUM
             <!-- <img
               src="/src/assets/company_logos/atium_logo_dark.png"
               class="h-10"
@@ -210,6 +211,9 @@
           </li>
         </ol>
       </paragraph-content>
+      <div class="relative text-pink-500" @mouseover="showIcons">
+        <ImageCaroussel />
+      </div>
       <paragraph-content
         >Once saved, they get to see the events populated in the calendar, with
         the specific activity that they'll be doing during those events. If they
@@ -246,6 +250,16 @@
           </li>
         </ol>
       </paragraph-content>
+      <cloudinary-image
+        :imageVersion="'v1638036639'"
+        :imagePublicId="'atium-rhythm/rhythm_p5ruxa'"
+        :background="'bg-gray-50'"
+      >
+        <span class="text-gray-400"
+          >Weekly rhythm visualized as a music score with weeks as
+          measures</span
+        >
+      </cloudinary-image>
       <paragraph-content
         >Once saved the moment is added it will be visualized in the 'musical
         bar' with weeks as measures.</paragraph-content
@@ -279,6 +293,15 @@
           </li>
         </ol>
       </paragraph-content>
+      <cloudinary-image
+        :imageVersion="'v1638036639'"
+        :imagePublicId="'atium-rhythm/schedule_rgbxr8'"
+        :background="'bg-gray-50'"
+      >
+        <span class="text-gray-400"
+          >Schedule with the meetings and suggested activities</span
+        >
+      </cloudinary-image>
       <paragraph-content
         >Once saved the meeting is added to the schedule, and the activity that
         belongs to it is listed with it.</paragraph-content
@@ -286,7 +309,7 @@
 
       <paragraph-header id="choice">Choice</paragraph-header>
       <paragraph-content
-        >After discussing it with the team, we concluded that we'd go for the
+        >Discussing it with the team, we concluded that we'd go for the
         schedule:</paragraph-content
       >
       <paragraph-content>
@@ -296,7 +319,9 @@
             people, or trying to force people to use a calendar on top of their
             calendar.
           </li>
-          <li class="mb-2 pl-2">It was also the easiest to built.</li>
+          <li class="mb-2 pl-2">
+            It was also the <strong>easiest to built</strong>.
+          </li>
         </ol>
       </paragraph-content>
       <paragraph-content>
@@ -322,7 +347,14 @@ import Funnel from "/src/components/Funnel.vue";
 import RhythmFlow from "/src/assets/svg/RhythmFlow.vue";
 import UserFlowRhythm from "/src/components/organisms/UserFlowRhythm.vue";
 import RateCaseStudy from "/src/components/organisms/RateCaseStudy.vue";
+import ImageCaroussel from "/src/components/organisms/ImageCaroussel.vue";
 
+import {
+  ChevronRightIcon,
+  ChevronLeftIcon
+} from "@zhuowenli/vue-feather-icons";
+
+import CloudinaryImage from "/src/components/atoms/CloudinaryImage.vue";
 import ParagraphHeader from "/src/components/atoms/ParagraphHeader.vue";
 import ParagraphContent from "/src/components/atoms/ParagraphContent.vue";
 
@@ -332,9 +364,13 @@ export default {
     RhythmFlow,
     UserFlowRhythm,
     Funnel,
+    ChevronRightIcon,
+    ChevronLeftIcon,
     ParagraphHeader,
     ParagraphContent,
-    RateCaseStudy
+    RateCaseStudy,
+    CloudinaryImage,
+    ImageCaroussel
   }
 };
 </script>
