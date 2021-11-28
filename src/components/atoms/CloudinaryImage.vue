@@ -1,50 +1,63 @@
 <template>
-  <picture>
-    <!-- <source
+  <picture class="relative">
+    <source
       v-for="(format, index) in imageFormats"
       :key="index"
       :srcset="`
-            https://res.cloudinary.com/gknook/image/upload/${imageTransforms}/${imageVersion}/${imagePath}.${format}  256w,
-            https://res.cloudinary.com/gknook/image/upload/${imageTransforms}/${imageVersion}/${imagePath}.${format}  512w,
-            https://res.cloudinary.com/gknook/image/upload/${imageTransforms}/${imageVersion}/${imagePath}.${format}  768w,
-            https://res.cloudinary.com/gknook/image/upload/${imageTransforms}/${imageVersion}/${imagePath}.${format} 1024w,
-            https://res.cloudinary.com/gknook/image/upload/${imageTransforms}/${imageVersion}/${imagePath}.${format} 1280w
+            https://res.cloudinary.com/gknook/image/upload/${imageTransforms}/${imageVersion}/${imagePublicId}.${format}  256w,
+            https://res.cloudinary.com/gknook/image/upload/${imageTransforms}/${imageVersion}/${imagePublicId}.${format}  512w,
+            https://res.cloudinary.com/gknook/image/upload/${imageTransforms}/${imageVersion}/${imagePublicId}.${format}  768w,
+            https://res.cloudinary.com/gknook/image/upload/${imageTransforms}/${imageVersion}/${imagePublicId}.${format} 1024w,
+            https://res.cloudinary.com/gknook/image/upload/${imageTransforms}/${imageVersion}/${imagePublicId}.${format} 1280w
   `"
       :type="`image/${format}`"
     />
     <img
-      :src="`https://res.cloudinary.com/gknook/image/upload/${imageTransforms}/${imageVersion}/${imagePath}.jpg`"
+      :src="`https://res.cloudinary.com/gknook/image/upload/${imageTransforms}/${imageVersion}/${imagePublicId}.jpg`"
       :alt="imageAlt"
-      :width="imageWidth"
-      class="rounded-lg shadow max-w-screen-sm w-full m-auto mb-2"
-    /> -->
+      class="w-full mb-2 rounded-lg shadow-md"
+      :class="background"
+    />
 
-    <figcaption class="text-center text-gray-600 text-sm mb-4">
+    <figcaption class="text-center text-sm mb-8">
       <slot></slot>
     </figcaption>
   </picture>
 </template>
 <script>
+// import {
+//   ChevronRightIcon,
+//   ChevronLeftIcon
+// } from "@zhuowenli/vue-feather-icons";
 export default {
   name: "cloud-image",
+  // components: { ChevronRightIcon, ChevronLeftIcon },
   data() {
     return {
-      imageFormats: ["png", "webp", "jpeg"],
+      imageFormats: ["webp", "png", "jpeg"],
       imageSizes: ["256w", "512w", "768w", "1024w", "1280w"]
     };
   },
   props: {
-    imagePath: {
-      type: String,
-      required: true
-    },
     imageTransforms: {
       type: String,
-      default: "w_auto:breakpoints,dpr_auto"
+      default: "w_auto:256:1024,dpr_auto"
+    },
+    imagePublicId: {
+      type: String,
+      required: true
     },
     imageVersion: {
       type: String,
       required: true
+    },
+    imageAlt: {
+      type: String,
+      default: "image"
+    },
+    background: {
+      type: String,
+      default: "bg-transparent"
     }
   }
 };
