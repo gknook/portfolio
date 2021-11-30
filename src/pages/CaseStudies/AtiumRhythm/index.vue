@@ -212,7 +212,7 @@
         </ol>
       </paragraph-content>
       <div class="relative text-pink-500" @mouseover="showIcons">
-        <ImageCaroussel />
+        <ImageCarousel :images="calendarImages" :background="'bg-gray-50'" />
       </div>
       <paragraph-content
         >Once saved, they get to see the events populated in the calendar, with
@@ -347,12 +347,7 @@ import Funnel from "/src/components/Funnel.vue";
 import RhythmFlow from "/src/assets/svg/RhythmFlow.vue";
 import UserFlowRhythm from "/src/components/organisms/UserFlowRhythm.vue";
 import RateCaseStudy from "/src/components/organisms/RateCaseStudy.vue";
-import ImageCaroussel from "/src/components/organisms/ImageCaroussel.vue";
-
-import {
-  ChevronRightIcon,
-  ChevronLeftIcon
-} from "@zhuowenli/vue-feather-icons";
+import ImageCarousel from "/src/components/organisms/ImageCarousel.vue";
 
 import CloudinaryImage from "/src/components/atoms/CloudinaryImage.vue";
 import ParagraphHeader from "/src/components/atoms/ParagraphHeader.vue";
@@ -364,13 +359,29 @@ export default {
     RhythmFlow,
     UserFlowRhythm,
     Funnel,
-    ChevronRightIcon,
-    ChevronLeftIcon,
     ParagraphHeader,
     ParagraphContent,
     RateCaseStudy,
     CloudinaryImage,
-    ImageCaroussel
+    ImageCarousel
+  },
+  data() {
+    return {
+      calendarImages: [
+        {
+          imageVersion: "v1638036639",
+          imagePublicId: "atium-rhythm/calendar-2_bbdwun",
+          imageDescription:
+            "Weekly calendar view where the team lead can add their meetings"
+        },
+        {
+          imageVersion: "v1638036639",
+          imagePublicId: "atium-rhythm/calendar-1_j3yvmh",
+          imageDescription:
+            "Overview of the social moments throughout the week connected to meetings"
+        }
+      ]
+    };
   }
 };
 </script>
