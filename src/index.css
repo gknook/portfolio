@@ -38,6 +38,34 @@
     theme("colors.pink.900") 100%
   );
 }
+
+.gradient-text {
+  background: #fbbf24;
+  background: -webkit-linear-gradient(
+    to right,
+    #fbbf24 0%,
+    #db2777 38%,
+    #4338ca 50%,
+    #3b82f6 100%
+  );
+  background: -moz-linear-gradient(
+    to right,
+    #fbbf24 0%,
+    #db2777 38%,
+    #4338ca 50%,
+    #3b82f6 100%
+  );
+  background: linear-gradient(
+    to right,
+    #fbbf24 0%,
+    #db2777 38%,
+    #4338ca 50%,
+    #3b82f6 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .min-h-portfolio {
   min-height: calc(100vh - 1rem);
 }

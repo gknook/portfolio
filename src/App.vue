@@ -1,4 +1,5 @@
 <template>
+  <QuestionsModal />
   <div class="flex sm:flex-row flex-col sm:pl-2 sm:pt-0 pt-2 relative">
     <NavBar />
     <div
@@ -24,14 +25,13 @@
 <script>
 import ProgressBar from "./components/organisms/ProgressBar.vue";
 import NavBar from "./components/NavBar.vue";
+import QuestionsModal from "/src/components/organisms/QuestionsModal.vue";
+
 export default {
   name: "app",
-  components: { ProgressBar, NavBar },
+  components: { ProgressBar, NavBar, QuestionsModal },
   beforeCreate() {
     this.$store.commit("initializeStore");
   }
 };
-
-// This starter template is using Vue 3 experimental <script setup> SFCs
-// Check out https://github.com/vuejs/rfcs/blob/script-setup-2/active-rfcs/0000-script-setup.md
 </script>
