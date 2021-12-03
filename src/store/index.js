@@ -2,6 +2,7 @@ import Vuex from "vuex";
 
 const store = new Vuex.Store({
   state: {
+    userName: null,
     count: 0,
     userProgress: 0,
     achievements: [
@@ -61,6 +62,18 @@ const store = new Vuex.Store({
           JSON.stringify(state.achievements)
         );
       }
+      if (localStorage.getItem("userName") != undefined) {
+        try {
+          state.userName = localStorage.getItem("userName");
+        } catch (e) {
+          console.log(e);
+          localStorage.removeItem("userName");
+        }
+      }
+    },
+    updateUserName(state, name) {
+      state.userName = name;
+      localStorage.setItem("userName", name);
     },
     updateAchievements(state, acvId) {
       // Save the last achievement gained to the session storage
@@ -113,6 +126,9 @@ const store = new Vuex.Store({
     },
     achievements(state) {
       return state.achievements;
+    },
+    userName(state) {
+      return state.userName;
     }
   }
 });
