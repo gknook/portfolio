@@ -8,7 +8,7 @@
       bg-gradient-to-t
       from-gray-800
       to-transparent
-      z-50
+      z-30
       flex flex-wrap
       items-center
       justify-end

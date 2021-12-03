@@ -9,7 +9,7 @@
       flex
       items-center
       relative
-      z-50
+      z-30
       overflow-visible
       justify-start
       flex-none
