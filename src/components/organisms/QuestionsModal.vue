@@ -1,6 +1,17 @@
 <template>
   <div class="absolute w-full h-full bg-opacity-90 bg-black z-50">
-    <div class="relative md:px-0 px-6 w-full flex justify-center">
+    <div
+      class="
+        relative
+        md:px-0
+        px-6
+        w-full
+        h-full
+        flex
+        justify-center
+        items-center
+      "
+    >
       <div
         class="
           md:p-12
@@ -8,7 +19,6 @@
           px-6
           rounded-3xl
           bg-black
-          mt-20
           max-w-xl
           w-full
           text-center
