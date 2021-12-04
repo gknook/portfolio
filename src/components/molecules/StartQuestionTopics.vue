@@ -36,7 +36,7 @@
     <div class="flex md:flex-no-wrap flex-wrap -my-1 w-full">
       <GlowyButton
         class="flex-1 m-1"
-        :cta="'continue without skills'"
+        :cta="'continue without'"
         @clicked-button="withoutSkills"
         variant="secondary"
       />
@@ -135,7 +135,7 @@ export default {
       // window.fathom.trackGoal("7I0UHWW3", 0);
     },
     withoutSkills() {
-      this.chosenSkills = this.chosenSkills("none");
+      this.chosenSkills.push("none");
       setTimeout(() => this.setSkills(), 300);
     },
     showAllSkills() {
