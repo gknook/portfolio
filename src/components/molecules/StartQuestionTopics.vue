@@ -136,7 +136,7 @@ export default {
     },
     withoutSkills() {
       this.chosenSkills = new Array();
-      this.chosenSkills.push("nothing");
+      this.chosenSkills.push("nothing in particular");
       setTimeout(() => this.setSkills(), 300);
     },
     showAllSkills() {
