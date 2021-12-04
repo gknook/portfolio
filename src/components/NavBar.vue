@@ -33,6 +33,15 @@
             <briefcase-icon class="w-8 h-8"></briefcase-icon>
           </router-link>
         </li>
+        <li>
+          <router-link
+            :to="{ name: 'settings' }"
+            class="nav-item"
+            title="settings"
+          >
+            <settings-icon class="w-8 h-8"></settings-icon>
+          </router-link>
+        </li>
         <!-- <li>
           <router-link
             :to="{ name: 'case-study' }"
@@ -47,9 +56,14 @@
   </div>
 </template>
 <script>
-import { HomeIcon, BriefcaseIcon, CpuIcon } from "@zhuowenli/vue-feather-icons";
+import {
+  HomeIcon,
+  BriefcaseIcon,
+  CpuIcon,
+  SettingsIcon
+} from "@zhuowenli/vue-feather-icons";
 export default {
   name: "navbar",
-  components: { HomeIcon, BriefcaseIcon, CpuIcon }
+  components: { HomeIcon, BriefcaseIcon, CpuIcon, SettingsIcon }
 };
 </script>

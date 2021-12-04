@@ -6,6 +6,7 @@ import Mimi from "/src/pages/Companies/Mimi.vue";
 import FlowDiagram from "/src/pages/Experiments/FlowDiagram.vue";
 import CaseStudies from "/src/pages/CaseStudies/index.vue";
 import SocialRhythm from "/src/pages/CaseStudies/AtiumRhythm/index.vue";
+import Settings from "/src/pages/Settings/index.vue";
 import AllAchievements from "/src/components/organisms/AllAchievements.vue";
 
 const routes = [
@@ -34,6 +35,11 @@ const routes = [
     path: "/companies/mimi/",
     name: "Mimi",
     component: Mimi
+  },
+  {
+    path: "/settings/",
+    name: "settings",
+    component: Settings
   }
   // {
   //   path: "/experiments/flow-diagram/",
