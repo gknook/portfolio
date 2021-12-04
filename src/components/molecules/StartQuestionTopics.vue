@@ -130,12 +130,12 @@ export default {
       }
     },
     setSkills() {
-      console.log(this.chosenSkills);
+      // console.log(this.chosenSkills);
       this.updateSkills(this.chosenSkills);
       // window.fathom.trackGoal("7I0UHWW3", 0);
     },
     withoutSkills() {
-      this.chosenSkills = new Array();
+      this.chosenSkills = this.chosenSkills("none");
       setTimeout(() => this.setSkills(), 300);
     },
     showAllSkills() {
