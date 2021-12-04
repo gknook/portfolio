@@ -12,13 +12,22 @@
       rel="stylesheet"
     />
 
-    <!-- Fathom - beautiful, simple website analytics -->
-    <script
-      src="https://cdn.usefathom.com/script.js"
-      data-spa="auto"
-      data-site="KMNZWDXA"
-      defer
-    ></script>
+    <!-- Fathom -->
+    <script>
+      let fathomScript = document.createElement("script");
+      fathomScript.src = "https://cdn.usefathom.com/script.js";
+      fathomScript.setAttribute("data-spa", "auto");
+      if (!location.host.includes("localhost")) {
+        fathomScript.setAttribute("data-site", "KMNZWDXA");
+        fathomScript.setAttribute(
+          "data-included-domains",
+          "portfolio.gknook.nl"
+        );
+      } else {
+        fathomScript.setAttribute("data-site", "WTEOBFRM");
+      }
+      document.head.appendChild(fathomScript);
+    </script>
     <!-- / Fathom -->
   </head>
   <body class="bg-gradient-to-bl from-pink-700 to-pink-900 bg-pink-700">
