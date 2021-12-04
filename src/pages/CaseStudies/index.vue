@@ -162,7 +162,6 @@ export default {
   methods: {
     ...mapMutations(["updateAchievements"]),
     scroll() {
-      console.log(this.$route.name);
       if (this.$route.name === "case-study") {
         window.onscroll = () => {
           let bottomOfWindow =

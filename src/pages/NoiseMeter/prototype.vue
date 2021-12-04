@@ -112,8 +112,8 @@ export default {
       this.toggleAnimationButton = true;
     },
     changePage(event) {
-      console.log("changed page");
-      console.log(event.id);
+      // console.log("changed page");
+      // console.log(event.id);
       this.currentScreen = event.id;
     }
   }

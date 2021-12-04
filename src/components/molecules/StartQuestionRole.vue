@@ -79,7 +79,7 @@ export default {
     choseRole(role) {
       // window.fathom.trackGoal("7I0UHWW3", 0);
       this.updateHiringRole(role);
-      console.log(role);
+      // console.log(role);
     }
   }
 };

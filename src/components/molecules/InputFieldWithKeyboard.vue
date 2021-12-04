@@ -63,7 +63,7 @@ export default {
   },
   methods: {
     initKeyBoardTimeline() {
-      console.log("start timeline");
+      // console.log("start timeline");
       this.keyBoardTimeline = gsap
         .timeline()
         .pause()
