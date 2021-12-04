@@ -36,7 +36,7 @@
     <div class="flex md:flex-no-wrap flex-wrap -my-1 w-full">
       <GlowyButton
         class="flex-1 m-1"
-        :cta="'enter without skills'"
+        :cta="'continue without skills'"
         @clicked-button="withoutSkills"
         variant="secondary"
       />
