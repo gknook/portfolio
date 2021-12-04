@@ -77,8 +77,8 @@ export default {
   methods: {
     ...mapMutations(["updateHiringRole"]),
     choseRole(role) {
+      // window.fathom.trackGoal("7I0UHWW3", 0);
       this.updateHiringRole(role);
-      window.fathom.trackGoal("7I0UHWW3", 0);
       console.log(role);
     }
   }
