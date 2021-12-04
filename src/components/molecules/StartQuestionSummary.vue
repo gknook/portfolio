@@ -1,5 +1,5 @@
 <template>
-  <div class="max-w-sm mx-auto mb-8">
+  <div class="mb-8" :class="[{ 'max-w-sm mx-auto': modal }]">
     <p class="text-gray-400 mb-2">
       You indicated you're looking for a
       <span

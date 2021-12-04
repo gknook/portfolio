@@ -13,7 +13,9 @@
         </h1>
       </hgroup>
     </div>
-    <StartQuestionSummary :modal="false" />
+    <div class="mb-8 md:px-12 sm:px-6 w-full max-w-screen-md mx-auto">
+      <StartQuestionSummary :modal="false" />
+    </div>
   </div>
 </template>
 <script>
