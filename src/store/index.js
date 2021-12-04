@@ -3,8 +3,11 @@ import Vuex from "vuex";
 const store = new Vuex.Store({
   state: {
     userName: null,
+    hiringRole: null,
+    hiringSkills: new Array(),
     count: 0,
     userProgress: 0,
+    preferencesSet: false,
     achievements: [
       {
         acvTitle: "Found my portfolio!",
@@ -66,14 +69,38 @@ const store = new Vuex.Store({
         try {
           state.userName = localStorage.getItem("userName");
         } catch (e) {
-          console.log(e);
+          // console.log(e);
           localStorage.removeItem("userName");
+        }
+      }
+      if (localStorage.getItem("hiringRole") != undefined) {
+        try {
+          state.hiringRole = localStorage.getItem("hiringRole");
+        } catch (e) {
+          // console.log(e);
+          localStorage.removeItem("hiringRole");
+        }
+      }
+      if (localStorage.getItem("hiringSkills") != undefined) {
+        try {
+          state.hiringSkills = JSON.parse(localStorage.getItem("hiringSkills"));
+        } catch (e) {
+          // console.log(e);
+          localStorage.removeItem("hiringSkills");
         }
       }
     },
     updateUserName(state, name) {
       state.userName = name;
       localStorage.setItem("userName", name);
+    },
+    updateHiringRole(state, role) {
+      state.hiringRole = role;
+      localStorage.setItem("hiringRole", role);
+    },
+    updateSkills(state, skills) {
+      state.hiringSkills = skills;
+      localStorage.setItem("hiringSkills", JSON.stringify(skills));
     },
     updateAchievements(state, acvId) {
       // Save the last achievement gained to the session storage
@@ -112,6 +139,9 @@ const store = new Vuex.Store({
       state.userProgress = progress;
       // set the progress locally
       localStorage.setItem("userProgress", progress);
+    },
+    setPreferences(state, bool) {
+      state.preferencesSet = bool;
     }
   },
   getters: {
@@ -129,6 +159,15 @@ const store = new Vuex.Store({
     },
     userName(state) {
       return state.userName;
+    },
+    hiringRole(state) {
+      return state.hiringRole;
+    },
+    hiringSkills(state) {
+      return state.hiringSkills;
+    },
+    preferencesSet(state) {
+      return state.preferencesSet;
     }
   }
 });
