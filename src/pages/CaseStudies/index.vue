@@ -162,20 +162,23 @@ export default {
   methods: {
     ...mapMutations(["updateAchievements"]),
     scroll() {
-      window.onscroll = () => {
-        let bottomOfWindow =
-          Math.max(
-            window.pageYOffset,
-            document.documentElement.scrollTop,
-            document.body.scrollTop
-          ) +
-            window.innerHeight ===
-          document.documentElement.offsetHeight;
+      console.log(this.$route.name);
+      if (this.$route.name === "case-study") {
+        window.onscroll = () => {
+          let bottomOfWindow =
+            Math.max(
+              window.pageYOffset,
+              document.documentElement.scrollTop,
+              document.body.scrollTop
+            ) +
+              window.innerHeight ===
+            document.documentElement.offsetHeight;
 
-        if (bottomOfWindow) {
-          this.updateAchievements("acv-4");
-        }
-      };
+          if (bottomOfWindow) {
+            this.updateAchievements("acv-4");
+          }
+        };
+      }
     }
   }
 };

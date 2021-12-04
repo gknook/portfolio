@@ -354,6 +354,7 @@ import ParagraphHeader from "/src/components/atoms/ParagraphHeader.vue";
 import ParagraphContent from "/src/components/atoms/ParagraphContent.vue";
 
 export default {
+  name: "atium-rhythm",
   components: {
     Hypotheses,
     RhythmFlow,
