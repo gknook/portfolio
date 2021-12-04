@@ -62,7 +62,7 @@ export default {
     ...mapGetters(["userName", "hiringRole", "hiringSkills"]),
     welcomeMessage() {
       if (this.userName) {
-        return `Welcome back ${this.userName}`;
+        return `Welcome ${this.userName}`;
       } else {
         return "Welcome to my portfolio!";
       }

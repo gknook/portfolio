@@ -135,6 +135,7 @@ export default {
       // window.fathom.trackGoal("7I0UHWW3", 0);
     },
     withoutSkills() {
+      this.chosenSkills = new Array();
       this.chosenSkills.push("none");
       setTimeout(() => this.setSkills(), 300);
     },
