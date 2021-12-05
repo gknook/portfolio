@@ -34,6 +34,11 @@
           </router-link>
         </li>
         <li>
+          <router-link :to="{ name: 'brain' }" class="nav-item" title="brain">
+            <book-icon class="w-8 h-8"></book-icon>
+          </router-link>
+        </li>
+        <li>
           <router-link
             :to="{ name: 'settings' }"
             class="nav-item"
@@ -60,10 +65,11 @@ import {
   HomeIcon,
   BriefcaseIcon,
   CpuIcon,
+  BookIcon,
   SettingsIcon
 } from "@zhuowenli/vue-feather-icons";
 export default {
   name: "navbar",
-  components: { HomeIcon, BriefcaseIcon, CpuIcon, SettingsIcon }
+  components: { HomeIcon, BriefcaseIcon, CpuIcon, SettingsIcon, BookIcon }
 };
 </script>
