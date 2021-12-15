@@ -23,7 +23,9 @@ module.exports = {
       cursor: ["disabled"],
       height: ["hover", "focus"],
       width: ["hover", "focus"],
-      translate: ["hover", "focus"]
+      translate: ["hover", "focus"],
+      margin: ["hover", "focus"],
+      zIndex: ["hover", "focus"]
     }
   },
   plugins: []

@@ -3,12 +3,14 @@ import Introduction from "/src/pages/Introduction/index.vue";
 import NoiseMeter from "/src/pages/NoiseMeter/index.vue";
 import NoiseMeterPrototype from "/src/pages/NoiseMeter/prototype.vue";
 import Mimi from "/src/pages/Companies/Mimi.vue";
-import FlowDiagram from "/src/pages/Experiments/FlowDiagram.vue";
 import CaseStudies from "/src/pages/CaseStudies/index.vue";
 import SocialRhythm from "/src/pages/CaseStudies/AtiumRhythm/index.vue";
 import Settings from "/src/pages/Settings/index.vue";
 import Brain from "/src/pages/Brain/index.vue";
-import AllAchievements from "/src/components/organisms/AllAchievements.vue";
+
+import TeamRadial from "/src/components/organisms/TeamRadial.vue";
+// import FlowDiagram from "/src/pages/Experiments/FlowDiagram.vue";
+// import AllAchievements from "/src/components/organisms/AllAchievements.vue";
 
 const routes = [
   { path: "/", name: "home", component: Introduction },
@@ -46,6 +48,11 @@ const routes = [
     path: "/settings/",
     name: "settings",
     component: Settings
+  },
+  {
+    path: "/experiments/team/",
+    name: "team",
+    component: TeamRadial
   }
   // {
   //   path: "/experiments/flow-diagram/",
