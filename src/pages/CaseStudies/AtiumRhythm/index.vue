@@ -165,7 +165,10 @@
       </paragraph-content>
 
       <paragraph-header id="flow">User flow</paragraph-header>
-
+      <paragraph-content
+        >The goal for the user flow was to keep it
+        straightforward.</paragraph-content
+      >
       <UserFlowRhythm />
 
       <!-- <RhythmFlow /> -->
