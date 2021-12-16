@@ -53,7 +53,8 @@
         I worked together with my two co-founders on this, where Mario mainly
         helped me conduct the research by joining customer conversations,
         Giannis built part of the front-end and the back-end (including the
-        Slack integration).
+        Slack integration). I made sure to keep our investor in the loop during
+        bi-weekly coaching sessions.
       </paragraph-content>
 
       <TeamRadial :team="'atiumRhythm'" />
