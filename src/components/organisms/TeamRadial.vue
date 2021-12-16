@@ -16,17 +16,17 @@
         <AtiumRhythmTeam v-if="team === 'atiumRhythm'" />
       </div>
       <img
-        src="/src/assets/svg/swirls-mid.png"
+        src="https://res.cloudinary.com/gknook/image/upload/v1639674392/teams/swirls-inner_aoualh.png"
         class="absolute z-10 swirl opacity-0"
         id="swirl-mid"
       />
       <img
-        src="/src/assets/svg/swirls-inner.png"
+        src="https://res.cloudinary.com/gknook/image/upload/v1639674392/teams/swirls-mid_yxzuae.png"
         id="swirl-inner"
         class="absolute z-10 filter -hue-rotate-30 swirl opacity-0"
       />
       <img
-        src="/src/assets/svg/swirls-outer.png"
+        src="https://res.cloudinary.com/gknook/image/upload/v1639674392/teams/swirls-outer_lkfqiv.png"
         class="relative z-10 swirl opacity-0 filter hue-rotate-180"
         id="swirl-outer"
       />
