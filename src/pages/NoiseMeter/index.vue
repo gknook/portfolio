@@ -44,6 +44,16 @@
         they generate data to further improve our algorithms.
       </paragraph-content>
 
+      <paragraph-header id="situation">Team</paragraph-header>
+      <paragraph-content>
+        The team that I tackled this problem with was the design team. We were
+        two product designers and a visual designer. Throughout the process we
+        collaborated with the research- (hearing research), and the engineering
+        team. I kept the CEO and marketing team informed.
+      </paragraph-content>
+
+      <TeamRadial :team="noiseMeter" />
+
       <paragraph-header id="problem">Problem</paragraph-header>
       <paragraph-content>
         Despite the large number of downloads, not everyone started a hearing
@@ -388,6 +398,7 @@
 <script>
 import Hypotheses from "/src/components/hypotheses/Hypotheses.vue";
 import Funnel from "/src/components/Funnel.vue";
+import TeamRadial from "/src/components/organisms/TeamRadial.vue";
 import ProfilePic from "/src/assets/svg/ProfilePic.vue";
 import IPhone from "/src/components/UI-elements/IPhone.vue";
 import RateCaseStudy from "/src/components/organisms/RateCaseStudy.vue";
@@ -404,6 +415,7 @@ export default {
     Hypotheses,
     ProfilePic,
     Funnel,
+    TeamRadial,
     IPhone,
     OldPrototypeRouter,
     NewPrototypeRouter,
