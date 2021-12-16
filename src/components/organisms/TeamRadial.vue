@@ -12,7 +12,7 @@
         <circle cx="204" cy="205" r="57" stroke="#4B5563" />
       </svg>
       <div class="absolute w-full h-full z-20" @mouseenter="playTimeline">
-        <NoiseMeterTeam />
+        <NoiseMeterTeam v-if="team === 'noiseMeter'" />
       </div>
       <img
         src="/src/assets/svg/swirls-mid.png"

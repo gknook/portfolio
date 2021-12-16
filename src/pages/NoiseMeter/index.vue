@@ -52,7 +52,7 @@
         team. I kept the CEO and marketing team informed.
       </paragraph-content>
 
-      <TeamRadial :team="noiseMeter" />
+      <TeamRadial :team="'noiseMeter'" />
 
       <paragraph-header id="problem">Problem</paragraph-header>
       <paragraph-content>
