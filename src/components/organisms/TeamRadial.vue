@@ -14,13 +14,12 @@
       <circle cx="204" cy="205" r="116" stroke="#4B5563" />
       <circle cx="204" cy="205" r="57" stroke="#4B5563" />
     </svg>
-    <!-- <img
-      src="/src/assets/svg/noise-meter-team-svg.svg"
-      class="absolute z-0 w-full h-full"
-    /> -->
+    <div class="absolute w-full h-full z-20">
+      <NoiseMeterTeam />
+    </div>
     <img
       src="/src/assets/svg/swirls-mid.png"
-      class="absolute z-10 filter hue-rotate-180 swirl opacity-0"
+      class="absolute z-10 swirl opacity-0"
       id="swirl-mid"
     />
     <img
@@ -29,107 +28,19 @@
       class="absolute z-10 filter -hue-rotate-30 swirl opacity-0"
     />
     <img
-      src="/src/assets/svg/swirls.png"
-      class="relative z-10 swirl opacity-0"
+      src="/src/assets/svg/swirls-outer.png"
+      class="relative z-10 swirl opacity-0 filter hue-rotate-180"
       id="swirl-outer"
     />
-    <div
-      class="absolute flex flex-col items-center text-gray-50 top-36 space-y-20"
-    >
-      <span>Keep informed</span>
-      <span>Work together</span>
-      <span>Core team</span>
-    </div>
-    <div class="absolute flex items-center justify-center z-20 -space-x-8">
-      <div
-        class="
-          w-20
-          h-20
-          rounded-3xl
-          text-3xl
-          bg-gradient-to-tr
-          from-purple-500
-          to-purple-700
-          font-semibold
-          text-white
-          shadow-2xl
-          flex
-          justify-center
-          items-center
-          z-0
-          mt-8
-          hover:z-20 hover:w-24 hover:h-24
-          transition-all
-          duration-300
-        "
-      >
-        <div class="">
-          <span class="block w-full text-center">MB</span>
-          <span class="text-xs block w-full text-center">CMO</span>
-        </div>
-      </div>
-      <div
-        class="
-          w-20
-          h-20
-          rounded-3xl
-          text-3xl
-          bg-gradient-to-tr
-          from-purple-500
-          to-purple-700
-          font-semibold
-          text-white
-          shadow-2xl
-          flex
-          justify-center
-          items-center
-          z-10
-          -mt-16
-          hover:z-20 hover:w-24 hover:h-24
-          transition-all
-          duration-300
-        "
-      >
-        <div class="">
-          <span class="block w-full text-center">GM</span>
-          <span class="text-xs block w-full text-center">CTO</span>
-        </div>
-      </div>
-      <div
-        class="
-          w-20
-          h-20
-          rounded-3xl
-          text-3xl
-          bg-gradient-to-tr
-          from-purple-500
-          to-purple-700
-          font-semibold
-          text-white
-          shadow-2xl
-          flex
-          justify-center
-          items-center
-          z-0
-          mt-8
-          hover:z-20 hover:w-24 hover:h-24
-          transition-all
-          duration-300
-        "
-      >
-        <div class="">
-          <span class="block w-full text-center">GK</span>
-          <span class="text-xs block w-full text-center">CEO</span>
-        </div>
-      </div>
-    </div>
   </div>
 </template>
 <script>
 import { gsap } from "gsap";
+import NoiseMeterTeam from "/src/components/molecules/NoiseMeterTeam.vue";
 
 export default {
   name: "team-radial",
+  components: { NoiseMeterTeam },
   data() {
     return {
       swirlTimeLine: null
@@ -139,14 +50,16 @@ export default {
     this.initSwirlTimeLine();
   },
   beforeUnmount() {
-    this.swirlTimeline.kill();
+    if (this.swirlTimeline) {
+      this.swirlTimeline.kill();
+    }
   },
   methods: {
     playTimeline() {
-      // this.swirlTimeLine.play();
+      this.swirlTimeLine.play();
     },
     pauseTimeline() {
-      // this.swirlTimeLine.pause();
+      this.swirlTimeLine.pause();
     },
     initSwirlTimeLine() {
       const swirlInner = "#swirl-inner";
