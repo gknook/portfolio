@@ -56,6 +56,8 @@
         Slack integration).
       </paragraph-content>
 
+      <TeamRadial :team="'atiumRhythm'" />
+
       <paragraph-header id="problem">Problem</paragraph-header>
       <paragraph-content>
         Based on the context mentioned above, the initial problem definition was
@@ -344,6 +346,7 @@
 <script>
 import Hypotheses from "/src/components/hypotheses/Hypotheses.vue";
 import Funnel from "/src/components/Funnel.vue";
+import TeamRadial from "/src/components/organisms/TeamRadial.vue";
 import RhythmFlow from "/src/assets/svg/RhythmFlow.vue";
 import UserFlowRhythm from "/src/components/organisms/UserFlowRhythm.vue";
 import RateCaseStudy from "/src/components/organisms/RateCaseStudy.vue";
@@ -358,6 +361,7 @@ export default {
   components: {
     Hypotheses,
     RhythmFlow,
+    TeamRadial,
     UserFlowRhythm,
     Funnel,
     ParagraphHeader,

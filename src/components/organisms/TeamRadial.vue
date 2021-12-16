@@ -13,6 +13,7 @@
       </svg>
       <div class="absolute w-full h-full z-20" @mouseenter="playTimeline">
         <NoiseMeterTeam v-if="team === 'noiseMeter'" />
+        <AtiumRhythmTeam v-if="team === 'atiumRhythm'" />
       </div>
       <img
         src="/src/assets/svg/swirls-mid.png"
@@ -44,11 +45,12 @@
 <script>
 import { gsap } from "gsap";
 import NoiseMeterTeam from "/src/components/molecules/NoiseMeterTeam.vue";
+import AtiumRhythmTeam from "/src/components/molecules/AtiumRhythmTeam.vue";
 import GlowyButton from "/src/components/atoms/GlowyButton.vue";
 
 export default {
   name: "team-radial",
-  components: { NoiseMeterTeam, GlowyButton },
+  components: { NoiseMeterTeam, AtiumRhythmTeam, GlowyButton },
   props: ["team"],
   data() {
     return {
