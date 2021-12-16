@@ -1,13 +1,13 @@
 <template>
   <h4
     class="
-      text-pink-50 text-lg
-      uppercase
-      font-bold
+      text-lg
+      font-semibold
       mb-2
       tracking-wider
       rounded-lg
-      hover:bg-yellow-400 hover:text-gray-800
+      bg-green-300
+      text-black
       inline-block
       px-2
       -mx-2
