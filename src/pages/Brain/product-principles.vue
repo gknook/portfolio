@@ -19,10 +19,9 @@
   </div>
 </template>
 <script>
-import StartQuestionSummary from "/src/components/molecules/StartQuestionSummary.vue";
 export default {
-  name: "settings",
-  components: { StartQuestionSummary },
+  name: "product-principles",
+
   data() {
     return {};
   },

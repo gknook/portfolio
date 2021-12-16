@@ -14,7 +14,14 @@
         </div>
         <ul class="flex space-x-4 -mt-4">
           <li
-            class="bg-gray-700 px-2 py-1 rounded-md"
+            class="
+              px-2
+              py-1
+              rounded-md
+              font-semibold
+              bg-green-300
+              text-gray-900
+            "
             v-for="(skill, index) in principle.skills"
             :key="index"
           >
