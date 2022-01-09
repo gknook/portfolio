@@ -33,11 +33,11 @@
             <briefcase-icon class="w-8 h-8"></briefcase-icon>
           </router-link>
         </li>
-        <!-- <li>
+        <li>
           <router-link :to="{ name: 'brain' }" class="nav-item" title="brain">
             <book-icon class="w-8 h-8"></book-icon>
           </router-link>
-        </li> -->
+        </li>
         <li>
           <router-link
             :to="{ name: 'settings' }"

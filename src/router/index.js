@@ -7,6 +7,7 @@ import CaseStudies from "/src/pages/CaseStudies/index.vue";
 import SocialRhythm from "/src/pages/CaseStudies/AtiumRhythm/index.vue";
 import Settings from "/src/pages/Settings/index.vue";
 import Brain from "/src/pages/Brain/index.vue";
+import ProductPrinciples from "/src/pages/Brain/product-principles.vue";
 
 import TeamRadial from "/src/components/organisms/TeamRadial.vue";
 // import FlowDiagram from "/src/pages/Experiments/FlowDiagram.vue";
@@ -40,9 +41,14 @@ const routes = [
     component: Mimi
   },
   {
-    path: "/brian/",
+    path: "/brain/",
     name: "brain",
     component: Brain
+  },
+  {
+    path: "/brain/product-principles",
+    name: "product-principles",
+    component: ProductPrinciples
   },
   {
     path: "/settings/",

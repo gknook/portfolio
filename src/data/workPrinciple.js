@@ -4,7 +4,7 @@ export default [
     principle:
       "Not only is it important to deliver high quality products, I seek to improve the company's trajectory through the products I work on.",
     example:
-      "Creating [[Mimi's sound processing prototype]] probably did more for Mimi in terms of convincing clients than white papers, product demos and pitches combined. Instead of having to imagine how much of a benefit people with hearing loss would have from the product, we were able to show our (well-hearing) potential clients.",
+      "<span>Creating <a href='/case-study/' class='text-pink-400 underline'>Mimi's sound processing prototype</a> probably did more for Mimi in terms of convincing clients than white papers, product demos and pitches combined. Instead of having to imagine how much of a benefit people with hearing loss would have from the product, we were able to show our (well-hearing) potential clients.</span>",
     skills: ["shipping", "big picture thinking", "high quality"]
   },
   {
@@ -50,7 +50,7 @@ export default [
     principle:
       "I look at the customer's experience broadly. The product is more than just the product. It starts when the customer first learns about the product and includes their experience with the ads, the landing page, the onboarding process, but also customer support, the App Store/Play Store presence and in a B2B context sales meetings and trade show visits.",
     example:
-      "When developing Mimi's SDKs we built a customer journey map of the whole experience and defined what the customers state of mind was, what decisions they needed to take and most importantly how we could help them. The product experience itself was only a minor part of this whole experience and this process initiated the creation of sales enablement material from brochures to integrate.mimi.io, as well as initiating the idea to create a sales enablement product team (that eventually created [[Mimi's sound processing prototype]]).",
+      "When developing <a href='/case-study/' class='text-pink-400 underline'>Mimi's SDKs</a> we built a customer journey map of the whole experience and defined what the customers state of mind was, what decisions they needed to take and most importantly how we could help them. The product experience itself was only a minor part of this whole experience and this process initiated the creation of sales enablement material from brochures to integrate.mimi.io, as well as initiating the idea to create a sales enablement product team (that eventually created <a href='/case-study/' class='text-pink-400 underline'>Mimi's sound processing prototype</a>).",
     skills: ["product marketing", "customer experience", "journey mapping"]
   }
 ];
