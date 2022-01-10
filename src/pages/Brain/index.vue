@@ -15,7 +15,7 @@
       <paragraph-content>
         I once said to a girl "I want to get to know your mind better", thinking
         that would be a romantic way to tell her I liked her. Well... safe to
-        say that didn't turn out how I wanted it.
+        say that didn't turn out how I imagined it.
       </paragraph-content>
       <paragraph-content
         >Anyway, with this page I'd like to give you some more insight into my
@@ -23,8 +23,21 @@
         <span class="whitespace-nowrap">Very much non-romantically.</span>
       </paragraph-content>
     </div>
-    <div class="mb-8 md:px-12 sm:px-6 w-full max-w-screen-md mx-auto">
+    <div
+      class="
+        mb-8
+        md:px-12
+        sm:px-6
+        w-full
+        max-w-screen-md
+        mx-auto
+        flex flex-col
+        space-y-4
+      "
+    >
       <div
+        v-for="(post, index) in posts"
+        :key="index"
         class="
           py-6
           px-8
@@ -38,13 +51,11 @@
           cursor-pointer
           hover:bg-indigo-900
         "
-        @click="handleListItemClick('product-principles')"
+        @click="handleListItemClick(post.routeName)"
       >
         <div class="-mb-8 flex-grow">
-          <h2 class="font-semibold text-lg mb-2">Product principles</h2>
-          <paragraph-content
-            >Principles that show how I think about product.</paragraph-content
-          >
+          <h2 class="font-semibold text-lg mb-2">{{ post.title }}</h2>
+          <paragraph-content>{{ post.description }}</paragraph-content>
         </div>
         <chevron-right-icon size="2x" class="flex-none"></chevron-right-icon>
       </div>
@@ -58,7 +69,20 @@ export default {
   name: "brain",
   components: { ChevronRightIcon },
   data() {
-    return {};
+    return {
+      posts: [
+        {
+          title: "Product principles",
+          description: "Principles that show how I think about product.",
+          routeName: "product-principles"
+        },
+        {
+          title: "My process",
+          description: "The problem solving process I follow.",
+          routeName: "process"
+        }
+      ]
+    };
   },
   methods: {
     handleListItemClick(name) {

@@ -8,8 +8,9 @@ import SocialRhythm from "/src/pages/CaseStudies/AtiumRhythm/index.vue";
 import Settings from "/src/pages/Settings/index.vue";
 import Brain from "/src/pages/Brain/index.vue";
 import ProductPrinciples from "/src/pages/Brain/product-principles.vue";
+import Process from "/src/pages/Brain/process.vue";
 
-import TeamRadial from "/src/components/organisms/TeamRadial.vue";
+// import TeamRadial from "/src/components/organisms/TeamRadial.vue";
 // import FlowDiagram from "/src/pages/Experiments/FlowDiagram.vue";
 // import AllAchievements from "/src/components/organisms/AllAchievements.vue";
 
@@ -51,15 +52,20 @@ const routes = [
     component: ProductPrinciples
   },
   {
+    path: "/brain/process",
+    name: "process",
+    component: Process
+  },
+  {
     path: "/settings/",
     name: "settings",
     component: Settings
-  },
-  {
-    path: "/experiments/team/",
-    name: "team",
-    component: TeamRadial
   }
+  // {
+  //   path: "/experiments/team/",
+  //   name: "team",
+  //   component: TeamRadial
+  // }
   // {
   //   path: "/experiments/flow-diagram/",
   //   name: "flow-diagram",
