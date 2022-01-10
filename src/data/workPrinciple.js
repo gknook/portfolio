@@ -12,7 +12,7 @@ export default [
     principle:
       "I combine data with qualitative inputs and instinct to make decisions. The center of gravity within that mix is dependent on the situation (e.g. speed, reversibility of decision, etc.).",
     example:
-      "Analyzing funnel data showed me the need to improve the noise meter, while qualitative inputs—like doing user research, having a deep understanding of hearing and discussing with the research team—informed what direction the solution should take.",
+      "Analyzing funnel data showed me the need to improve <a href='/case-study/noise-meter/' class='text-pink-400 underline'>the noise meter</a>, while qualitative inputs—like doing user research, having a deep understanding of hearing and discussing with the research team—informed what direction the solution should take.",
     skills: [
       "connecting the dots",
       "data",
